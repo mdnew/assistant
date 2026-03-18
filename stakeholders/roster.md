@@ -10,10 +10,10 @@
 
 ## Key External Contacts
 
-**Rachel** — Halite
+**Rachel Wong** — Halite
 - **Relationship**: Prospect (Halite deal)
 - **Last contact**: 2026-03-17 (shared costs)
-- **Next**: Follow-up call Wed Mar 18
+- **Next**: Call Wed Mar 18 (on calendar)
 - **Context**: Estimates and costs shared this week
 
 **Steve Raymond** — CEO, Prism Labs
