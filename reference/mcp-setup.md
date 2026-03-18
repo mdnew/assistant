@@ -2,145 +2,169 @@
 
 These integrations turn this from a note-taking system into an actual assistant that can act on your behalf.
 
-## Claude Code
-
-Add MCP servers to your Claude Code config at `~/.claude/claude_code_config.json` or via `claude mcp add`.
-
-### Google Calendar + Gmail (via Google Workspace MCP)
-
+The `claude mcp add` command syntax is:
 ```bash
-claude mcp add google-workspace
+claude mcp add <name> -e KEY=value -- npx -y <package>
 ```
 
-Or manually add to config:
+---
+
+## Slack
+
+**1. Create a Slack app** at https://api.slack.com/apps
+- Add OAuth scopes: `channels:read`, `channels:history`, `chat:write`, `users:read`, `groups:read`, `im:read`, `mpim:read`
+- Install to your workspace and copy the **Bot User OAuth Token** (`xoxb-...`)
+- Copy your **Team ID** from workspace settings (starts with `T`)
+
+**2. Add to Claude Code:**
+```bash
+claude mcp add slack \
+  -e SLACK_BOT_TOKEN=xoxb-your-token \
+  -e SLACK_TEAM_ID=T1234567 \
+  -- npx -y @modelcontextprotocol/server-slack
+```
+
+---
+
+## GitHub
+
+**1. Create a personal access token** at https://github.com/settings/tokens
+- Scopes needed: `repo`, `read:org`, `read:user`
+
+**2. Add to Claude Code:**
+```bash
+claude mcp add github \
+  -e GITHUB_PERSONAL_ACCESS_TOKEN=ghp_your-token \
+  -- npx -y @modelcontextprotocol/server-github
+```
+
+---
+
+## HubSpot
+
+**1. Create a private app** in HubSpot:
+Settings → Integrations → Private Apps → Create a private app
+
+Required scopes:
+- `crm.objects.deals.read` + `.write`
+- `crm.objects.contacts.read` + `.write`
+- `crm.objects.companies.read`
+- `crm.objects.notes.read` + `.write`
+- `crm.objects.engagements.read` + `.write`
+
+Copy the **Access Token** (`pat-na1-...`)
+
+**2. Add to Claude Code:**
+```bash
+claude mcp add hubspot \
+  -e HUBSPOT_ACCESS_TOKEN=pat-na1-your-token \
+  -- npx -y @hubspot/mcp-server
+```
+
+With HubSpot connected:
+- "What's the status of the Acme deal?" → fetches live from HubSpot
+- "Move Acme to Negotiation and log a note that we had a pricing call" → updates HubSpot
+- "Who are all the contacts at Acme?" → pulls from HubSpot CRM
+
+---
+
+## JIRA (Atlassian)
+
+**1. Create an API token** at https://id.atlassian.com/manage-profile/security/api-tokens
+
+**2. Add to Claude Code:**
+```bash
+claude mcp add jira \
+  -e ATLASSIAN_URL=https://yourcompany.atlassian.net \
+  -e ATLASSIAN_EMAIL=you@company.com \
+  -e ATLASSIAN_API_TOKEN=your-token \
+  -- npx -y @modelcontextprotocol/server-atlassian
+```
+
+---
+
+## Google Calendar + Gmail
+
+Google requires OAuth, which is slightly more involved. Two options:
+
+### Option A: Zapier MCP (easiest)
+Zapier provides an HTTP-based MCP that covers Gmail and Google Calendar with no OAuth setup:
+1. Go to https://zapier.com/mcp and create an MCP endpoint
+2. Add Google Calendar and Gmail as connected actions
+
+```bash
+claude mcp add zapier \
+  --transport http \
+  https://mcp.zapier.com/api/mcp/s/your-endpoint-id/mcp
+```
+
+### Option B: google-calendar-mcp (direct, more powerful)
+```bash
+# Install and run OAuth setup first
+npx -y @iflow-mcp/google-calendar-mcp auth
+
+# Then add to Claude Code
+claude mcp add google-calendar \
+  -- npx -y @iflow-mcp/google-calendar-mcp
+```
+
+This stores OAuth tokens locally after the one-time auth flow.
+
+---
+
+## Cursor
+
+For Cursor, open **Settings → MCP** (or edit `~/.cursor/mcp.json`) and add the same servers in JSON format:
+
 ```json
 {
   "mcpServers": {
-    "google-workspace": {
+    "slack": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-google-workspace"],
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
       "env": {
-        "GOOGLE_CLIENT_ID": "your-client-id",
-        "GOOGLE_CLIENT_SECRET": "your-client-secret"
+        "SLACK_BOT_TOKEN": "xoxb-...",
+        "SLACK_TEAM_ID": "T..."
+      }
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_..."
+      }
+    },
+    "hubspot": {
+      "command": "npx",
+      "args": ["-y", "@hubspot/mcp-server"],
+      "env": {
+        "HUBSPOT_ACCESS_TOKEN": "pat-na1-..."
+      }
+    },
+    "jira": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-atlassian"],
+      "env": {
+        "ATLASSIAN_URL": "https://yourcompany.atlassian.net",
+        "ATLASSIAN_EMAIL": "you@company.com",
+        "ATLASSIAN_API_TOKEN": "your-token"
       }
     }
   }
 }
 ```
 
-### Slack
-
-```bash
-claude mcp add slack
-```
-
-Or:
-```json
-{
-  "slack": {
-    "command": "npx",
-    "args": ["-y", "@modelcontextprotocol/server-slack"],
-    "env": {
-      "SLACK_BOT_TOKEN": "xoxb-...",
-      "SLACK_TEAM_ID": "T..."
-    }
-  }
-}
-```
-
-### GitHub
-
-```bash
-claude mcp add github
-```
-
-Or:
-```json
-{
-  "github": {
-    "command": "npx",
-    "args": ["-y", "@modelcontextprotocol/server-github"],
-    "env": {
-      "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_..."
-    }
-  }
-}
-```
-
-### JIRA (Atlassian)
-
-Use the Atlassian MCP server:
-```json
-{
-  "atlassian": {
-    "command": "npx",
-    "args": ["-y", "@modelcontextprotocol/server-atlassian"],
-    "env": {
-      "ATLASSIAN_URL": "https://yourcompany.atlassian.net",
-      "ATLASSIAN_EMAIL": "you@company.com",
-      "ATLASSIAN_API_TOKEN": "your-api-token"
-    }
-  }
-}
-```
-
-Get your Atlassian API token at: https://id.atlassian.com/manage-profile/security/api-tokens
-
-## Cursor
-
-For Cursor, MCPs are configured in Settings > MCP or in `~/.cursor/mcp.json`:
-
-```json
-{
-  "mcpServers": {
-    "google-workspace": { ... },
-    "slack": { ... },
-    "github": { ... },
-    "atlassian": { ... }
-  }
-}
-```
-
-You already have Atlassian MCP configured in this Cursor installation.
-
-### HubSpot
-
-Get your HubSpot private app access token at:
-Settings → Integrations → Private Apps → Create a private app
-
-Required scopes: `crm.objects.deals.read`, `crm.objects.deals.write`, `crm.objects.contacts.read`, `crm.objects.contacts.write`, `crm.objects.companies.read`, `crm.objects.notes.read`, `crm.objects.notes.write`, `crm.objects.engagements.read`, `crm.objects.engagements.write`
-
-```json
-{
-  "hubspot": {
-    "command": "npx",
-    "args": ["-y", "@modelcontextprotocol/server-hubspot"],
-    "env": {
-      "HUBSPOT_ACCESS_TOKEN": "pat-na1-..."
-    }
-  }
-}
-```
-
-Alternatively, use the community HubSpot MCP:
-```bash
-npx @hubspot/mcp-server
-```
-
-With HubSpot connected, you can say:
-- "What's the status of the Acme deal?" → fetches live from HubSpot
-- "Move Acme to Negotiation and log a note that we had a pricing call" → updates HubSpot directly
-- "Who are all the contacts at Acme?" → pulls from HubSpot CRM
-
 ---
 
 ## Rube (Alternative — all-in-one)
 
-Obie Fernandez uses [Rube](https://rube.app/) as a single MCP integration that covers Google Calendar, Gmail, Slack, Linear, and Twitter/X with a single connection. Worth evaluating if managing multiple MCPs is annoying.
+[Rube](https://rube.app/) is a single MCP integration covering Google Calendar, Gmail, Slack, Linear, and Twitter/X with one connection. Worth evaluating if managing multiple MCPs feels like too much overhead.
+
+---
 
 ## Wispr Flow (Voice Input)
 
-For voice input (highly recommended for stream-of-consciousness updates):
+Highly recommended for stream-of-consciousness updates and meeting debriefs:
 - Download at https://wisprflow.ai/
 - Works system-wide — dictate directly into Claude Code or Cursor chat
-- Much faster than typing for context dumps and meeting debriefs
+- Much faster than typing for context dumps
