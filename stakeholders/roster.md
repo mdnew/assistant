@@ -10,27 +10,28 @@
 
 ## Key External Contacts
 
-**Rachel** — Contact on Halite deal
-- **Relationship**: Prospect
+**Rachel** — Halite
+- **Relationship**: Prospect (Halite deal)
 - **Last contact**: 2026-03-17 (shared costs)
 - **Next**: Follow-up call Wed Mar 18
 - **Context**: Estimates and costs shared this week
 
-**Steve** — Contact on active deal (possibly Halite)
-- **Relationship**: Prospect
+**Steve Raymond** — CEO, Prism Labs
+- **Relationship**: Partner
 - **Last contact**: 2026-03-16 (catch-up)
-- **Next**: Follow-up call Wed Mar 18
+- **Context**: We built a 3D body scanning app for Prism Labs. Ongoing partner relationship.
 
-**Steve Petilli** — New contact
-- **Relationship**: Prospect
+**Steve Petilli** — Company TBD
+- **Relationship**: Prospect (early stage)
 - **Last contact**: 2026-03-17 (intro call)
-- **Context**: Intro call Tuesday — early stage
+- **Context**: Intro call Tuesday — no company name yet
 
-**Kevin Lewis** — 
-- **Relationship**: [to confirm]
-- **Next contact**: 2026-03-18 (lunch)
+**Kevin Lewis** — BD, [company TBD]
+- **Relationship**: Former colleague (Ripple), potential partner
+- **Last contact**: 2026-03-18 (lunch)
+- **Context**: Old colleague from Ripple, now doing BD at another company. Meeting to explore working together.
 
-**Tori** — Tanita project stakeholder
+**Tori** — Tanita
 - **Relationship**: Client contact (Tanita)
 - **Last contact**: 2026-03-16
 - **Context**: Provided website fix list, receiving progress updates Wed
