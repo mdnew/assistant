@@ -2,9 +2,11 @@
 
 *Maintained automatically. Update via `/contact` or "log this person".*
 
-## Internal Team
+## Internal Team (Uptech Partners)
 
-*(Add team members here)*
+**Claude** — Partner, Uptech
+
+**Adam** — Partner, Uptech
 
 ---
 

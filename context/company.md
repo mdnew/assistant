@@ -4,10 +4,9 @@
 
 ## About
 
-- **Company name**: 
-- **What we do**: 
-- **Stage**: [seed | series A | growth | public | etc.]
-- **Team size**: 
+- **Company name**: Uptech
+- **What we do**: Software development studio / product partner
+- **Partners**: Matt (BD/Sales/PM), Claude, Adam
 - **Key markets**: 
 
 ## Our Value Proposition
