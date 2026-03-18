@@ -42,29 +42,45 @@ claude mcp add github \
 
 ## HubSpot
 
-**1. Create a private app** in HubSpot:
-Settings → Integrations → Private Apps → Create a private app
+HubSpot has a native remote MCP server at `https://mcp.hubspot.com/` using OAuth — no API token needed.
 
-Required scopes:
-- `crm.objects.deals.read` + `.write`
-- `crm.objects.contacts.read` + `.write`
-- `crm.objects.companies.read`
-- `crm.objects.notes.read` + `.write`
-- `crm.objects.engagements.read` + `.write`
+**1. Create an MCP Auth App** in HubSpot:
+Developer platform → MCP Auth Apps → Create
 
-Copy the **Access Token** (`pat-na1-...`)
+- **Redirect URL:** `http://localhost:54321/oauth/callback`
+- Name and description are optional
+
+After creating, copy the **Client ID** and **Client Secret** from the app details page.
 
 **2. Add to Claude Code:**
 ```bash
 claude mcp add hubspot \
-  -e HUBSPOT_ACCESS_TOKEN=pat-na1-your-token \
-  -- npx -y @hubspot/mcp-server
+  --transport http \
+  --callback-port 54321 \
+  --client-id YOUR_CLIENT_ID \
+  --client-secret \
+  https://mcp.hubspot.com/
 ```
+
+It will prompt for the client secret, then open a browser to complete the OAuth flow.
+
+**3. Add to Cursor** (`~/.cursor/mcp.json`):
+```json
+{
+  "hubspot": {
+    "url": "https://mcp.hubspot.com/",
+    "transport": "http"
+  }
+}
+```
+Cursor will handle the OAuth flow automatically on first use.
 
 With HubSpot connected:
 - "What's the status of the Acme deal?" → fetches live from HubSpot
-- "Move Acme to Negotiation and log a note that we had a pricing call" → updates HubSpot
-- "Who are all the contacts at Acme?" → pulls from HubSpot CRM
+- "Summarize all deals in Negotiation over $10k" → CRM search
+- "Who are the contacts at Acme?" → pulls from HubSpot CRM
+
+Note: The remote HubSpot MCP is currently **read-only** (contacts, companies, deals, tickets, etc.). Write operations require the `@hubspot/mcp-server` npm package with a private app token instead.
 
 ---
 
@@ -135,11 +151,8 @@ For Cursor, open **Settings → MCP** (or edit `~/.cursor/mcp.json`) and add the
       }
     },
     "hubspot": {
-      "command": "npx",
-      "args": ["-y", "@hubspot/mcp-server"],
-      "env": {
-        "HUBSPOT_ACCESS_TOKEN": "pat-na1-..."
-      }
+      "url": "https://mcp.hubspot.com/",
+      "transport": "http"
     },
     "jira": {
       "command": "npx",
