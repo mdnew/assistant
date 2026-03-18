@@ -103,6 +103,37 @@ For Cursor, MCPs are configured in Settings > MCP or in `~/.cursor/mcp.json`:
 
 You already have Atlassian MCP configured in this Cursor installation.
 
+### HubSpot
+
+Get your HubSpot private app access token at:
+Settings → Integrations → Private Apps → Create a private app
+
+Required scopes: `crm.objects.deals.read`, `crm.objects.deals.write`, `crm.objects.contacts.read`, `crm.objects.contacts.write`, `crm.objects.companies.read`, `crm.objects.notes.read`, `crm.objects.notes.write`, `crm.objects.engagements.read`, `crm.objects.engagements.write`
+
+```json
+{
+  "hubspot": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-hubspot"],
+    "env": {
+      "HUBSPOT_ACCESS_TOKEN": "pat-na1-..."
+    }
+  }
+}
+```
+
+Alternatively, use the community HubSpot MCP:
+```bash
+npx @hubspot/mcp-server
+```
+
+With HubSpot connected, you can say:
+- "What's the status of the Acme deal?" → fetches live from HubSpot
+- "Move Acme to Negotiation and log a note that we had a pricing call" → updates HubSpot directly
+- "Who are all the contacts at Acme?" → pulls from HubSpot CRM
+
+---
+
 ## Rube (Alternative — all-in-one)
 
 Obie Fernandez uses [Rube](https://rube.app/) as a single MCP integration that covers Google Calendar, Gmail, Slack, Linear, and Twitter/X with a single connection. Worth evaluating if managing multiple MCPs is annoying.

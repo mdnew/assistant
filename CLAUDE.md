@@ -93,5 +93,8 @@ When MCP tools are connected, use them to:
 - **Slack** (`SLACK_*`): Post updates, read channels
 - **GitHub** (`GITHUB_*`): Check PRs, issues, repo activity
 - **JIRA** (`JIRA_*`): Read/update tickets and project status
+- **HubSpot** (`HUBSPOT_*`): Read and update deals, contacts, companies, and activities
+
+**HubSpot is the source of truth for deal pipeline and contact data.** When updating a deal or contact, always sync changes back to HubSpot. When reading deal status, prefer fetching live data from HubSpot over what's in `deals/pipeline.md` — the local file is a summary cache, not the primary record.
 
 Always prefer acting directly via MCP tools when the user says "post", "send", "create", "check", or "look up" — don't ask them to do it manually.

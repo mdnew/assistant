@@ -1,6 +1,6 @@
 # Deal Pipeline
 
-*Maintained automatically. Update via `/dealupdate [name]`.*
+*Summary cache — HubSpot is the source of truth for stage and activity data. Update via `/dealupdate [name]`, which syncs both HubSpot and this file. This file captures strategic context and notes that don't belong in the CRM.*
 
 ## Active Deals
 

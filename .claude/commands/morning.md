@@ -5,7 +5,9 @@ Run the morning sync workflow:
 1. Read `priorities/weekly-focus.md` for the current week's priorities
 2. Check `meetings/actions/` for any pending action items (unchecked `- [ ]` items)
 3. Check today's calendar using Google Calendar MCP tools (`GOOGLECALENDAR_EVENTS_LIST` with today's timeMin/timeMax in UTC)
-4. Check `deals/pipeline.md` for any deals with stale "Next Action" dates or upcoming deadlines
+4. Check HubSpot for deals needing attention today:
+   - Use `HUBSPOT_SEARCH_DEALS` filtered by close date (this week) or last activity (stale > 7 days)
+   - Cross-reference with `deals/pipeline.md` for any strategic context
 5. Summarize in this format:
 
 ```
@@ -20,8 +22,8 @@ Run the morning sync workflow:
 **Pending action items**:
 [Unchecked items from meetings/actions/, grouped by urgency]
 
-**Deal check-in**:
-[Any deals that need attention today]
+**Deal check-in** (from HubSpot):
+[Deals closing this week or with no activity in 7+ days]
 
 **One thing to handle before noon**:
 [Most important single task based on the above]

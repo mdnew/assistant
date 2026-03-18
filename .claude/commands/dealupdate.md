@@ -4,20 +4,31 @@ Update the status and context for this deal: $ARGUMENTS
 
 ## Instructions
 
-1. **Read `deals/pipeline.md`** to find the current deal entry
-2. **Ask me what changed** if not provided in $ARGUMENTS:
+1. **Fetch live deal data from HubSpot** using MCP tools:
+   - Search for the deal by name: `HUBSPOT_SEARCH_DEALS` or `HUBSPOT_GET_DEAL`
+   - Pull associated contacts and company: `HUBSPOT_GET_CONTACTS_FOR_DEAL`, `HUBSPOT_GET_COMPANY`
+   - Pull recent activity/notes: `HUBSPOT_GET_ENGAGEMENTS_FOR_DEAL`
+
+2. **Cross-reference with local context** in `deals/COMPANY-NAME.md` and `stakeholders/roster.md` for any context that lives outside HubSpot (strategic notes, relationship nuance, internal discussions)
+
+3. **Ask me what changed** if not provided in $ARGUMENTS:
    - What happened since last update?
    - What's the new stage (if it changed)?
    - What's the next action and by when?
    - Any blockers or risks?
-3. **Update `deals/pipeline.md`** with the new status and next action
-4. **Create or update a deal file** at `deals/COMPANY-NAME.md` with detailed context:
-   - Key contacts at the company (cross-reference `stakeholders/roster.md`)
-   - History of interactions
-   - Their pain points and our value prop for them
-   - Open questions or risks
-   - All previous stages and what moved them forward/backward
-5. **Create any action items** in `meetings/actions/YYYY-MM-DD-dealname.md` if next steps were identified
-6. **Summarize** what was updated and what's next
 
-Deal files preserve the full history. Never delete old stages — append new updates.
+4. **Update HubSpot** via MCP:
+   - Update deal stage: `HUBSPOT_UPDATE_DEAL`
+   - Log a note or activity: `HUBSPOT_CREATE_ENGAGEMENT`
+   - Update next action / close date if changed
+
+5. **Update local files**:
+   - `deals/pipeline.md` — sync the summary row for this deal
+   - `deals/COMPANY-NAME.md` — append the update with strategic context, relationship notes, and anything that doesn't belong in HubSpot
+   - Key contacts: update `stakeholders/roster.md` if new info surfaced
+
+6. **Create any action items** in `meetings/actions/YYYY-MM-DD-dealname.md` if next steps were identified
+
+7. **Summarize** what was updated in HubSpot, what was filed locally, and what's next
+
+Deal files preserve the full history. Never delete old entries — append new updates. HubSpot owns stage and activity data; local files own strategic context and relationship nuance.
