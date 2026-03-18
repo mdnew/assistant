@@ -47,7 +47,7 @@ HubSpot has a native remote MCP server at `https://mcp.hubspot.com/` using OAuth
 **1. Create an MCP Auth App** in HubSpot:
 Developer platform → MCP Auth Apps → Create
 
-- **Redirect URL:** `http://localhost:54321/oauth/callback`
+- **Redirect URL:** `http://localhost:54321/callback`
 - Name and description are optional
 
 After creating, copy the **Client ID** and **Client Secret** from the app details page.
