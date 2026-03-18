@@ -6,7 +6,8 @@
 
 | Deal | Stage | Size | Next Action | Owner | Last Updated |
 |------|-------|------|-------------|-------|-------------|
-| | | | | | |
+| Gameday | Negotiation | — | Follow up on MSA response | Matt | 2026-03-16 |
+| Halite | Qualifying | — | Follow-up call with Rachel (Wed Mar 18) | Matt | 2026-03-18 |
 
 ## Stages
 - **Prospecting** — Identified, not yet contacted
