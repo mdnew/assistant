@@ -13,25 +13,26 @@
 ## Key External Contacts
 
 **Rachel Wong** — Halite
-- **Relationship**: Prospect (Halite deal)
-- **Last contact**: 2026-03-17 (shared costs)
-- **Next**: Call Wed Mar 18 (on calendar)
-- **Context**: Estimates and costs shared this week
+- **Relationship**: Prospect (Halite deal — Air Force project)
+- **Last contact**: 2026-03-18 (project scope call with Claude + Matt)
+- **Next**: Rachel to send strategy update to Matt and Claude; Rachel to align with Harsha on React Native + on-device AI
+- **Context**: Air Force engagement. Work in self-contained chunks; estimates to factor in AI assistance. Matt’s team: austere/offline architecture + on-device AI. Harsha’s team: multi-user/multi-patient. Time-boxed React Native experiment before considering native rewrite.
 
 **Steve Raymond** — CEO, Prism Labs
 - **Relationship**: Partner
 - **Last contact**: 2026-03-16 (catch-up)
 - **Context**: We built a 3D body scanning app for Prism Labs. Ongoing partner relationship.
 
-**Steve Petilli** — Company TBD
-- **Relationship**: Prospect (early stage)
-- **Last contact**: 2026-03-17 (intro call)
-- **Context**: Intro call Tuesday — no company name yet
+**Steve Petilli** — Startup (collectibles / AI grading)
+- **Relationship**: Prospect (partnership discovery). **Owner: Adam** (Matt handed off 2026-03-18)
+- **Last contact**: 2026-03-18 (partnership call with Adam Korman)
+- **Context**: Startup doing high-speed collectible auctions via AI self-grading (coins first) + physical holder/label shipping; headless Shopify + AI/business logic. Seeking partner for dev acceleration and UX. Half-day discovery scheduled Thu Mar 26, 9 AM at his office; Adam leading proposal, MSA draft, and discovery prep.
 
 **Kevin Lewis** — BD, [company TBD]
-- **Relationship**: Former colleague (Ripple), potential partner
+- **Relationship**: Former colleague (Ripple), potential partner / prospect
 - **Last contact**: 2026-03-18 (lunch)
-- **Context**: Old colleague from Ripple, now doing BD at another company. Meeting to explore working together.
+- **Next**: Kevin to set up call next week with Claude + Matt + their guy who manages dev work
+- **Context**: Ripple alum, now BD. Possible opportunity to take over some of their development work (currently using offshore team in Vietnam). Kevin expressed tepid interest in having us take over. They have no UX/Design in-house — Adam continues to lead on that. Call next week: Claude + Matt + their dev manager.
 
 **Tori** — Tanita
 - **Relationship**: Client contact (Tanita)
@@ -41,6 +42,13 @@
 **Jen** — Tanita
 - **Relationship**: Client contact (Tanita)
 - **Last contact**: 2026-03-17 (discussed launch next steps slides)
+
+**Lenny Moon** — CFO, Booster Fuels
+- **Relationship**: Warm prospect
+- **Last contact**: 2026-03-21 (email re: Head of Product hire)
+- **Next**: Await response; follow up in ~1 week if nothing
+- **Context**: Met in person at Utopia Cafe, Tustin on Jan 19, 2026 (Lenny was scoping office space in Tustin). Booster is looking for a Head of Product — pitching Uptech as a bridge while they search. Previous thread (Nov 2025): Matt flagged that their contact Shweta had cancelled meetings. Connection via Uptech visiting their Tustin yard (Sep 2025).
+- **Notes**: Lenny is the CFO but is clearly the relationship. Shweta Madasu was the original technical contact but went cold. Head of Product opening is the current angle.
 
 ---
 

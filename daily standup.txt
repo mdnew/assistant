@@ -1,0 +1,18 @@
+_Mar 20, 2026 - Standup_
+*Thursday*
+• Tanita: Check on remaining website work with Tori and Cody. Extraced tracking plan from iOS. Created Amplitude events and fine tuned names and properties. Applied changes to the iOS app. 
+• US: Connected with people from last weeks cold outreach email on LinkedIn. Launched two new Smartlead campaigns.
+
+*Friday and the weekend*
+• Tanita: Completed TANITA-64 - Add new events for Klayvio and Amplitude. Started looking at TANITA-378 - Latest Measurements: 2-column grid layout (Android) - but opted to punt on this idea because it could be a mess on smaller devices. Finished TANITA-382 - Remove Update Your Weight pop-up and go directly into capture flow
+• US: Friday LinkedIn post. Brown bag. Follow up call with Rachel and Harsha (Halite). Sent over modified SOW to Gameday. Followed up with Lenny. Sent a note to Tim Olsen at KQED about opportunities with other stations. Connected with Sanjay at Mudflap (they just acquired a telematics company)
+
+*Goals*
+• Tanita: Fix website issues. Get app ready for release. 
+• US: Move forward on both Halite and Gameday. 
+
+*Week of Mar 23*
+• Tanita: Implement scoring for metrics.
+
+*Blockers*
+• None

@@ -33,6 +33,12 @@ context/           # Company, product, market, competitive info
 deals/             # Active pipeline and deal tracking
 decisions/         # Decision records with rationale
 drafts/            # Work in progress documents
+inbox/             # Emails forwarded via Shortcut for AI review
+  kqed/            #   Organized by client/project
+  tanita/
+  halite/
+  gameday/
+  uptech/
 journal/           # Weekly reflections
 meetings/
   actions/         # Action items with owners and status
@@ -44,7 +50,39 @@ stakeholders/
   one-on-ones/     # Individual relationship histories
   roster.md        # Key contacts with full context
 reference/         # Frameworks, mental models, templates
+standups/          # Daily Slack standups, one file per day (YYYY-MM-DD.md)
 ```
+
+### How I Track Work (Standup vs To-Do)
+
+**`daily standup.txt`** (repo root, iCloud-synced) — **Today + this week**
+- What I'm doing today and goals for this week.
+- Scratch file Matt edits from any device; current week's standup content (Mon–Fri sections).
+- **Each day a copy is saved** to `standups/YYYY-MM-DD.md` so there's a daily record.
+
+**`to-do.txt`** (repo root) — **Longer-term (next 3 months)**
+- List of longer-term goals and project outcomes for the next ~3 months.
+- Not day-by-day; use when planning or reviewing what we're working toward.
+
+**When Matt says "log standup", "post standup", or similar:**
+1. Read `daily standup.txt`
+2. Extract yesterday's and today's sections (and any goals/blockers)
+3. Write to `standups/YYYY-MM-DD.md` (daily copy for that date)
+4. Clear logged sections from `daily standup.txt` (or leave — follow Matt's preference)
+
+### Email Inbox
+
+Matt uses an Apple Shortcut ("Save Email to Assistant") to forward emails from Mimestream into `inbox/`. The Shortcut shares the email body and saves it as a dated file.
+
+**When Matt says "check my inbox" or similar:**
+1. Glob `inbox/**/*.md` to find unprocessed emails
+2. Read each file and summarize what's there
+3. Move or categorize files into the appropriate `inbox/[client]` subfolder if not already done
+4. Surface any action items, decisions, or follow-ups
+
+**Inbox subfolders** map to clients/projects: `kqed/`, `tanita/`, `halite/`, `gameday/`, `uptech/`. Create new subfolders as needed.
+
+**File naming inside inbox:** `YYYY-MM-DD-short-description.md`
 
 ### File Naming Conventions
 
@@ -80,6 +118,8 @@ Run these by name or via natural language:
 ## Important Context Files
 
 Always check these files when they're relevant:
+- `daily standup.txt` — today + this week's doings and goals (see "How I Track Work" above)
+- `to-do.txt` — longer-term goals for the next ~3 months
 - `priorities/weekly-focus.md` — current week's focus
 - `stakeholders/roster.md` — key relationships and context
 - `deals/pipeline.md` — active deal pipeline
@@ -95,6 +135,8 @@ When MCP tools are connected, use them to:
 - **JIRA** (`JIRA_*`): Read/update tickets and project status
 - **HubSpot** (`HUBSPOT_*`): Read and update deals, contacts, companies, and activities
 
-**HubSpot is the source of truth for deal pipeline and contact data.** When updating a deal or contact, always sync changes back to HubSpot. When reading deal status, prefer fetching live data from HubSpot over what's in `deals/pipeline.md` — the local file is a summary cache, not the primary record.
+**HubSpot is the source of truth for deal pipeline and contact data.** When reading deal status, prefer fetching live data from HubSpot over what's in `deals/pipeline.md` — the local file is a summary cache, not the primary record.
+
+**Never write to HubSpot automatically.** Only create, update, or delete HubSpot records when Matt explicitly asks (e.g. "update this deal in HubSpot", "log this in HubSpot", "sync to HubSpot"). Reading and searching HubSpot is always fine.
 
 Always prefer acting directly via MCP tools when the user says "post", "send", "create", "check", or "look up" — don't ask them to do it manually.

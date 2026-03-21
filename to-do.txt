@@ -1,0 +1,28 @@
+To-Do
+
+KQED
+Goal: Reliable ongoing delivery for KQED — metrics, reporting, and new capabilities (podcast, live stream) so they can run and grow their digital product.
+• Podcast API
+• Live Stream Search
+• Tell Julia what to look for on GS app re analytic event name for card tapping
+• Develop a way to track non-app events better (news alerts, radio, etc.)
+
+
+TANITA
+Goal: Ship a solid website and a released app (Android + release in early April) so Tanita can launch and support their users.
+• Website redesign
+• Android app
+• App release in early April
+• Implement scoring for metrics (week of Mar 23)
+
+UPTECH (BD / pipeline)
+Goal: Convert pipeline to signed deals and ongoing engagements; grow partner and client base.
+• Gameday Mens Health — close MSA, kick off first engagement (SOW drafted)
+• Halite — lock scope and strategy, then deliver (offline/on-device AI, etc.)
+• Reminder (week of Mar 23): Add the next batch of cold-outreach contacts on LinkedIn
+• Follow up on Smartlead technical campaign (50 contacts): track replies and book intro calls next week
+• Steve Petilli / collectibles startup — Adam leading; discovery Mar 26, then proposal
+• Kevin Lewis (company TBD) — explore taking over dev work; call next week with Claude + their dev manager
+
+Not active now
+• PRISM — no active project; partner relationship (Prism Labs) ongoing
