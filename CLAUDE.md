@@ -142,11 +142,19 @@ When MCP tools are connected, use them to:
 
 **HubSpot is the source of truth for deal pipeline and contact data.** When reading deal status, prefer fetching live data from HubSpot.
 
-**`deals/pipeline.md` lives in the `uptech/business-development` GitHub repo** (not locally). Use the GitHub MCP to read and write it:
-- Read: `get_file_contents` → repo `uptech/business-development`, path `deals/pipeline.md`
-- Write: `create_or_update_file` → same repo/path, include the full updated file content and the current file's `sha`
+**Key files live in GitHub repos — use the GitHub MCP to read and write them:**
 
-When Matt says `/dealupdate`, update the file in GitHub via MCP — not a local file.
+| File | Repo | Path |
+|------|------|------|
+| Deal pipeline | `uptech/business-development` | `deals/pipeline.md` |
+| LinkedIn posts | `uptech/writing` | `linkedin-posts/{author}/YYYY-MM-DD-slug.txt` |
+
+- **Read:** `get_file_contents` → owner `uptech`, repo, path
+- **Write:** `create_or_update_file` → same args + full updated content + current file `sha`
+- **Browse:** `get_file_contents` on a directory path returns a listing of its contents
+
+When Matt says `/dealupdate`, update `deals/pipeline.md` in `uptech/business-development` via MCP.
+When Matt asks about LinkedIn posts (e.g. "what did we post last week"), read from `uptech/writing` via MCP.
 
 **Never write to HubSpot automatically.** Only create, update, or delete HubSpot records when Matt explicitly asks (e.g. "update this deal in HubSpot", "log this in HubSpot", "sync to HubSpot"). Reading and searching HubSpot is always fine.
 
