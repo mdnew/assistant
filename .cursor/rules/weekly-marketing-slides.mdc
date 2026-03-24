@@ -28,8 +28,8 @@ alwaysApply: false
 ## Data Sources
 
 ### LinkedIn Posts — "Last Week"
-- Read from `/Users/matt/code/uptech/writing/linkedin-posts/`
-- Subfolders: `matt/`, `adam/`, `claude/`, `company/`, `appfit/`
+- Read from `uptech/writing` GitHub repo via `get_file_contents`
+- Directory: `linkedin-posts/` → subfolders `matt/`, `adam/`, `claude/`, `company/`, `appfit/`
 - "Last week" = Mon–Fri of the week prior to the meeting date
 - Filter files by date prefix (`YYYY-MM-DD-*.txt`) to find posts in range
 - Read each file; the post copy is below the YAML frontmatter `---` block
@@ -42,6 +42,7 @@ alwaysApply: false
 - Use `timeSeriesLimit: 0` for top pages (totals only, no per-day breakdown needed)
 
 ### BD Pipeline — `deals/pipeline.md`
+- Read from `uptech/business-development` GitHub repo via `get_file_contents`, path `deals/pipeline.md`
 - Sections map to BD funnel stages: Qualifying → Appointment Scheduled → Presentation Scheduled → Contract Sent
 - "Warm Leads" section = follow-up queue
 - Note deal owners (Matt / Adam / Claude) and any stale flags

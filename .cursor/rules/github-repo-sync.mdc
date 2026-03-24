@@ -1,0 +1,53 @@
+---
+description: Always push changes to uptech/business-development and uptech/writing via the GitHub MCP
+alwaysApply: true
+---
+
+# GitHub Repo Sync
+
+Whenever you create or modify a file in the `uptech/business-development` or `uptech/writing` repos, **always push the changes to GitHub via the MCP immediately after** — do not leave them only on disk.
+
+## Workflow
+
+1. Before editing an existing file, fetch it with `get_file_contents` to get the current `sha`
+2. Make your edits
+3. Push with `create_or_update_file` (single file) or `push_files` (multiple files)
+
+## Repo reference
+
+| Repo | Owner | Branch |
+|------|-------|--------|
+| `business-development` | `uptech` | `main` |
+| `writing` | `uptech` | `main` |
+
+## Single file update
+
+```
+create_or_update_file:
+  owner: uptech
+  repo: business-development        # or writing
+  branch: main
+  path: deals/pipeline.md           # file path within repo
+  content: <full file content>
+  message: <short description of what changed>
+  sha: <sha from get_file_contents>  # required for existing files
+```
+
+## Multiple files in one commit
+
+```
+push_files:
+  owner: uptech
+  repo: writing
+  branch: main
+  message: <short description>
+  files:
+    - path: linkedin-posts/matt/2026-03-25-slug.txt
+      content: <full content>
+    - path: linkedin-posts/adam/2026-03-25-slug.txt
+      content: <full content>
+```
+
+## Commit message style
+- Be specific: `"Update Gameday deal — MSA signed"` not `"Update pipeline"`
+- For LinkedIn posts: `"Add Matt post: {topic slug}"`
