@@ -15,6 +15,9 @@ Goal: Ship a solid website and a released app (Android + release in early April)
 • App release in early April
 • Implement scoring for metrics (week of Mar 23)
 
+UPTECH (Marketing)
+• April newsletter — pick topic (week of Mar 30); draft and send by Apr 15. Options in writing/newsletters/planning/2026-04.md — lean toward #6 (AI + PM) or #1 (launch is a system)
+
 UPTECH (BD / pipeline)
 Goal: Convert pipeline to signed deals and ongoing engagements; grow partner and client base.
 • Gameday Mens Health — MSA and SOW out for signature; then close and kick off first engagement

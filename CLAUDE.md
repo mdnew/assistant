@@ -118,7 +118,7 @@ Run these by name or via natural language:
 
 ## Messaging & drafts
 
-**Do not use em dashes (—) in outbound messaging** (email, Slack, texts, client-facing docs you’re about to send). Use commas, colons, parentheses, or separate sentences instead. This applies to anything drafted for Matt to send as-is.
+**Never use em dashes (—) in any message, email, or draft written for Matt.** This includes emails, Slack messages, LinkedIn messages, texts, and any client-facing copy. Use commas, colons, parentheses, or separate sentences instead. No exceptions.
 
 ## Important Context Files
 
