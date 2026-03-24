@@ -30,7 +30,6 @@ For longer thoughts, I use voice input. Stream-of-consciousness is fine.
 
 ```
 context/           # Company, product, market, competitive info
-deals/             # Active pipeline and deal tracking
 decisions/         # Decision records with rationale
 drafts/            # Work in progress documents
 inbox/             # Emails forwarded via Shortcut for AI review
@@ -51,6 +50,7 @@ stakeholders/
   roster.md        # Key contacts with full context
 reference/         # Frameworks, mental models, templates
 standups/          # Daily Slack standups, one file per day (YYYY-MM-DD.md)
+tools/presentations/  # HTML slide decks (canonical company-overview template → PDF)
 ```
 
 ### How I Track Work (Standup vs To-Do)
@@ -106,6 +106,7 @@ Run these by name or via natural language:
 | `/contact` | "add contact", "update [name]'s info", "log this person" | Add or update stakeholder |
 | `/weeklyfocus` | "set weekly focus", "plan my week" | Set priorities for the week |
 | `/decide` | "log decision about X" | Capture a structured decision record |
+| `/marketingslides` | "update the marketing slides", "prep the BD meeting", "generate slides" | Update and regenerate the weekly BD & Marketing slide deck |
 
 ## Key Principles
 
@@ -115,6 +116,10 @@ Run these by name or via natural language:
 4. **Keep files small.** If a file gets too big or seems to be slowing things down, suggest how to split or archive it.
 5. **Version context.** When you update a context file significantly, briefly note what changed and why.
 
+## Messaging & drafts
+
+**Do not use em dashes (—) in outbound messaging** (email, Slack, texts, client-facing docs you’re about to send). Use commas, colons, parentheses, or separate sentences instead. This applies to anything drafted for Matt to send as-is.
+
 ## Important Context Files
 
 Always check these files when they're relevant:
@@ -122,7 +127,7 @@ Always check these files when they're relevant:
 - `to-do.txt` — longer-term goals for the next ~3 months
 - `priorities/weekly-focus.md` — current week's focus
 - `stakeholders/roster.md` — key relationships and context
-- `deals/pipeline.md` — active deal pipeline
+- `deals/pipeline.md` in **`uptech/business-development`** GitHub repo — active deal pipeline (use GitHub MCP to read/write)
 - `meetings/actions/` — pending action items
 
 ## MCP Tools Available
@@ -131,11 +136,17 @@ When MCP tools are connected, use them to:
 - **Google Calendar** (`GOOGLECALENDAR_*`): Read today's schedule, create events
 - **Gmail** (`GMAIL_*`): Read recent emails, send messages
 - **Slack** (`SLACK_*`): Post updates, read channels
-- **GitHub** (`GITHUB_*`): Check PRs, issues, repo activity
+- **GitHub** (`GITHUB_*`): Check PRs, issues, repo activity; read/write files in Uptech repos
 - **JIRA** (`JIRA_*`): Read/update tickets and project status
 - **HubSpot** (`HUBSPOT_*`): Read and update deals, contacts, companies, and activities
 
-**HubSpot is the source of truth for deal pipeline and contact data.** When reading deal status, prefer fetching live data from HubSpot over what's in `deals/pipeline.md` — the local file is a summary cache, not the primary record.
+**HubSpot is the source of truth for deal pipeline and contact data.** When reading deal status, prefer fetching live data from HubSpot.
+
+**`deals/pipeline.md` lives in the `uptech/business-development` GitHub repo** (not locally). Use the GitHub MCP to read and write it:
+- Read: `get_file_contents` → repo `uptech/business-development`, path `deals/pipeline.md`
+- Write: `create_or_update_file` → same repo/path, include the full updated file content and the current file's `sha`
+
+When Matt says `/dealupdate`, update the file in GitHub via MCP — not a local file.
 
 **Never write to HubSpot automatically.** Only create, update, or delete HubSpot records when Matt explicitly asks (e.g. "update this deal in HubSpot", "log this in HubSpot", "sync to HubSpot"). Reading and searching HubSpot is always fine.
 
