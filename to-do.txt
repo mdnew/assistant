@@ -17,7 +17,7 @@ Goal: Ship a solid website and a released app (Android + release in early April)
 
 UPTECH (BD / pipeline)
 Goal: Convert pipeline to signed deals and ongoing engagements; grow partner and client base.
-• Gameday Mens Health — close MSA, kick off first engagement (SOW drafted)
+• Gameday Mens Health — MSA and SOW out for signature; then close and kick off first engagement
 • Halite — lock scope and strategy, then deliver (offline/on-device AI, etc.)
 • Reminder (week of Mar 23): Add the next batch of cold-outreach contacts on LinkedIn
 • Follow up on Smartlead technical campaign (50 contacts): track replies and book intro calls next week

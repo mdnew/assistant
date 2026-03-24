@@ -1,0 +1,72 @@
+---
+description: How to generate the weekly BD & Marketing meeting slides and PDF for Uptech Studio
+globs: tools/weekly-marketing.html
+alwaysApply: false
+---
+
+# Weekly BD & Marketing Slides
+
+## Files
+- **HTML source**: `tools/weekly-marketing.html` — edit this to update content
+- **PDF output**: `tools/BD-Marketing-YYYY-MM-DD.pdf` — regenerate each week
+- **Kanban board**: `tools/pipeline-kanban.html` — separate pipeline view
+
+## Slide Structure (12 slides)
+1. Title
+2. Last Week summary (LinkedIn, Newsletter, Website, BD, Cold Outreach)
+3. LinkedIn section header
+4. LinkedIn Metrics (website stats + posts list)
+5. Newsletter section header
+6. Newsletter tracker
+7. Website section header
+8. **Website Metrics** — pulled live from Amplitude (see below)
+9. BD section header
+10. **BD Update** — pulled from `deals/pipeline.md`
+11. Action Plan / This Week's Focus
+12. LinkedIn Best Practices (Meg's tips — static)
+
+## Data Sources
+
+### LinkedIn Posts — "Last Week"
+- Read from `/Users/matt/code/uptech/writing/linkedin-posts/`
+- Subfolders: `matt/`, `adam/`, `claude/`, `company/`, `appfit/`
+- "Last week" = Mon–Fri of the week prior to the meeting date
+- Filter files by date prefix (`YYYY-MM-DD-*.txt`) to find posts in range
+- Read each file; the post copy is below the YAML frontmatter `---` block
+
+### Website Metrics — Amplitude
+- Project: **Uptech Studio Website** (`appId: 545667`)
+- Weekly unique visitors: `_active` event, `metric: uniques`, `interval: 7`, `range: Last 30 Days`
+- New users: `_new` event, same params
+- Top pages: `[Amplitude] Page Viewed` event, group by `[Amplitude] Page Path`, `metric: totals`, `range: Last 7 Days`
+- Use `timeSeriesLimit: 0` for top pages (totals only, no per-day breakdown needed)
+
+### BD Pipeline — `deals/pipeline.md`
+- Sections map to BD funnel stages: Qualifying → Appointment Scheduled → Presentation Scheduled → Contract Sent
+- "Warm Leads" section = follow-up queue
+- Note deal owners (Matt / Adam / Claude) and any stale flags
+
+## Regenerating the PDF
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless=new \
+  --print-to-pdf="tools/BD-Marketing-YYYY-MM-DD.pdf" \
+  --print-to-pdf-no-header \
+  --no-margins \
+  --window-size=1280,720 \
+  --force-device-scale-factor=1 \
+  "file:///path/to/tools/weekly-marketing.html"
+```
+
+- Page size is set via CSS: `@page { size: 1280px 720px; margin: 0; }` (16:9, ~landscape)
+- Each slide: `width: 1280px; height: 720px; overflow: hidden`
+- Rename the output file with the current meeting date
+
+## Updating for a New Week
+1. Update the slide title date and `updated` timestamps
+2. Read `writing/linkedin-posts/` for last week's actual posts by date
+3. Query Amplitude for fresh website metrics (weekly visitors + top pages)
+4. Read `deals/pipeline.md` for current BD state
+5. Update Action Plan with this week's focus (read `daily standup.txt` and `to-do.txt`)
+6. Regenerate the PDF with the Chrome command above

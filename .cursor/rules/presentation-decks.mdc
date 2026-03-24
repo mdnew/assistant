@@ -1,0 +1,26 @@
+---
+description: Generate and update Uptech HTML slide decks and PDFs using the canonical presentation template
+globs: tools/presentations/**/*.html
+alwaysApply: false
+---
+
+# Uptech presentation decks (HTML + PDF)
+
+## Canonical location
+
+- **`tools/presentations/`** — source of truth for regenerate-able decks.
+- **Template:** `tools/presentations/company-overview-public-radio.html` (14 slides, matches the “public radio / stations” company overview).
+- **PDF script:** `tools/presentations/generate-pdf.sh`
+- **Images:** `tools/presentations/assets/` (referenced from HTML)
+
+## When the user asks to create or refresh a deck
+
+1. **Prefer editing** `company-overview-public-radio.html` or a **copy** of it (e.g. `company-overview-{audience}.html`) so slide order and styling stay consistent.
+2. **Do not change** colors, fonts, slide dimensions, or print rules unless they explicitly ask to update the **brand template**.
+3. **Slide spec:** `1280×720` px, `@page { size: 1280px 720px }`, each `.slide` is one PDF page; `.nav` hidden in `@media print`.
+4. After substantive edits, **regenerate PDF** by running `generate-pdf.sh` from `tools/presentations/` (or the Chrome command in `tools/presentations/README.md`).
+5. **Placeholder slides** (client logos, screenshots): keep `.slide-visual` until they supply assets; then use `<img src="assets/...">` with paths relative to the HTML file.
+
+## Older file
+
+- `tools/tim-olson-public-media-ai-overview.html` — earlier 11-slide variant; merge fixes into the canonical `presentations/` deck when possible.

@@ -9,4 +9,11 @@
 
 ## Next
 
-- Await Gameday’s response on the MSA and draft SOW.
+- Await executed MSA and SOW (routed for signature).
+
+---
+
+## Update (2026-03-23)
+
+- **MSA** and **SOW** are out for signature (with Gameday’s signing contacts).
+- **Next**: Confirm receipt of fully executed agreements, then kick off per SOW.
