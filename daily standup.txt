@@ -1,16 +1,16 @@
-_Mar 24, 2026 - Standup_
-*Monday*
-• KQED: Followed up with Tim on presenting Uptech to other stations.
-• Tanita: Weekly Website Sync with their team. Updated iOS Home screen with new graphs. Changed iOS scan flow to prompt for weight first.
-• US: Project/Partner meetings, Review Halite with Anthony and sent feedback to Rachel, Lunch with Huy and Jeff to discuss using AI for flipping homes. Got  Gameday MSA and SOW signed.
+_Mar 25, 2026 - Standup_
+*Wednesday*
+• Tanita: Start working on scoring for both apps. Ping Michael at QA Camp about some options.
+• KQED: Sync with Julia
+• US: Intro call with Elaine.
 
-*Tuesday*
-• Tanita: Start working on scoring for both apps.
-• US: Cove call in the morning. Lunch with Carey Ransom to catch up on what he's doing.
+*Thursday*
+
 
 *Goals*
+• Gameday: Get integrated with the team.
 • Tanita: Get app ready for release. 
-• US: Get Halite ~and Gameday~ deals signed. 
+• US: Get Halite deal signed. 
 
 *Blockers*
 • None

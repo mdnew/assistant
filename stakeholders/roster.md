@@ -50,6 +50,18 @@
 - **Context**: Met in person at Utopia Cafe, Tustin on Jan 19, 2026 (Lenny was scoping office space in Tustin). Booster is looking for a Head of Product — pitching Uptech as a bridge while they search. Previous thread (Nov 2025): Matt flagged that their contact Shweta had cancelled meetings. Connection via Uptech visiting their Tustin yard (Sep 2025).
 - **Notes**: Lenny is the CFO but is clearly the relationship. Shweta Madasu was the original technical contact but went cold. Head of Product opening is the current angle.
 
+**Elaine** — RethinkCare
+- **Relationship**: Prospect
+- **Last contact**: 2026-03-24 (intro via Kenny/Grafted)
+- **Next**: Meeting Mar 25 (Matt); hand off to Adam if fit confirmed
+- **Context**: Needs Braze technical integrations. Kenny (mutual contact) intro'd her to Grafted; Jackson (Grafted) whitelabels Uptech for the technical build and looped Matt in. Kenny sent Grafted a bulleted list of integration requirements — obtain before call.
+
+**Jackson Yomogida** — Co-Founder, Grafted
+- **Relationship**: Partner / friend (key referral channel)
+- **Last contact**: 2026-03-24 (intro email to Elaine/RethinkCare)
+- **Context**: Former colleague from Acorns. Runs Grafted, a lifecycle marketing agency. Grafted does managed Braze strategy/services and whitelabels Uptech for the technical engineering side. Jackson has introduced us to three deals: Gameday Men's Health (closed won 2026-03-23), The Luckey Group (SOW out), and RethinkCare. High-trust, high-value channel.
+- **Email**: Jackson@grafted.com | grafted.com
+
 ---
 
 ## Format
