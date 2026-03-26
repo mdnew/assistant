@@ -52,9 +52,9 @@
 
 **Elaine** — RethinkCare
 - **Relationship**: Prospect
-- **Last contact**: 2026-03-24 (intro via Kenny/Grafted)
-- **Next**: Meeting Mar 25 (Matt); hand off to Adam if fit confirmed
-- **Context**: Needs Braze technical integrations. Kenny (mutual contact) intro'd her to Grafted; Jackson (Grafted) whitelabels Uptech for the technical build and looped Matt in. Kenny sent Grafted a bulleted list of integration requirements — obtain before call.
+- **Last contact**: 2026-03-25 (intro call with Matt; went very well)
+- **Next**: **Adam** to deliver formal proposal (discovery-first, phase-1 Email + SMS plumbing, per `deals/pipeline.md`). Company overview already shared with RethinkCare; on their side for review. Matt: relationship + Grafted coordination. MSA and project SOW before implementation.
+- **Context**: Needs Braze technical integrations. Kenny (mutual contact) intro'd her to Grafted; Jackson (Grafted) whitelabels Uptech for the technical build. **Large opportunity** per Matt after 2026-03-25 call. Pipeline: **Proposal (In Progress)** in `deals/pipeline.md`. **BD focus:** convert to signed deal (`to-do.txt`). No MSA/SOW executed yet.
 
 **Jackson Yomogida** — Co-Founder, Grafted
 - **Relationship**: Partner / friend (key referral channel)

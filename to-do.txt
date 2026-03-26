@@ -1,31 +1,37 @@
 To-Do
+FIT-3D (Anthony)
+• Meet with Greg to discuss Q2 work 
 
-KQED
+GAMEDAY (Cody? TBH?)
+Goal: Stand up Braze and lifecycle, fix analytics, and build a path to loyalty and app.
+• Gameday Mens Health — Validate analytics/data pipeline and dashboards (Segment → warehouse → CRM), replace current vendor if needed, and define Phase 1 CRM analytics plan with Blaine, Allen, and data owner
+
+HALITE 
+• Get MSA and SOW finalized, then deliver (offline/on-device AI, etc.)
+• Define requirements for Multi-Patient during week of 4/7
+
+KQED (Mark, Jon)
 Goal: Reliable ongoing delivery for KQED — metrics, reporting, and new capabilities (podcast, live stream) so they can run and grow their digital product.
 • Podcast API
 • Live Stream Search
-• Tell Julia what to look for on GS app re analytic event name for card tapping
 • Develop a way to track non-app events better (news alerts, radio, etc.)
 
-
-TANITA
-Goal: Ship a solid website and a released app (Android + release in early April) so Tanita can launch and support their users.
-• Website redesign
-• Android app
+TANITA (Anthony)
+Goal: Ship website and successfully release app (early April)
+• Cody completing website tickets
+• Android and iOS app are at same parity
 • App release in early April
 • Implement scoring for metrics (week of Mar 23)
+• QA Camp?
 
-UPTECH (Marketing)
-• April newsletter — pick topic (week of Mar 30); draft and send by Apr 15. Options in writing/newsletters/planning/2026-04.md — lean toward #6 (AI + PM) or #1 (launch is a system)
-
-UPTECH (BD / pipeline)
-Goal: Convert pipeline to signed deals and ongoing engagements; grow partner and client base.
-• Gameday Mens Health — MSA and SOW out for signature; then close and kick off first engagement
-• Halite — lock scope and strategy, then deliver (offline/on-device AI, etc.)
-• Reminder (week of Mar 23): Add the next batch of cold-outreach contacts on LinkedIn
-• Follow up on Smartlead technical campaign (50 contacts): track replies and book intro calls next week
-• Steve Petilli / collectibles startup — Adam leading; discovery Mar 26, then proposal
-• Kevin Lewis (company TBD) — explore taking over dev work; call next week with Claude + their dev manager
+UPTECH 
+    • Marketing 
+        • April Newsletter: clarify POV on right team size for modern product development (what you actually need by phase and company stage) Options in writing/newsletters/planning/2026-04.md 
+        • Reminder (week of Mar 23): Add the next batch of cold-outreach contacts on LinkedIn
+        • Set up next Smartlead technical campaign - try a new approach.
+    BD: Goal: Convert pipeline to signed deals and ongoing engagements; grow partner and client base.
+        • Kevin Lewis (company TBD) — explore taking over dev work; call next week with Claude + their dev manager
+        • Convert RethinkCare
 
 Not active now
-• PRISM — no active project; partner relationship (Prism Labs) ongoing
+• PRISM — they're talking to Hedges about full time position, may still need our help. 

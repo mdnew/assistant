@@ -1,11 +1,15 @@
 _Mar 25, 2026 - Standup_
 *Wednesday*
-• Tanita: Start working on scoring for both apps. Ping Michael at QA Camp about some options.
+• Tanita: Pinged Jen again about Q2 budget and budget for QA.
 • KQED: Sync with Julia
-• US: Intro call with Elaine.
+• US: Intro call with Elaine - created Company Overview slides for her. Marketing meeting
 
 *Thursday*
-
+• Tanita: Start working on scoring for both apps. Ping Michael at QA Camp about some options.
+• Gameday: Kick off meeting
+• US: Review RethinkCare Braze notes and draft speed-first proposal scope.
+• US: Forward Rethink consultant requirements to Adam.
+• US: Prep for Friday 10:00 AM meeting with Abdallah.
 
 *Goals*
 • Gameday: Get integrated with the team.

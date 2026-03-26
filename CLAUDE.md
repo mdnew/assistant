@@ -53,6 +53,8 @@ standups/          # Daily Slack standups, one file per day (YYYY-MM-DD.md)
 tools/presentations/  # HTML slide decks (canonical company-overview template → PDF)
 ```
 
+**`business-development`** and **`writing`** (GitHub: `uptech/business-development`, `uptech/writing`) are not folders inside this repo. They hold pipeline, deal notes, proposals, and marketing or publishing content. When a question touches BD, deals, outbound, positioning, or what we have published, **browse or read those repos via GitHub MCP** (list directories, open files), not only the paths called out in "Important Context Files" below.
+
 ### How I Track Work (Standup vs To-Do)
 
 **`daily standup.txt`** (repo root, iCloud-synced) — **Today + this week**
@@ -120,6 +122,8 @@ Run these by name or via natural language:
 
 **Never use em dashes (—) in any message, email, or draft written for Matt.** This includes emails, Slack messages, LinkedIn messages, texts, and any client-facing copy. Use commas, colons, parentheses, or separate sentences instead. No exceptions.
 
+**LinkedIn drafting workflow:** When creating or revising LinkedIn posts, workshop drafts locally in this repo first (for example, `drafts/` or a clearly named local draft file). Do not push draft LinkedIn posts to `uptech/writing` until Matt explicitly asks to publish or save to GitHub. After pushing the finalized version to GitHub, delete the temporary local draft file unless Matt asks to keep it.
+
 ## Important Context Files
 
 Always check these files when they're relevant:
@@ -127,7 +131,8 @@ Always check these files when they're relevant:
 - `to-do.txt` — longer-term goals for the next ~3 months
 - `priorities/weekly-focus.md` — current week's focus
 - `stakeholders/roster.md` — key relationships and context
-- `deals/pipeline.md` in **`uptech/business-development`** GitHub repo — active deal pipeline (use GitHub MCP to read/write)
+- **`uptech/business-development`** — `deals/pipeline.md` for the active pipeline (read/write via GitHub MCP); also skim or search the rest of that repo for deal context, proposals, and BD notes when helpful. **Always fetch this file live from GitHub — never rely on the local `deals/pipeline.md` copy, which may be stale.**
+- **`uptech/writing`** — LinkedIn drafts and published posts live under `linkedin-posts/`; browse the repo for other writing, voice, and marketing copy when relevant (read/write via GitHub MCP)
 - `meetings/actions/` — pending action items
 
 ## MCP Tools Available
@@ -138,9 +143,9 @@ When MCP tools are connected, use them to:
 - **Slack** (`SLACK_*`): Post updates, read channels
 - **GitHub** (`GITHUB_*`): Check PRs, issues, repo activity; read/write files in Uptech repos
 - **JIRA** (`JIRA_*`): Read/update tickets and project status
-- **HubSpot** (`HUBSPOT_*`): Read and update deals, contacts, companies, and activities
+- **HubSpot** (`HUBSPOT_*`): Read deals, contacts, companies, and activities; update only when Matt explicitly asks
 
-**HubSpot is the source of truth for deal pipeline and contact data.** When reading deal status, prefer fetching live data from HubSpot.
+**`deals/pipeline.md` in `uptech/business-development` is the source of truth for deal pipeline data.** Always read and write pipeline status there first. HubSpot should be kept reasonably in sync, but only update it when Matt explicitly asks.
 
 **Key files live in GitHub repos — use the GitHub MCP to read and write them:**
 
@@ -153,6 +158,7 @@ When MCP tools are connected, use them to:
 - **Write:** `create_or_update_file` → same args + full updated content + current file `sha`
 - **Browse:** `get_file_contents` on a directory path returns a listing of its contents
 
+When Matt asks about deals or the pipeline, **always fetch `deals/pipeline.md` from `uptech/business-development` via GitHub MCP first** — this is the source of truth, not the local copy.
 When Matt says `/dealupdate`, update `deals/pipeline.md` in `uptech/business-development` via MCP.
 When Matt asks about LinkedIn posts (e.g. "what did we post last week"), read from `uptech/writing` via MCP.
 
