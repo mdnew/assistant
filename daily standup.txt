@@ -1,19 +1,16 @@
-_Mar 25, 2026 - Standup_
-*Wednesday*
-• Tanita: Pinged Jen again about Q2 budget and budget for QA.
-• KQED: Sync with Julia
-• US: Intro call with Elaine - created Company Overview slides for her. Marketing meeting
-
+_Mar 27, 2026 - Standup_
 *Thursday*
-• Tanita: Start working on scoring for both apps. Ping Michael at QA Camp about some options.
-• Gameday: Kick off meeting
-• US: Review RethinkCare Braze notes and draft speed-first proposal scope.
-• US: Forward Rethink consultant requirements to Adam.
-• US: Prep for Friday 10:00 AM meeting with Abdallah.
+• KQED: Booked flights and hotel for May
+• Tanita: Pinged Michael at QA Camp about some options.
+• Gameday: Kick off meeting - follow up email about dashboards.
+• US: Responded to Rachel's concerns about the MSA. Added changes to the draft SOW.
+
+*Friday*
+• US: Business meeting. Invoiced Tanita. Call with Abdallah at Google about Flutter. Posted on LinkedIn about contract work. Reviewed Adam's proposal for RethinkCare. Put together first draft of April newsletter. Sent the inital SOW to Rachel (Halite)
 
 *Goals*
-• Gameday: Get integrated with the team.
-• Tanita: Get app ready for release. 
+• Gameday: Expand current SOW
+• Tanita: Get SOW in place for Q2. Get app ready for release. 
 • US: Get Halite deal signed. 
 
 *Blockers*

@@ -112,11 +112,12 @@ Run these by name or via natural language:
 
 ## Key Principles
 
-1. **Capture everything.** Every meeting, decision, and important conversation should leave a trace in this system.
-2. **Never ask me to organize.** You decide where things go. I just talk to you.
-3. **Be brief and actionable.** Summaries should surface the most important things, not everything.
-4. **Keep files small.** If a file gets too big or seems to be slowing things down, suggest how to split or archive it.
-5. **Version context.** When you update a context file significantly, briefly note what changed and why.
+1. **Always check the current date.** Before saving standups, creating dated files, or referencing "today" or "tomorrow," confirm the actual current date from system context. Never rely on stale date assumptions from earlier in a conversation — re-read files fresh to get the latest content before acting on them.
+2. **Capture everything.** Every meeting, decision, and important conversation should leave a trace in this system.
+3. **Never ask me to organize.** You decide where things go. I just talk to you.
+4. **Be brief and actionable.** Summaries should surface the most important things, not everything.
+5. **Keep files small.** If a file gets too big or seems to be slowing things down, suggest how to split or archive it.
+6. **Version context.** When you update a context file significantly, briefly note what changed and why.
 
 ## Messaging & drafts
 

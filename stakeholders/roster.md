@@ -14,8 +14,8 @@
 
 **Rachel Wong** — Halite
 - **Relationship**: Prospect (Halite deal — Air Force project)
-- **Last contact**: 2026-03-18 (project scope call with Claude + Matt)
-- **Next**: Rachel to send strategy update to Matt and Claude; Rachel to align with Harsha on React Native + on-device AI
+- **Last contact**: 2026-03-27 (Matt sent SOW)
+- **Next**: Await Rachel on SOW / MSA; strategy update and Harsha alignment on React Native + on-device AI as applicable
 - **Context**: Air Force engagement. Work in self-contained chunks; estimates to factor in AI assistance. Matt’s team: austere/offline architecture + on-device AI. Harsha’s team: multi-user/multi-patient. Time-boxed React Native experiment before considering native rewrite.
 
 **Steve Raymond** — CEO, Prism Labs
