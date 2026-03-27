@@ -6,8 +6,8 @@ GAMEDAY (Cody? TBH?)
 Goal: Stand up Braze and lifecycle, fix analytics, and build a path to loyalty and app.
 • Gameday Mens Health — Validate analytics/data pipeline and dashboards (Segment → warehouse → CRM), replace current vendor if needed, and define Phase 1 CRM analytics plan with Blaine, Allen, and data owner
 
-HALITE 
-• Get MSA and SOW finalized, then deliver (offline/on-device AI, etc.)
+HALITE (Anthony)
+• SOW sent to Rachel 2026-03-27; await signature / countersign and kickoff. MSA path as needed. Then deliver (offline/on-device AI, etc.)
 • Define requirements for Multi-Patient during week of 4/7
 
 KQED (Mark, Jon)
@@ -26,12 +26,13 @@ Goal: Ship website and successfully release app (early April)
 
 UPTECH 
     • Marketing 
-        • April Newsletter: clarify POV on right team size for modern product development (what you actually need by phase and company stage) Options in writing/newsletters/planning/2026-04.md 
+        • April Newsletter: **mostly done (Matt)** — prose in `writing/newsletters/2026-04-newsletter` + Google Doc. **Adam next week:** refine, HubSpot, ~4/15 send. Planning: `writing/newsletters/planning/2026-04.md` 
         • Reminder (week of Mar 23): Add the next batch of cold-outreach contacts on LinkedIn
         • Set up next Smartlead technical campaign - try a new approach.
     BD: Goal: Convert pipeline to signed deals and ongoing engagements; grow partner and client base.
-        • Kevin Lewis (company TBD) — explore taking over dev work; call next week with Claude + their dev manager
-        • Convert RethinkCare
+        • Kevin Lewis (company TBD) — Matt texted 2026-03-27; await reply / schedule call with Claude + their dev manager
+        • Convert RethinkCare — Adam drafting proposal 2026-03-27
+        • Abdallah (Google / Flutter): Jon followed up on FlutterCon 2026-03-27; still: block Jul 16–17 for team; submit talks; notify Abdallah when submitted. Details: inbox/uptech/2026-03-27-abdallah-google-flutter-fluttercon-meeting.md
 
 Not active now
 • PRISM — they're talking to Hedges about full time position, may still need our help. 
