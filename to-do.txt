@@ -1,14 +1,23 @@
 To-Do
-FIT-3D (Anthony)
-• Meet with Greg to discuss Q2 work 
 
-GAMEDAY (Cody? TBH?)
+**Matt portfolio priority:** **Gameday** and **Tanita** are highest priority (Tanita: assume we **launch the app**). Protect time for these first; other clients after.
+
+TANITA (Anthony; **top priority**)
+Goal: **Launch the app** (and ship website); north star is store release and a clean go-live, not “almost ready.”
+• Cody completing website tickets
+• Android and iOS app are at same parity
+• App release (target early April; adjust date in standup when locked)
+• Implement scoring for metrics (week of Mar 23)
+• QA Camp — engaged now that Q2 SOW is signed; Jira milestones for release
+
+GAMEDAY (**Matt** leading depth; **top priority**; Cody/engineering as assigned)
 Goal: Stand up Braze and lifecycle, fix analytics, and build a path to loyalty and app.
-• Gameday Mens Health — Validate analytics/data pipeline and dashboards (Segment → warehouse → CRM), replace current vendor if needed, and define Phase 1 CRM analytics plan with Blaine, Allen, and data owner
+• Gameday Mens Health — **Matt:** validate analytics/data pipeline and dashboards (Segment → warehouse → CRM), replace current vendor if needed, and define Phase 1 CRM analytics plan with Blaine, Allen, and data owner. Expand SOW for dashboard/analytics work as aligned with client.
 
-HALITE (Anthony)
-• SOW sent to Rachel 2026-03-27; await signature / countersign and kickoff. MSA path as needed. Then deliver (offline/on-device AI, etc.)
-• Define requirements for Multi-Patient during week of 4/7
+HALITE (**Adam** partner owner for account + delivery rhythm **from 2026-04-09**; Anthony on engineering per SOW)
+• Pilot closed won 2026-04-07; deliver per MSA/SOW (offline/on-device AI, React Native track, Multi-Patient with Harsha’s team).
+• Define requirements for Multi-Patient during week of 4/7 (Adam + team).
+• **Handoff:** update HubSpot deal owner to Adam; client notice that Adam is primary contact. Checklist: `meetings/actions/2026-04-09-halite-handoff-adam-gameday-matt.md`
 
 KQED (Mark, Jon)
 Goal: Reliable ongoing delivery for KQED — metrics, reporting, and new capabilities (podcast, live stream) so they can run and grow their digital product.
@@ -16,13 +25,8 @@ Goal: Reliable ongoing delivery for KQED — metrics, reporting, and new capabil
 • Live Stream Search
 • Develop a way to track non-app events better (news alerts, radio, etc.)
 
-TANITA (Anthony)
-Goal: Ship website and successfully release app (early April)
-• Cody completing website tickets
-• Android and iOS app are at same parity
-• App release in early April
-• Implement scoring for metrics (week of Mar 23)
-• QA Camp?
+FIT-3D (Anthony)
+• Meet with Greg to discuss Q2 work 
 
 UPTECH 
     • Marketing 

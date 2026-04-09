@@ -5,9 +5,9 @@ Run the morning sync workflow:
 1. Read `priorities/weekly-focus.md` for the current week's priorities
 2. Check `meetings/actions/` for any pending action items (unchecked `- [ ]` items)
 3. Check today's calendar using Google Calendar MCP tools (`GOOGLECALENDAR_EVENTS_LIST` with today's timeMin/timeMax in UTC)
-4. Check HubSpot for deals needing attention today:
+4. Check HubSpot for deals needing attention today (pipeline **source of truth**):
    - Use `HUBSPOT_SEARCH_DEALS` filtered by close date (this week) or last activity (stale > 7 days)
-   - Cross-reference with `deals/pipeline.md` for any strategic context
+   - Read **`deals/pipeline.md`** and per-deal notes in `business-development` for **notes and context** (facts still come from HubSpot)
 5. Summarize in this format:
 
 ```

@@ -6,7 +6,7 @@ Help me plan and set priorities for the week: $ARGUMENTS
 
 1. **Read current context**:
    - `priorities/weekly-focus.md` — last week's focus (if set)
-   - `deals/pipeline.md` — what deals need movement this week
+   - **HubSpot** — which deals need movement this week (factual pipeline); **`deals/pipeline.md`** — notes, risks, and story on those deals
    - `meetings/actions/` — any unresolved action items
    - Calendar for the week using `GOOGLECALENDAR_EVENTS_LIST` for the next 7 days
 

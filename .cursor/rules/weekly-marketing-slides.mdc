@@ -21,7 +21,7 @@ alwaysApply: false
 7. Website section header
 8. **Website Metrics** — pulled live from Amplitude (see below)
 9. BD section header
-10. **BD Update** — pulled from `deals/pipeline.md`
+10. **BD Update** — factual pipeline from **HubSpot** (stages, deals, owners); **narrative and nuance** from `deals/pipeline.md` when it adds useful context for the slide
 11. Action Plan / This Week's Focus
 12. LinkedIn Best Practices (Meg's tips — static)
 
@@ -41,11 +41,11 @@ alwaysApply: false
 - Top pages: `[Amplitude] Page Viewed` event, group by `[Amplitude] Page Path`, `metric: totals`, `range: Last 7 Days`
 - Use `timeSeriesLimit: 0` for top pages (totals only, no per-day breakdown needed)
 
-### BD Pipeline — `deals/pipeline.md`
-- Read from `uptech/business-development` GitHub repo via `get_file_contents`, path `deals/pipeline.md`
-- Sections map to BD funnel stages: Qualifying → Appointment Scheduled → Presentation Scheduled → Contract Sent
-- "Warm Leads" section = follow-up queue
-- Note deal owners (Matt / Adam / Claude) and any stale flags
+### BD Pipeline — HubSpot + `deals/pipeline.md`
+- **HubSpot:** search or list deals by stage; owners (Matt / Adam / Claude), amounts, close dates, and “what’s active” from CRM fields
+- Flag stale deals from engagements or last-modified data the tools expose
+- **`deals/pipeline.md`:** use for **notes, risks, and story** on key deals and for slide copy that benefits from git-maintained context
+- If a **fact** in markdown disagrees with HubSpot, use HubSpot
 
 ## Regenerating the PDF
 
@@ -68,6 +68,6 @@ alwaysApply: false
 1. Update the slide title date and `updated` timestamps
 2. Read `writing/linkedin-posts/` for last week's actual posts by date
 3. Query Amplitude for fresh website metrics (weekly visitors + top pages)
-4. Read `deals/pipeline.md` for current BD state
+4. Query HubSpot for current BD state; read `deals/pipeline.md` for notes and narrative context
 5. Update Action Plan with this week's focus (read `daily standup.txt` and `to-do.txt`)
 6. Regenerate the PDF with the Chrome command above

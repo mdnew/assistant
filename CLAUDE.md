@@ -53,7 +53,7 @@ standups/          # Daily Slack standups, one file per day (YYYY-MM-DD.md)
 tools/presentations/  # HTML slide decks (canonical company-overview template → PDF)
 ```
 
-**`business-development`** and **`writing`** (GitHub: `uptech/business-development`, `uptech/writing`) are not folders inside this repo. They hold pipeline, deal notes, proposals, and marketing or publishing content. When a question touches BD, deals, outbound, positioning, or what we have published, **browse or read those repos via GitHub MCP** (list directories, open files), not only the paths called out in "Important Context Files" below.
+**`business-development`** and **`writing`** (GitHub: `uptech/business-development`, `uptech/writing`) are not folders inside this repo. They hold deal notes, `deals/pipeline.md` (running **notes and context**), proposals, and marketing or publishing content. **Authoritative deal data** (stages, amounts, close dates, CRM activities) is in **HubSpot**. When a question touches BD, deals, outbound, positioning, or what we have published, use **HubSpot MCP** for CRM truth and **browse or read those GitHub repos via GitHub MCP** for narrative files and long-form notes (list directories, open files), not only the paths called out in "Important Context Files" below.
 
 ### How I Track Work (Standup vs To-Do)
 
@@ -132,7 +132,7 @@ Always check these files when they're relevant:
 - `to-do.txt` — longer-term goals for the next ~3 months
 - `priorities/weekly-focus.md` — current week's focus
 - `stakeholders/roster.md` — key relationships and context
-- **`uptech/business-development`** — `deals/pipeline.md` for the active pipeline (read/write via GitHub MCP); also skim or search the rest of that repo for deal context, proposals, and BD notes when helpful. **Always fetch this file live from GitHub — never rely on the local `deals/pipeline.md` copy, which may be stale.**
+- **`uptech/business-development`** — deal narrative files, proposals, and BD notes (read/write via GitHub MCP). **`deals/pipeline.md`** holds **notes, context, and the qualitative pipeline story** (git-friendly, easy to skim). It is **not** the system of record for stages or numbers: those live in **HubSpot**. When you edit `pipeline.md`, keep any stage/value summaries **consistent with HubSpot** after CRM updates. Skim the rest of that repo for context when helpful.
 - **`uptech/writing`** — LinkedIn drafts and published posts live under `linkedin-posts/`; browse the repo for other writing, voice, and marketing copy when relevant (read/write via GitHub MCP)
 - `meetings/actions/` — pending action items
 
@@ -144,25 +144,25 @@ When MCP tools are connected, use them to:
 - **Slack** (`SLACK_*`): Post updates, read channels
 - **GitHub** (`GITHUB_*`): Check PRs, issues, repo activity; read/write files in Uptech repos
 - **JIRA** (`JIRA_*`): Read/update tickets and project status
-- **HubSpot** (`HUBSPOT_*`): Read deals, contacts, companies, and activities; update only when Matt explicitly asks
+- **HubSpot** (`HUBSPOT_*`): **Source of truth for BD deals** (stages, amounts, close dates, deal records, and CRM-logged activity). Read anytime. **Write** (create/update deals, engagements, etc.) when Matt asks you to record or change deal state, or when running explicit deal workflows such as **`/dealupdate`** that are meant to persist updates to the CRM.
 
-**`deals/pipeline.md` in `uptech/business-development` is the source of truth for deal pipeline data.** Always read and write pipeline status there first. HubSpot should be kept reasonably in sync, but only update it when Matt explicitly asks.
+**Pipeline truth lives in HubSpot** (stages, amounts, dates, activities). Use HubSpot MCP first for questions like "where is this deal?", "what's the pipeline?", or "what's closing this week?". **`deals/pipeline.md`** is where you keep **notes, nuance, risks, and context** Matt wants versioned in git (and useful for decks and quick reads). If narrative markdown and HubSpot **disagree on facts** (stage, value, dates), **trust HubSpot** and fix the markdown. If they disagree on **interpretation**, keep both: CRM stays factual, `pipeline.md` carries the story.
 
 **Key files live in GitHub repos — use the GitHub MCP to read and write them:**
 
 | File | Repo | Path |
 |------|------|------|
-| Deal pipeline | `uptech/business-development` | `deals/pipeline.md` |
+| Deal notes + pipeline context (git) | `uptech/business-development` | `deals/pipeline.md` |
 | LinkedIn posts | `uptech/writing` | `linkedin-posts/{author}/YYYY-MM-DD-slug.txt` |
 
 - **Read:** `get_file_contents` → owner `uptech`, repo, path
 - **Write:** `create_or_update_file` → same args + full updated content + current file `sha`
 - **Browse:** `get_file_contents` on a directory path returns a listing of its contents
 
-When Matt asks about deals or the pipeline, **always fetch `deals/pipeline.md` from `uptech/business-development` via GitHub MCP first** — this is the source of truth, not the local copy.
-When Matt says `/dealupdate`, update `deals/pipeline.md` in `uptech/business-development` via MCP.
+When Matt asks about deals or the pipeline, **query HubSpot first** for factual state, then read **`deals/pipeline.md`** for **notes and context** (and per-deal files in `business-development` when they exist).
+When Matt says **`/dealupdate`**, **update HubSpot** first (source of truth), then **update `deals/pipeline.md`** with notes, context, and any summary lines so **stages/values match HubSpot**.
 When Matt asks about LinkedIn posts (e.g. "what did we post last week"), read from `uptech/writing` via MCP.
 
-**Never write to HubSpot automatically.** Only create, update, or delete HubSpot records when Matt explicitly asks (e.g. "update this deal in HubSpot", "log this in HubSpot", "sync to HubSpot"). Reading and searching HubSpot is always fine.
+**Do not write to HubSpot for unrelated or speculative reasons** (e.g. do not silently "fix" CRM data while answering a generic question). Creating, updating, or deleting HubSpot records is appropriate when Matt is clearly asking to log something, when executing **`/dealupdate`**, or when another slash workflow in this repo says to update the CRM. Reading and searching HubSpot is always fine.
 
 Always prefer acting directly via MCP tools when the user says "post", "send", "create", "check", or "look up" — don't ask them to do it manually.

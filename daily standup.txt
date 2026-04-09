@@ -1,17 +1,20 @@
-_Mar 27, 2026 - Standup_
-*Thursday*
-• KQED: Booked flights and hotel for May
-• Tanita: Pinged Michael at QA Camp about some options.
-• Gameday: Kick off meeting - follow up email about dashboards.
-• US: Responded to Rachel's concerns about the MSA. Added changes to the draft SOW.
+_Apr 9, 2026 - Standup_
+*Wednesday*
+• Gameday: Weekly sync with Grafted. Pregamed with Russ. Set up meeting on data engineering with their team.
+• US: Reconnect call with Scott Sechrest from Athlios. BD & Marketing Check-in meeting
 
-*Friday*
-• US: Business meeting. Invoiced Tanita. Call with Abdallah at Google about Flutter. Posted on LinkedIn about contract work. Reviewed Adam's proposal for RethinkCare. Put together first draft of April newsletter. Sent the inital SOW to Rachel (Halite)
+*Thursday*
+• KQED: Check in with Mark
+• Tanita: QA planning call with QA Camp
+• US: Put together 1 pager for Jackson to share with his clients.
 
 *Goals*
-• Gameday: Expand current SOW
-• Tanita: Get SOW in place for Q2. Get app ready for release. 
-• US: Get Halite deal signed. 
+• Halite: Help get Rachel to focus so we can successfully build her features.
+• Gameday: Expand current SOW with dashboard work.
+• Tanita: Get QA Camp moving. Get app ready for release. 
 
 *Blockers*
 • None
+
+
+LOG TIME IN HARVEST

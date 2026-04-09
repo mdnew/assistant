@@ -80,7 +80,7 @@ With HubSpot connected:
 - "Summarize all deals in Negotiation over $10k" → CRM search
 - "Who are the contacts at Acme?" → pulls from HubSpot CRM
 
-Note: The remote HubSpot MCP is currently **read-only** (contacts, companies, deals, tickets, etc.). Write operations require the `@hubspot/mcp-server` npm package with a private app token instead.
+Note: The hosted HubSpot MCP at `mcp.hubspot.com` may be **read-only** depending on configuration. **If HubSpot is your source of truth for deals**, your Cursor setup needs **write-capable** HubSpot tools (for example a private-app token server) so `/dealupdate` and similar workflows can update stages and engagements. If you only have read access, treat CRM data as authoritative for reads but log pipeline changes in markdown or another channel until writes work.
 
 ---
 

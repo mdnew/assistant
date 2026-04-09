@@ -7,7 +7,7 @@ Draft a follow-up message for: $ARGUMENTS
 1. **Gather context**:
    - Look up the person in `stakeholders/roster.md`
    - Find relevant meeting notes in `meetings/notes/`
-   - Check deal status in `deals/pipeline.md` if applicable
+   - Check deal status in **HubSpot** if applicable; read **`deals/pipeline.md`** for notes and context to inform tone and specifics
    - Check any pending action items in `meetings/actions/`
 
 2. **Identify the purpose** of the follow-up:

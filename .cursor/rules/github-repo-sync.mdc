@@ -7,6 +7,8 @@ alwaysApply: true
 
 Whenever you create or modify a file in the `uptech/business-development` or `uptech/writing` repos, **always push the changes to GitHub via the MCP immediately after** — do not leave them only on disk.
 
+**BD note:** Deal **stages, amounts, and dates** are authoritative in **HubSpot**. `deals/pipeline.md` is for **notes and context** in git (keep factual summaries aligned with HubSpot). Still push it when you edit it.
+
 ## Workflow
 
 1. Before editing an existing file, fetch it with `get_file_contents` to get the current `sha`

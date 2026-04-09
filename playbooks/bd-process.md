@@ -8,7 +8,7 @@
 2. Identify the right angle — what's their pain, what's our hook?
 3. Draft a short, personalized first message (email or LinkedIn)
 4. Log the contact in `stakeholders/roster.md`
-5. Add to pipeline in `deals/pipeline.md` at "Prospecting"
+5. Create or move the deal in **HubSpot** to the appropriate early stage (e.g. Prospecting / Qualifying per your pipeline). Add a line or short block in **`deals/pipeline.md`** with **notes and context** (and a stage summary that matches HubSpot).
 
 ## Discovery Call
 
@@ -20,7 +20,7 @@
 
 - Draft in `drafts/` before sending
 - Get review before sending anything important
-- Log in pipeline when sent → move to "Proposal" stage
+- Log in **HubSpot** when sent → move deal to "Proposal" (or equivalent stage)
 
 ## Negotiation
 
@@ -29,7 +29,7 @@
 
 ## Close
 
-- Update pipeline to "Closed Won" or "Closed Lost"
+- Update the deal in **HubSpot** to Closed Won or Closed Lost
 - If lost, document the reason — this is valuable data
 
 ## Follow-up Cadence

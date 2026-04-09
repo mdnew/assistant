@@ -48,7 +48,7 @@ From meeting on YYYY-MM-DD
 
 ### Step 4: Update other context
 - `stakeholders/roster.md` — update any new info about participants
-- `deals/pipeline.md` — update deal stage if relevant
+- **HubSpot** — update deal stage or log an engagement if relevant (source of truth); **`deals/pipeline.md`** — add notes and context; keep any stage/value lines consistent with HubSpot
 - `context/` files — update if strategic context changed
 - `decisions/` — create a decision record if a significant decision was made
 

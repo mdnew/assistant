@@ -13,10 +13,11 @@
 ## Key External Contacts
 
 **Rachel Wong** — Halite
-- **Relationship**: Prospect (Halite deal — Air Force project)
-- **Last contact**: 2026-03-27 (Matt sent SOW)
-- **Next**: Await Rachel on SOW / MSA; strategy update and Harsha alignment on React Native + on-device AI as applicable
-- **Context**: Air Force engagement. Work in self-contained chunks; estimates to factor in AI assistance. Matt’s team: austere/offline architecture + on-device AI. Harsha’s team: multi-user/multi-patient. Time-boxed React Native experiment before considering native rewrite.
+- **Relationship**: Client (Halite — Air Force project; **HubSpot deal Closed Won** per Matt **2026-04-07**)
+- **Uptech partner owner**: **Adam** (Matt transitioning account and day-to-day client ownership **2026-04-09**; confirm HubSpot deal owner = Adam when handoff is official)
+- **Last contact**: 2026-04-07 (CRM updated to Closed Won)
+- **Next**: Adam: kickoff and delivery execution, cadence with Rachel; Multi-Patient requirements track (week of 4/7 per `weekly-focus.md`); Harsha alignment on React Native + on-device AI as applicable
+- **Context**: Air Force engagement. Work in self-contained chunks; estimates to factor in AI assistance. Matt’s team: austere/offline architecture + on-device AI. Harsha’s team: multi-user/multi-patient. Time-boxed React Native experiment before considering native rewrite. Engineering support (e.g. Anthony) continues per SOW; **partner face of account** moves to Adam.
 
 **Steve Raymond** — CEO, Prism Labs
 - **Relationship**: Partner
@@ -36,12 +37,14 @@
 
 **Tori** — Tanita
 - **Relationship**: Client contact (Tanita)
-- **Last contact**: 2026-03-16
+- **Last contact**: 2026-04-06 (meeting notes: review AI educational content with Jen before launch)
 - **Context**: Provided website fix list, receiving progress updates Wed
 
 **Jen** — Tanita
 - **Relationship**: Client contact (Tanita)
-- **Last contact**: 2026-03-17 (discussed launch next steps slides)
+- **Last contact**: 2026-04-07 (signed Tanita Q2 SOW)
+- **Next**: Sourcing less aggressive scoring-band data; confirm educational data with Paul; review AI educational content with Tori
+- **Context**: Discussed launch next steps slides 2026-03-17. Primary contact for Q2 commercial / planning (budget, SOW). 2026-04-06 notes: Supabase for accounts, promo strategy for scale upsell, QA Camp starts post-SOW signature. **Q2 SOW executed** (Jen signed).
 
 **Lenny Moon** — CFO, Booster Fuels
 - **Relationship**: Warm prospect
@@ -51,10 +54,24 @@
 - **Notes**: Lenny is the CFO but is clearly the relationship. Shweta Madasu was the original technical contact but went cold. Head of Product opening is the current angle.
 
 **Elaine** — RethinkCare
-- **Relationship**: Prospect
+- **Relationship**: Prospect (deal **Closed Lost** in HubSpot **2026-04-03**)
 - **Last contact**: 2026-03-25 (intro call with Matt; went very well)
-- **Next**: **Adam** to deliver formal proposal (discovery-first, phase-1 Email + SMS plumbing, per `deals/pipeline.md`). Company overview already shared with RethinkCare; on their side for review. Matt: relationship + Grafted coordination. MSA and project SOW before implementation.
-- **Context**: Needs Braze technical integrations. Kenny (mutual contact) intro'd her to Grafted; Jackson (Grafted) whitelabels Uptech for the technical build. **Large opportunity** per Matt after 2026-03-25 call. Pipeline: **Proposal (In Progress)** in `deals/pipeline.md`. **BD focus:** convert to signed deal (`to-do.txt`). No MSA/SOW executed yet.
+- **Next**: None active on Braze implementation unless relationship reopens; optional light check-in or lesson capture with Grafted if useful
+- **Context**: Needs Braze technical integrations. Kenny (mutual contact) intro'd her to Grafted; Jackson (Grafted) whitelabels Uptech for the technical build. **Large opportunity** per Matt after 2026-03-25 call; **CRM** now shows **RethinkCare - Braze Implementation** lost **2026-04-03**. Narrative and proposal prep detail archived in `deals/pipeline.md` git history (see sync **2026-04-07**). No MSA/SOW executed.
+
+**Carson Lappetito** — Atticus Capital Holdings
+- **Relationship**: Prospect (inbound, booked via Calendly)
+- **Last contact**: 2026-04-02 (Calendly booking received)
+- **Next**: Intro call Mon Apr 6 at 2:00 PM PT
+- **Context**: Self-booked 30-min intro. No project context yet. Prep before the call.
+- **Email**: carson@atticuscapitalholdings.com
+
+**Abdallah Shaban** — Google (Flutter/Fluttercon)
+- **Relationship**: Partner prospect / conference contact
+- **Last contact**: 2026-03-27 (30-min Google Meet with Matt)
+- **Next**: Submit Fluttercon talk proposal; notify Abdallah at abdallahshaban@google.com once submitted
+- **Context**: Google contact exploring Fluttercon speaker and partnership opportunities. Meeting covered Uptech's philosophy (Acorns roots), AI's impact on development and team size, and Flutter/mobile strategy. Fluttercon is July 16-17. Abdallah suggested an enterprise-track talk (big customer use case). Potential Google collaboration angle worth developing.
+- **Email**: abdallahshaban@google.com
 
 **Jackson Yomogida** — Co-Founder, Grafted
 - **Relationship**: Partner / friend (key referral channel)

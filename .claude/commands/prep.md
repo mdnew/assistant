@@ -11,7 +11,7 @@ Prepare me for a meeting or call with: $ARGUMENTS
 2. **Find previous meeting notes** in `meetings/notes/` for any past interactions
    - Highlight follow-ups, commitments, or unresolved items
 
-3. **Check deal status** in `deals/pipeline.md` if this is a BD/sales context
+3. **Check deal status** in **HubSpot** (company or contact) if this is a BD/sales context; read **`deals/pipeline.md`** for **notes and context** on that deal
 
 4. **Check pending action items** in `meetings/actions/` related to them
 
