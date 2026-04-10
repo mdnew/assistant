@@ -21,6 +21,7 @@ I will give you short prompts and you should infer intent from context. Examples
 - "We decided to go with X" → Run `/decide`
 - "Update the Acme deal" → Run `/dealupdate Acme`
 - "Log this contact" → Run `/contact`
+- "Log time in Harvest", "log my Harvest time", "harvest time" → Follow the **log-harvest-time** Cursor skill at `~/.cursor/skills/log-harvest-time/SKILL.md` (see "Harvest time" below)
 
 For longer thoughts, I use voice input. Stream-of-consciousness is fine.
 
@@ -48,7 +49,7 @@ projects/          # Product initiatives and roadmap items
 stakeholders/
   one-on-ones/     # Individual relationship histories
   roster.md        # Key contacts with full context
-reference/         # Frameworks, mental models, templates
+reference/         # Frameworks, mental models, templates (optional harvest-time-mapping.md for Harvest)
 standups/          # Daily Slack standups, one file per day (YYYY-MM-DD.md)
 tools/presentations/  # HTML slide decks (canonical company-overview template → PDF)
 ```
@@ -71,6 +72,19 @@ tools/presentations/  # HTML slide decks (canonical company-overview template �
 2. Extract yesterday's and today's sections (and any goals/blockers)
 3. Write to `standups/YYYY-MM-DD.md` (daily copy for that date)
 4. Clear logged sections from `daily standup.txt` (or leave — follow Matt's preference)
+
+### Harvest time
+
+Matt logs billable time in **Harvest**. When he asks to log Harvest time (or to turn standup lines into time entries), **read and follow** the Cursor skill:
+
+- **`~/.cursor/skills/log-harvest-time/SKILL.md`** (main workflow)
+- **`~/.cursor/skills/log-harvest-time/reference.md`** (API snippets: list projects, task assignments, create entries)
+
+**Environment:** `HARVEST_ACCESS_TOKEN` and `HARVEST_ACCOUNT_ID` must be set (from [Harvest ID](https://id.getharvest.com) → Developers). Never echo tokens.
+
+**Mapping:** Keep **`reference/harvest-time-mapping.md`** in this repo (copy from `~/.cursor/skills/log-harvest-time/mapping.example.md`) so standup-style client codes (Gameday, KQED, Tanita, etc.) map to Harvest `project_id` and `task_id`. If the file is missing, use the API to discover IDs and create it with Matt.
+
+**Rules:** Build a **proposed** list of entries (date, project, task, hours, notes, brief **billability judgment**: Product vs Partner vs Non-billable per **`reference/harvest-time-mapping.md`**) and **wait for Matt’s explicit approval** before any Harvest API writes. Do not invent hours. Same-day input can come from **`standups/YYYY-MM-DD.md`** or **`daily standup.txt`** when Matt points you there.
 
 ### Email Inbox
 
@@ -135,6 +149,7 @@ Always check these files when they're relevant:
 - **`uptech/business-development`** — deal narrative files, proposals, and BD notes (read/write via GitHub MCP). **`deals/pipeline.md`** holds **notes, context, and the qualitative pipeline story** (git-friendly, easy to skim). It is **not** the system of record for stages or numbers: those live in **HubSpot**. When you edit `pipeline.md`, keep any stage/value summaries **consistent with HubSpot** after CRM updates. Skim the rest of that repo for context when helpful.
 - **`uptech/writing`** — LinkedIn drafts and published posts live under `linkedin-posts/`; browse the repo for other writing, voice, and marketing copy when relevant (read/write via GitHub MCP)
 - `meetings/actions/` — pending action items
+- `reference/harvest-time-mapping.md` — Harvest `project_id` / `task_id` by client code (when logging time; see "Harvest time")
 
 ## MCP Tools Available
 
