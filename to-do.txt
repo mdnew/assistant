@@ -13,6 +13,7 @@ Goal: **Launch the app** (and ship website); north star is store release and a c
 GAMEDAY (**Matt** leading depth; **top priority**; Cody/engineering as assigned)
 Goal: Stand up Braze and lifecycle, fix analytics, and build a path to loyalty and app.
 • Gameday Mens Health — **Matt:** validate analytics/data pipeline and dashboards (Segment → warehouse → CRM), replace current vendor if needed, and define Phase 1 CRM analytics plan with Blaine, Allen, and data owner. Expand SOW for dashboard/analytics work as aligned with client.
+• **Mon Apr 13, 2026:** Work on next **Gameday SOW** (data engineering scope and deliverables). Calendar focus block: **9:30–10:00 AM PT** (before next meeting).
 
 HALITE (**Adam** partner owner for account + delivery rhythm **from 2026-04-09**; Anthony on engineering per SOW)
 • Pilot closed won 2026-04-07; deliver per MSA/SOW (offline/on-device AI, React Native track, Multi-Patient with Harsha’s team).
@@ -31,12 +32,12 @@ FIT-3D (Anthony)
 UPTECH 
     • Marketing 
         • April Newsletter: **mostly done (Matt)** — prose in `writing/newsletters/2026-04-newsletter` + Google Doc. **Adam next week:** refine, HubSpot, ~4/15 send. Planning: `writing/newsletters/planning/2026-04.md` 
-        • Reminder (week of Mar 23): Add the next batch of cold-outreach contacts on LinkedIn
+        • LinkedIn (cold email list): **Done:** pilot-batch-02 CTO angle B (first 25). **Next:** `business-development/email-outreach/lists/pilot-batch-04-cio-angle-b.csv` (25 CIOs, same angle-B family; align with Smartlead send before connecting)
         • Set up next Smartlead technical campaign - try a new approach.
     BD: Goal: Convert pipeline to signed deals and ongoing engagements; grow partner and client base.
         • Kevin Lewis (company TBD) — Matt texted 2026-03-27; await reply / schedule call with Claude + their dev manager
         • Convert RethinkCare — Adam drafting proposal 2026-03-27
-        • Abdallah (Google / Flutter): Jon followed up on FlutterCon 2026-03-27; still: block Jul 16–17 for team; submit talks; notify Abdallah when submitted. Details: inbox/uptech/2026-03-27-abdallah-google-flutter-fluttercon-meeting.md
+        • Abdallah (Google / Flutter): Matt pinged on LinkedIn 2026-04-15. Still: block Jul 16–17 for team; submit talks; notify Abdallah by email when submitted. Details: inbox/uptech/2026-03-27-abdallah-google-flutter-fluttercon-meeting.md
 
 Not active now
 • PRISM — they're talking to Hedges about full time position, may still need our help. 

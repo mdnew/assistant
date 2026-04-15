@@ -1,0 +1,52 @@
+---
+description: When Matt asks to create or draft a standup from Calendar and Harvest (e.g. "create standup", "populate standup from calendar", "pull yesterday and today into standup"), merge those sources into daily standup.txt.
+alwaysApply: true
+---
+
+# Standup from Calendar + Harvest
+
+When Matt wants to **create or refresh** `daily standup.txt` using **Calendar and Harvest** (phrases like "create standup", "draft standup from calendar and Harvest", "pull my calendar and Harvest into standup"), do this in order.
+
+## 1. Dates and timezone
+
+- Use the **actual current calendar date** from user or system context as **today**.
+- **Yesterday** and **today** are in **America/Los_Angeles** unless Matt says otherwise (match his primary Google Calendar timezone).
+- Weekday labels in the file (e.g. `*Thursday*`) are **yesterday** and **today** by name.
+
+## 2. Google Calendar (read)
+
+- Use **Google Calendar MCP**: `get-current-time` for timezone if needed, then load **yesterday 00:00 through end of today** (inclusive) on calendars he actually uses (at least **primary** `matt@uptechstudio.com`; include other **selected** calendars if useful). Prefer **`search-events`** or **`get-freebusy`** with explicit calendar id **`matt@uptechstudio.com`** if **`list-events`** errors; see **`.cursor/rules/google-calendar-mcp.mdc`**.
+- Turn events into **short standup bullets**: time (optional), title, location or Meet link only if it helps. Omit private details he would not want in a team standup.
+- Map obvious work events to **client codes** when clear (Gameday, KQED, Tanita, Halite, Fit3D, US, etc.) using titles, attendees, or calendar name. If unclear, use a neutral bullet without forcing a code.
+
+## 3. Harvest (read only)
+
+- **Do not post or log time** as part of this workflow unless Matt separately asks. This step is **read only** to suggest standup lines.
+- Require env vars **`HARVEST_ACCESS_TOKEN`** and **`HARVEST_ACCOUNT_ID`** (never print token values).
+- Fetch time entries for **yesterday and today** (same local dates as Calendar):
+
+```bash
+curl -sS "https://api.harvestapp.com/v2/time_entries?from=YYYY-MM-DD&to=YYYY-MM-DD" \
+  -H "Authorization: Bearer ${HARVEST_ACCESS_TOKEN}" \
+  -H "Harvest-Account-Id: ${HARVEST_ACCOUNT_ID}" \
+  -H "User-Agent: UptechAssistant (cursor-agent)"
+```
+
+- Use **`from` / `to`** as ISO dates for yesterday and today. Paginate with `page` / `per_page` if the response is truncated (`next_page` in links).
+- For each entry, capture **project name**, **hours**, **task name**, and **notes** (if any). Turn into bullets (e.g. `Client: 1.5h Product, notes…`). Cross-check project names with **`reference/harvest-time-mapping.md`** for standup codes when helpful.
+
+If Harvest env is missing or the API errors, say so briefly and still complete the standup from Calendar.
+
+## 4. Write `daily standup.txt`
+
+- Path: repo root **`daily standup.txt`** (space in filename).
+- **Read the file first.** Preserve existing **\*Goals\*** and **\*Blockers\*** sections when present unless Matt asked to replace everything.
+- Top line style: `_Mon Apr 10, 2026 - Standup_` (adjust date and weekday).
+- Two day sections: **\*YesterdayWeekday\*** and **\*TodayWeekday\*** with bullets merged from Calendar + Harvest. **De-duplicate** when the same work appears in both.
+- Bullets use `•` and optional client prefix `Client:` like the existing file.
+- **No em dashes** in standup text (use commas, colons, or separate sentences).
+
+## 5. Not the same as "log standup"
+
+- **This rule:** draft or refresh standup **from** Calendar + Harvest into `daily standup.txt`.
+- **`log standup` / post to `standups/`:** follow **`CLAUDE.md`** (copy to `standups/YYYY-MM-DD.md`, clear sections, etc.). Only do that if Matt asks.

@@ -115,16 +115,38 @@ claude mcp add zapier \
 ```
 
 ### Option B: google-calendar-mcp (direct, more powerful)
-```bash
-# Install and run OAuth setup first
-npx -y @iflow-mcp/google-calendar-mcp auth
 
-# Then add to Claude Code
+**Prerequisites (Google Cloud):** Create or pick a project, enable [Google Calendar API](https://console.cloud.google.com/apis/library/calendar-json.googleapis.com), create **OAuth client ID** type **Desktop app**, download the JSON. Under **OAuth consent screen**, add yourself as a **test user** while the app is in testing (or publish the app per the package docs to avoid weekly token expiry in test mode).
+
+**Credentials file:** Save the downloaded client secret JSON as `~/.google-calendar-mcp/oauth-credentials.json` (absolute path in `GOOGLE_OAUTH_CREDENTIALS`).
+
+**One-time auth (browser OAuth):**
+```bash
+export GOOGLE_OAUTH_CREDENTIALS="$HOME/.google-calendar-mcp/oauth-credentials.json"
+npx -y @iflow-mcp/google-calendar-mcp auth
+```
+
+**Cursor:** In `~/.cursor/mcp.json`:
+```json
+"google-calendar": {
+  "command": "npx",
+  "args": ["-y", "@iflow-mcp/google-calendar-mcp"],
+  "env": {
+    "GOOGLE_OAUTH_CREDENTIALS": "/Users/YOUR_USER/.google-calendar-mcp/oauth-credentials.json"
+  }
+}
+```
+
+**Claude Code:**
+```bash
 claude mcp add google-calendar \
+  -e GOOGLE_OAUTH_CREDENTIALS="$HOME/.google-calendar-mcp/oauth-credentials.json" \
   -- npx -y @iflow-mcp/google-calendar-mcp
 ```
 
-This stores OAuth tokens locally after the one-time auth flow.
+Tools use names like `list-events`, `create-event` (not `GOOGLECALENDAR_*`). Update slash command docs if you want exact tool names.
+
+Tokens are stored locally after auth (optional: `GOOGLE_CALENDAR_MCP_TOKEN_PATH` for a custom token file location).
 
 ---
 

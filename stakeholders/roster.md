@@ -68,8 +68,8 @@
 
 **Abdallah Shaban** — Google (Flutter/Fluttercon)
 - **Relationship**: Partner prospect / conference contact
-- **Last contact**: 2026-03-27 (30-min Google Meet with Matt)
-- **Next**: Submit Fluttercon talk proposal; notify Abdallah at abdallahshaban@google.com once submitted
+- **Last contact**: 2026-04-15 (LinkedIn ping from Matt); prior: 2026-03-27 (30-min Google Meet)
+- **Next**: Flag Jul 16–17 on team calendar; submit Fluttercon talk proposal; notify abdallahshaban@google.com once submitted (email, per prior plan)
 - **Context**: Google contact exploring Fluttercon speaker and partnership opportunities. Meeting covered Uptech's philosophy (Acorns roots), AI's impact on development and team size, and Flutter/mobile strategy. Fluttercon is July 16-17. Abdallah suggested an enterprise-track talk (big customer use case). Potential Google collaboration angle worth developing.
 - **Email**: abdallahshaban@google.com
 

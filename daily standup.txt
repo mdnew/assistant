@@ -1,21 +1,18 @@
-_Apr 10, 2026 - Standup_
-*Thursday*
-• Gameday: Chats with Blaine about additional work
-• KQED: Check in with Mark
-• Tanita: QA planning call with QA Camp
-• US: Put together 1 pager for Jackson to share with his clients - discussed co-selling strategy. Connected on LinkedIn with some people Claude recommended. Set up a new email campaign for cold outreach.
+_Apr 15, 2026 - Standup_
+*Tuesday*
+• Gameday: Intro meeting with Lobbie
+• Halite: Weekly prioritization
+• KQED: Discuss appsec needs 
+• WAIR: Review designs with Greg and Anthony
+• US: Review newsletter. Converted two LinkedIn posts to blog posts. Sync with Russ. Sync with Jon. Happy hour.
 
-*Friday*
-• Fit3D: Call with Greg to talk about his needs for Q2
-• Gameday: Call to discuss data engineering
-• US: Business meeting
+*Wednesday*
+• KQED: Pull KQED data and review metrics.
+• US: Add more people on LinkedIn. Update marketing slides. Weekly BD and marketing check-in
 
 *Goals*
-• Gameday: Expand current SOW with dashboard work.
+• Gameday: Get next SOW signed. Support Grafted.
 • Tanita: Get QA Camp moving. Get app ready for release. 
 
 *Blockers*
-• None
-
-
-LOG TIME IN HARVEST
+• None   

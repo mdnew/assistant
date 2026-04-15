@@ -1,0 +1,24 @@
+---
+description: Default working hours for scheduling on Matt’s calendar (Google Calendar MCP); no early or late blocks unless he opts in.
+alwaysApply: true
+---
+
+# Calendar scheduling hours (Matt)
+
+When **creating or moving** calendar events for Matt via **Google Calendar MCP** (or any assistant scheduling on his behalf):
+
+## Default window
+
+- **Do not schedule** events to **start before 9:30 AM** local time.
+- **Do not schedule** events to **end after 4:00 PM** local time (his workday cutoff for normal blocks).
+
+Use **America/Los_Angeles** as his default timezone unless he specifies another.
+
+## Exceptions
+
+- If Matt **explicitly** asks for an early or late time (e.g. “7am”, “dinner”, “after 5”), you may schedule outside this window.
+- **All-day** events, **personal** calendars he names, or **external** meetings he pastes in as fixed times: follow his instructions; if he only says “add this invite,” do not move the time without asking.
+
+## Focus / hold blocks
+
+When proposing **focus time** or **holds** without a requested time, pick a slot **inside 9:30 AM–4:00 PM** that respects existing **busy** (e.g. from `get-freebusy`). Prefer **at least ~60 minutes** for deep work unless he asks otherwise.

@@ -4,6 +4,8 @@
 
 From: meeting notes, 2026-03-27
 
+**2026-04-15:** Matt pinged Abdallah on LinkedIn (relationship touch; separate from email notify-after-submit below).
+
 - [ ] Flag **July 16-17 (Fluttercon)** for the team calendar
 - [ ] Submit a **Fluttercon talk proposal** — enterprise-track angle (big customer use case)
 - [ ] Notify **abdallahshaban@google.com** once talk proposal is submitted

@@ -1,0 +1,19 @@
+---
+description: When Matt logs standup (e.g. "log standup", /log-standup), archive daily standup.txt to standups/YYYY-MM-DD.md using the real calendar date.
+alwaysApply: true
+---
+
+# Log standup (archive)
+
+When Matt asks to **log** or **save** standup (phrases like "log standup", `/log-standup`, "save standup to archive"), follow **`log-standup`** skill / this workflow.
+
+## Date for `standups/YYYY-MM-DD.md`
+
+- **Authoritative "today"** is the **actual current calendar date** from **system / user context** (e.g. the `Today's date:` field in the session, or the same source you use for any dated file).
+- **Do not** derive the archive filename only from the scratch line at the top of `daily standup.txt` (e.g. `_Apr 13, 2026 - Standup_`). That line is often a template or stale; the **archive path must match real today**.
+- If the scratch header date and system **today** disagree, use **system today** for `standups/YYYY-MM-DD.md` and briefly flag the mismatch for Matt if it matters.
+
+## Rest of workflow
+
+- Read `daily standup.txt`, extract prior day / today / Goals / Blockers, convert bullets per the skill, write the dated archive file.
+- **Do not** delete or edit `daily standup.txt` unless Matt explicitly asks.

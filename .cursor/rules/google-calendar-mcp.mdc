@@ -1,0 +1,27 @@
+---
+description: Use Matt’s primary calendar id and reliable Google Calendar MCP tools when list-events or calendarId primary fails.
+alwaysApply: true
+---
+
+# Google Calendar MCP (Matt)
+
+## Primary calendar id
+
+Matt’s **primary** Google Calendar id is **`matt@uptechstudio.com`** (confirm with **`list-calendars`** if it ever changes).
+
+Some Cursor or MCP paths mishandle `calendarId: primary` or unquoted ids and return JSON parse or validation errors. **Prefer passing the explicit id string `matt@uptechstudio.com`** on tools that accept `calendarId`.
+
+## Which tools to use
+
+- **`get-current-time`** and **`list-calendars`**: use as needed; no `calendarId` issue.
+- **`list-events`**: if it fails with validation or JSON errors, **do not loop on the same call**. Use one of the alternatives below with `calendarId: matt@uptechstudio.com`.
+- **`search-events`**: reliable for a **date range** when you need **titles and details**. Use `calendarId` **`matt@uptechstudio.com`**, `timeMin` / `timeMax` (and `timeZone` **America/Los_Angeles** when using naive local strings), and a `query` string (can be a single space or minimal text if the API requires a non-empty query; adjust if the server rejects empty query).
+- **`get-freebusy`**: reliable for **busy blocks only** (no titles). Use `calendars: [{"id": "matt@uptechstudio.com"}]` plus `timeMin` / `timeMax` and timezone as needed.
+
+## Multi-calendar reads
+
+For **Office Calendar** or other ids from **`list-calendars`**, use the same pattern: explicit `id` strings, **`get-freebusy`** for multiple calendars in one call, or **`search-events`** per calendar if you need event text.
+
+## Creating events
+
+When **creating or updating** events for Matt, follow **`.cursor/rules/calendar-scheduling-hours.mdc`** (default **9:30 AM–4:00 PM** America/Los_Angeles unless he explicitly opts out).
