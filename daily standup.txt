@@ -1,18 +1,16 @@
-_Apr 15, 2026 - Standup_
-*Tuesday*
-• Gameday: Intro meeting with Lobbie
-• Halite: Weekly prioritization
-• KQED: Discuss appsec needs 
-• WAIR: Review designs with Greg and Anthony
-• US: Review newsletter. Converted two LinkedIn posts to blog posts. Sync with Russ. Sync with Jon. Happy hour.
+_Apr 20, 2026 - Standup_
+*Friday*
+• Gameday: Call with Nicole to discuss Monday.com connector and other work. Created high level estimates for their requested work for the quarter and shared with Russ & Claude. Reviewed Segment to see what events current exist and what don't.
+• US: Brown bag, Allocation scenario generator.
 
-*Wednesday*
-• KQED: Pull KQED data and review metrics.
-• US: Add more people on LinkedIn. Update marketing slides. Weekly BD and marketing check-in
+*Monday*
+• Gameday: Call with Barry to review Segment data. Discuss Gameday Q2 asks with Claude and Russ. Get back to Nicole with estimates.
+• US: Check in with Carl, Leads Meeting, Partner Sync
+• Tanita: Weekly Website Prioritization
 
 *Goals*
 • Gameday: Get next SOW signed. Support Grafted.
 • Tanita: Get QA Camp moving. Get app ready for release. 
 
 *Blockers*
-• None   
+• None
