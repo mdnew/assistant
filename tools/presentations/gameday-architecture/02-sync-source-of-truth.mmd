@@ -1,0 +1,12 @@
+flowchart LR
+  Y[Yext entity]
+  WH[Webhook payload]
+  MAP[Field mapper Yext to Webflow]
+  WF[Webflow CMS item]
+  PUB[Publish Webflow]
+  D1[(D1 SQL)]
+  WRK[Cloudflare Worker]
+
+  Y --> WH --> MAP --> WF --> PUB --> D1
+  D1 --> WRK
+  WF_TMPL[Webflow HTML templates] --> WRK

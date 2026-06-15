@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Gameday web architecture (May 2026)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #fafafa;
+      --card: #ffffff;
+      --ink: #1a1a1a;
+      --muted: #5b6470;
+      --border: #e6e8eb;
+      --accent: #0b66c2;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+    header { padding: 32px 40px 8px; max-width: 1280px; margin: 0 auto; }
+    header h1 { margin: 0 0 6px; font-size: 24px; }
+    header p { margin: 0; color: var(--muted); font-size: 14px; }
+    main { max-width: 1280px; margin: 0 auto; padding: 16px 40px 80px; }
+    .diagram {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px 28px;
+      margin: 24px 0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .diagram h2 { margin: 0 0 4px; font-size: 18px; }
+    .diagram .caption { margin: 0 0 16px; color: var(--muted); font-size: 13px; }
+    .diagram img { width: 100%; height: auto; display: block; border-radius: 6px; }
+    .links { margin-top: 12px; font-size: 13px; }
+    .links a {
+      display: inline-block;
+      margin-right: 14px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .links a:hover { text-decoration: underline; }
+    footer { max-width: 1280px; margin: 0 auto; padding: 0 40px 40px; color: var(--muted); font-size: 12px; }
+    code { background: #f1f3f5; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Gameday web architecture</h1>
+    <p>Ignite handover, 2026-05-06. Drop these images into slides as-is, or use SVG for crisper scaling.</p>
+  </header>
+  <main>
+    <section class="diagram">
+      <h2>1. System context</h2>
+      <p class="caption">Who talks to what: People, Yext, Webflow, Cloudflare (Workers + D1), GitHub delivery, other systems.</p>
+      <img src="01-system-context.svg" alt="System context diagram" />
+      <div class="links">
+        <a href="01-system-context.png" download>PNG (2x)</a>
+        <a href="01-system-context.svg" download>SVG</a>
+        <a href="01-system-context.mmd" download>.mmd source</a>
+      </div>
+    </section>
+
+    <section class="diagram">
+      <h2>2. Source of truth and sync</h2>
+      <p class="caption">Yext is authoritative for live locations. Webflow + D1 reflect the chain. Templates flow into the Worker.</p>
+      <img src="02-sync-source-of-truth.svg" alt="Source of truth sync diagram" />
+      <div class="links">
+        <a href="02-sync-source-of-truth.png" download>PNG (2x)</a>
+        <a href="02-sync-source-of-truth.svg" download>SVG</a>
+        <a href="02-sync-source-of-truth.mmd" download>.mmd source</a>
+      </div>
+    </section>
+
+    <section class="diagram">
+      <h2>3. Page request path</h2>
+      <p class="caption">How a URL becomes HTML: edge -> Worker -> D1 (redirects + clinic/treatment graph) -> Webflow template.</p>
+      <img src="03-page-request-path.svg" alt="Page request path diagram" />
+      <div class="links">
+        <a href="03-page-request-path.png" download>PNG (2x)</a>
+        <a href="03-page-request-path.svg" download>SVG</a>
+        <a href="03-page-request-path.mmd" download>.mmd source</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    Source: <code>meetings/notes/2026-05-06-gameday-web-architecture-diagram.md</code>. Re-render any diagram with <code>npx -p @mermaid-js/mermaid-cli mmdc -i NAME.mmd -o NAME.png -c mermaid-config.json -b white -s 2 -w 1920</code>.
+  </footer>
+</body>
+</html>

@@ -2,6 +2,8 @@
 
 Intent: **Adam** becomes primary partner owner for **Halite** (client comms, delivery rhythm, CRM face). **Matt** takes **more** of **Gameday** (analytics, data pipeline, dashboard/SOW expansion, vendor path).
 
+**Update 2026-05-05:** **Russ** is **primary** on Gameday **data engineering**; **Anthony** works with **Matt** on the **website** track; Matt steps in for partner or architecture moments. The paragraph above is the April 9 handoff intent, not current staffing.
+
 ## HubSpot (source of truth)
 
 - [ ] **Halite Medical - Pilot Test App:** change **deal owner** from Matt to **Adam** when handoff is live (`26039218`).

@@ -1,0 +1,59 @@
+flowchart TB
+  subgraph people [People]
+    FR[Franchisees]
+    GD[Gameday corporate]
+    WEB[Web delivery team]
+  end
+
+  subgraph yext [Yext]
+    Y_ENT[Entities / locations]
+    Y_WH[Webhooks to external tools]
+    Y_SF[Snowflake-related connections]
+  end
+
+  subgraph webflow [Webflow]
+    WF_CMS[CMS collections]
+    WF_TMPL[Templates / pages]
+    WF_DOM[Custom domains UAT and Prod]
+  end
+
+  subgraph cf [Cloudflare]
+    W_GEN[Workers general and others]
+    D1_LOC[(D1: clinic or location data)]
+    D1_RED[(D1: redirects)]
+    D1_LEG[(Legacy URL DB where applicable)]
+  end
+
+  subgraph gh [Delivery]
+    GITHUB[GitHub repos]
+    GHA[GitHub Actions]
+    WR[Wrangler deploy]
+  end
+
+  subgraph other [Other systems]
+    GHL[GoHighLevel]
+    IG[Instagram API via worker]
+    INV[Inventables telehealth flows]
+  end
+
+  FR -->|restricted roles| Y_ENT
+  GD -->|no Webflow access| WEB
+  WEB --> WF_CMS
+  WEB --> WF_TMPL
+  WEB --> GITHUB
+
+  Y_ENT --> Y_WH
+  Y_WH -->|interface API plus mapper| WF_CMS
+  Y_ENT -->|entity fields e.g. GHL ID| GHL
+
+  WF_CMS -->|publish and replication| D1_LOC
+  Y_ENT -->|drives changes| WF_CMS
+
+  WF_DOM --> W_GEN
+  W_GEN --> D1_LOC
+  W_GEN --> D1_RED
+  W_GEN --> D1_LEG
+  W_GEN --> IG
+  W_GEN --> INV
+
+  GITHUB --> GHA --> WR --> W_GEN

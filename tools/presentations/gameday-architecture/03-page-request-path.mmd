@@ -1,0 +1,17 @@
+sequenceDiagram
+  participant Browser
+  participant CF as Cloudflare edge
+  participant W as Worker
+  participant D1 as D1 databases
+  participant WF as Webflow origin or cached HTML
+
+  Browser->>CF: HTTPS request
+  CF->>W: route to worker
+  W->>D1: lookup redirects
+  alt redirect match
+    W-->>Browser: 301 or 302
+  else continue
+    W->>D1: clinic or treatment graph as needed
+    W->>WF: fetch template or path behavior
+    W-->>Browser: HTML with injected dynamic regions
+  end

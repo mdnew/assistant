@@ -1,0 +1,29 @@
+---
+description: Summarize pulled calendar items grouped by project using standup-style bullets.
+alwaysApply: true
+---
+
+# Calendar summaries by project (standup style)
+
+When Matt asks to pull, check, review, or summarize items from his calendar, present the output grouped by project in the same style used for standup notes.
+
+## Required format
+
+- Group events under project headers when a project is clear: `Gameday`, `KQED`, `Tanita`, `Halite`, `Fit3D`, `Uptech Internal`, or `Personal/Admin`.
+- Use concise `•` bullets for each item, similar to standup formatting.
+- Keep each bullet focused on the work item, do not include times by default.
+- Only include times when Matt explicitly asks for times.
+- If an event cannot be confidently mapped, place it under `General` instead of forcing a project.
+- De-duplicate repeated items when multiple calendars show the same event.
+
+## Mapping guidance
+
+- Infer project from event title, attendees, calendar name, or known context files.
+- Prefer accuracy over completeness: do not over-assign uncertain events.
+- Keep private or sensitive details minimal unless Matt explicitly asks for full detail.
+
+## Tone and structure
+
+- Keep summaries brief and actionable.
+- Avoid long chronological dumps when project grouping is requested.
+- Mirror standup voice and structure so calendar summaries can be reused in standup notes.

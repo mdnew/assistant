@@ -158,6 +158,7 @@ Always check these files when they're relevant:
 - **`uptech/writing`** — LinkedIn drafts and published posts live under `linkedin-posts/`; browse the repo for other writing, voice, and marketing copy when relevant (read/write via GitHub MCP)
 - `meetings/actions/` — pending action items
 - `reference/harvest-time-mapping.md` — Harvest `project_id` / `task_id` by client code (when logging time; see "Harvest time")
+- `context/gameday-architecture-attention.md` — Gameday stack ownership, takeover scope (Kippi / Outliant vs not SEO or ad spend), Zendesk and Monday.com integration ask, and open architecture questions (distilled from the separate `gameday-architecture` repo; update that repo for source of truth). **Uptech delivery:** Russ primary on data engineering; Anthony with Matt on website; Matt for partner or architecture touchpoints (see file).
 
 ## MCP Tools Available
 

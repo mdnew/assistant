@@ -1,16 +1,22 @@
-_Apr 20, 2026 - Standup_
+_Mon Jun 15, 2026 - Standup_
 *Friday*
-• Gameday: Call with Nicole to discuss Monday.com connector and other work. Created high level estimates for their requested work for the quarter and shared with Russ & Claude. Reviewed Segment to see what events current exist and what don't.
-• US: Brown bag, Allocation scenario generator.
+• Gameday: Apps & Platform Backlog Grooming 
+• US: Pre-alignment call with Grafted on Zipline. Zipline | Grafted/Uptech intro. Ops & Allocation meetings. Brown bag
 
 *Monday*
-• Gameday: Call with Barry to review Segment data. Discuss Gameday Q2 asks with Claude and Russ. Get back to Nicole with estimates.
-• US: Check in with Carl, Leads Meeting, Partner Sync
-• Tanita: Weekly Website Prioritization
+• Gameday: Barry sync. Priortization meetings. Help Brian start creating processes.
+• Tanita: Weekly Check in.
+• US: Leads Meeting
 
 *Goals*
-• Gameday: Get next SOW signed. Support Grafted.
-• Tanita: Get QA Camp moving. Get app ready for release. 
+• Fit3D: iOS app
+• Gameday: Get Brian up to speed. Gameday Central - enable Braze
+• KQED: AppSec & Attribution
+• Prism: Get more Uptech folks educated on platform
+• US: Always be closing - work with Grafted on new opportunity
 
 *Blockers*
 • None
+
+
+• Rebase writing repo and pull down blog posts stats from Amplitude

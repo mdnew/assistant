@@ -2,11 +2,11 @@
 
 ## Week of Apr 7, 2026
 
-**Matt’s top two (portfolio):** **Gameday** and **Tanita**, in that spirit of equal weight: Tanita is **get the app to launch**; Gameday is **analytics, data, and lifecycle depth**. Everything else fits around those two.
+**Matt’s top two (portfolio):** **Gameday** and **Tanita**, in that spirit of equal weight: Tanita is **get the app to launch**; Gameday is **analytics, data, and lifecycle depth** plus **website takeover** with **Anthony**. **Russ** runs **Gameday data engineering**; **Matt** covers **website** with **Anthony** and partner or architecture moments as needed. Everything else fits around those two.
 
 ### Top 3 Priorities
 1. **Tanita** — path to **app launch** (assume we ship): QA Camp, Jira release milestones, build/store readiness, launch checklist (Matt + Anthony)
-2. **Gameday** — Matt owns analytics/data: Segment, Snowflake, dashboards, lifecycle/Braze path; coordinate with Cody, Blaine, Allen, data owner; SOW expansion as needed
+2. **Gameday** — **Russ** owns **data** execution: Segment, Snowflake, dashboards, lifecycle/Braze path with Cody, Blaine, Allen, data owner. **Matt** + **Anthony** own **website** takeover. Matt for escalations or scope conversations; SOW expansion as needed
 3. **Halite** — **Adam** primary; Matt only for clean handoff, not day-to-day
 
 ### Key Deals to Advance
@@ -15,7 +15,7 @@
 - **Halite** — Adam client lead; Multi-Patient week of 4/7
 
 ### Key Decisions to Make
-- What Matt explicitly owns vs delegates on Gameday each sprint (write it in standup or `to-do.txt`)
+- **Done (May 2026):** Russ primary on Gameday **data engineering**; Matt with **Anthony** on **website**; Matt as needed on partner topics. Still note in standup when Matt touches the account.
 - Tanita: launch date window and go/no-go criteria (if not already fixed)
 
 ### What I'm Deferring This Week

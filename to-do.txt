@@ -1,43 +1,47 @@
 To-Do
 
-**Matt portfolio priority:** **Gameday** and **Tanita** are highest priority (Tanita: assume we **launch the app**). Protect time for these first; other clients after.
+**Matt portfolio priority:** On **Gameday**, **Russ** is **primary on data engineering**; **Matt** works the **website** track with **Anthony**. **Matt #1 focus:** **LAist RFP** (target **submit Wed May 6, 2026**). **Tanita is on hold** for now (no execution against launch until you unpause it). Other clients after.
+*Refreshed against standup and priorities: May 4, 2026.*
 
-TANITA (Anthony; **top priority**)
-Goal: **Launch the app** (and ship website); north star is store release and a clean go-live, not “almost ready.”
-• Cody completing website tickets
-• Android and iOS app are at same parity
-• App release (target early April; adjust date in standup when locked)
-• Implement scoring for metrics (week of Mar 23)
-• QA Camp — engaged now that Q2 SOW is signed; Jira milestones for release
+TANITA (Anthony)
+**ON HOLD** (May 2026). Treat as paused: do not schedule or drive launch work until you and the client agree it is live again.
+When you unpause, prior goal was: **launch the app** (and ship website); store release and a clean go-live, not “almost ready.” Frozen checklist to pick up:
+• **Website (Cody):** current ticket batch **done for now** (May 2026); new site work only when Tanita unpauses and client opens the next slice
+• Android and iOS parity; app release target with Anthony
+• QA Camp
 
-GAMEDAY (**Matt** leading depth; **top priority**; Cody/engineering as assigned)
-Goal: Stand up Braze and lifecycle, fix analytics, and build a path to loyalty and app.
-• Gameday Mens Health — **Matt:** validate analytics/data pipeline and dashboards (Segment → warehouse → CRM), replace current vendor if needed, and define Phase 1 CRM analytics plan with Blaine, Allen, and data owner. Expand SOW for dashboard/analytics work as aligned with client.
-• **Mon Apr 13, 2026:** Work on next **Gameday SOW** (data engineering scope and deliverables). Calendar focus block: **9:30–10:00 AM PT** (before next meeting).
+GAMEDAY (**Russ** on **data engineering**; **Matt** + **Anthony** on **website**; **Matt** for partner escalations, architecture, or Grafted alignment as needed)
+Goal: Three parallel tracks: lifecycle in Braze with Grafted, Webflow site under Uptech, and internal BI fed by solid data engineering.
 
-HALITE (**Adam** partner owner for account + delivery rhythm **from 2026-04-09**; Anthony on engineering per SOW)
-• Pilot closed won 2026-04-07; deliver per MSA/SOW (offline/on-device AI, React Native track, Multi-Patient with Harsha’s team).
-• Define requirements for Multi-Patient during week of 4/7 (Adam + team).
-• **Handoff:** update HubSpot deal owner to Adam; client notice that Adam is primary contact. Checklist: `meetings/actions/2026-04-09-halite-handoff-adam-gameday-matt.md`
+**1. LCM (lifecycle marketing)**  
+Help **Grafted** get the **data they need** (events, attributes, definitions, pipeline handoffs) so they can build **workflows in Braze**. Book **Jake** if still useful for campaign goals and data requirements (inbox/gameday/2026-04-07-blaine-intro-jake-uptech-braze-russ.md). Lobbie/Segment/Snowflake and franchise ticketing follow-ups: meetings/actions/2026-04-14-gameday-lobbie-snowflake-follow-ups.md and 2026-04-17-gameday-franchise-ticketing-follow-ups.md
+
+**2. Website**  
+**Take over from Outliant** on the **Webflow** site. **Matt** and **Anthony** own this track; **Russ** stays aligned on data or integration touchpoints when the site stack meets the warehouse or Segment work.
+
+**3. Data engineering**  
+Help Gameday get **better internal reports** by supplying **clean, reliable data** (warehouse, Segment, transforms, exports). **Sushma** (their BI analyst) **owns the reports and visuals**; Uptech **owns the data layer** she builds from. **Data / dashboard SOW: done** (May 2026); deliver against it and add scope only through new agreements. **Russ:** execution against the data layer. **Matt:** weigh in with Blaine, Allen, and data owners when definitions or scope need a partner.
 
 KQED (Mark, Jon)
-Goal: Reliable ongoing delivery for KQED — metrics, reporting, and new capabilities (podcast, live stream) so they can run and grow their digital product.
-• Podcast API
-• Live Stream Search
-• Develop a way to track non-app events better (news alerts, radio, etc.)
+Goal: Reliable ongoing delivery for KQED: metrics, reporting, and new capabilities (podcast, live stream) so they can run and grow their digital product.
+• **Tim Olson / other public radio stations:** drive the **guest session** for Tim’s group of station digital leads (example: **Matt + Julia** on **Foggy Find** for stations that want more control over **local games**). **Julia:** confirm whether **Live Stream Search** may be discussed with **other stations** before it appears in external pitches. **Tim:** when he replies, lock **format** (length, schedule, audience). Deck send and file refs: `inbox/kqed/2026-03-23-matt-follow-up-tim-deck-guest-speaker.md` and sibling notes in `inbox/kqed/`. Optional one-pager: `inbox/kqed/2026-03-21-tim-olson-ai-public-media-pitch.md`.
+• **Bi-weekly metrics review (from forwarded Mar 18–19 notes email):** **Context:** install dip traced to **AB test slide-ins missing links** (fixed; newer slide-ins better CTR); conversion noisy around pledge; **week 1 retention** up; **custom product pages** ongoing; **radio live search on Google** in prep for testing; **newsletter promo** after pledge ends; **reactivation** showed zero data, treat as end/restart. **Matt:** tell Julia what to look for on the **GS app** for **card tap** analytic event names; keep building a better approach to **non-app events** (news alerts, radio). **Julia:** post-pledge newsletter promo; **Strapi event names** visible in GA4; end and restart **reactivation**; improve **card tap** event naming next cycle. Checklist: `meetings/actions/2026-03-18-kqed-metrics.md` · full summary `inbox/kqed/2026-03-19-metrics-review-summary.md` · meeting note `meetings/notes/2026-03-18-kqed-biweekly-metrics.md`
+• **May 1, 2026 product sync (Airship, OKRs, acquisition, pushes):** source `inbox/kqed/2026-05-01-product-sync-airship-okrs-meeting-summary.md`. **Matt:** **Done:** meeting with **Julia** **next week** for **Airship engagement campaigns** (behavioral pushes / criteria). **Done:** **GA report** added to **slides** for **web traffic** on **acquisition**. **Still:** run **GS app locally** and share **donation button** screenshots (**light + dark**); join **group** review of **inactive user push** ChatGPT options and help pick a direction. **Julia:** add **April incremental** numbers to Q2 **OKR** doc; refresh **Q2 OKR goals** after R1 launches; add **new feature** to app feed after internal review; compile **live stream** support and review data for investigation. **Molly:** design refreshed **ratings** campaign; adjust **donation button** color in **light** mode to red standard.
 
-FIT-3D (Anthony)
-• Meet with Greg to discuss Q2 work 
+FIT-3D (Anthony; **Mark** for Fit3D relationship / intros)
+• **Start:** iOS / Q2 execution **targets week of May 11, 2026** (next week after May 4).
+• **Optional this week (May 4–8):** set a **Greg (Fit3D) ↔ Mark** intro or sync if you want them connected before work ramps.
+• Follow up with **Greg** on **iOS app** as needed; confirm scope once the thread is warm.
 
 UPTECH 
+    • Pursuits / ops
+        • **LAist RFP (#1 BD right now):** consolidate final feedback, **ship the submission Wed May 6, 2026**; Mark and Jon already in the loop. Goal: win the engagement.
+        • **PRISM:** **Hedges** joined them **full-time**. **In-office visit Tue May 5, 2026** (relationship and context). No active build right now; **may need more Uptech work later**, stay warm after the visit.
     • Marketing 
-        • April Newsletter: **mostly done (Matt)** — prose in `writing/newsletters/2026-04-newsletter` + Google Doc. **Adam next week:** refine, HubSpot, ~4/15 send. Planning: `writing/newsletters/planning/2026-04.md` 
+        • **April newsletter: done** (May 2026). Archive refs if useful: `writing/newsletters/2026-04-newsletter`, Google Doc, `writing/newsletters/planning/2026-04.md`. **Next:** plan **May** issue when you pick it up (`writing/newsletters/planning/` or new dated folder)
         • LinkedIn (cold email list): **Done:** pilot-batch-02 CTO angle B (first 25). **Next:** `business-development/email-outreach/lists/pilot-batch-04-cio-angle-b.csv` (25 CIOs, same angle-B family; align with Smartlead send before connecting)
-        • Set up next Smartlead technical campaign - try a new approach.
-    BD: Goal: Convert pipeline to signed deals and ongoing engagements; grow partner and client base.
-        • Kevin Lewis (company TBD) — Matt texted 2026-03-27; await reply / schedule call with Claude + their dev manager
-        • Convert RethinkCare — Adam drafting proposal 2026-03-27
+        • **Smartlead:** last technical experiment **ended, essentially no response** (May 2026). You are still paying: either **run one more disciplined test** (change one big variable: ICP, list source, subject line, email length, offer, or send domain/reputation) or **pause sends** and downgrade the subscription until you have a new hypothesis. Do not repeat the same angle and list and expect a different result.
+    BD: Goal: Convert pipeline to signed deals and ongoing engagements; grow partner and client base. **Primary focus:** LAist RFP (see Pursuits above) until submitted.
+        • Kevin Lewis (company TBD): Matt texted 2026-03-27; **ping once or close out** if no reply
         • Abdallah (Google / Flutter): Matt pinged on LinkedIn 2026-04-15. Still: block Jul 16–17 for team; submit talks; notify Abdallah by email when submitted. Details: inbox/uptech/2026-03-27-abdallah-google-flutter-fluttercon-meeting.md
-
-Not active now
-• PRISM — they're talking to Hedges about full time position, may still need our help. 
+        • **Inbox batch (2026-05-01):** True Legacy Homes, AI ideas follow-up if not sent; Voyj/Paige confirm SOW signed and paid with Adam (Apr 13–15 was their target, **verify closed**); Booster/Lenny Moon Head of Product nudge if quiet; Elaine (Grafted Braze) confirm Calendly booked or nudge; Scott Sechrest if partnership live, Adam on sample UI + FIBO; Carson/Atticus intro outcome from Apr 6; lower priority GoodChange Emily, Echelon John, CHIPD Josh (invest or pass), HubSpot sweep Altruist/Sanguina/Kangarootime. Full checklist: meetings/actions/2026-05-01-inbox-processed-follow-ups.md

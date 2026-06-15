@@ -1,6 +1,6 @@
 # Action items — KQED Bi-Weekly Metrics (Mar 18)
 
-**Source meeting**: 2026-03-18 KQED Bi-Weekly Metrics Review
+**Source meeting**: 2026-03-18 KQED Bi-Weekly Metrics Review. **Same next steps** captured in `inbox/kqed/2026-03-19-metrics-review-summary.md` (forwarded Gemini summary).
 
 ## Matt
 
