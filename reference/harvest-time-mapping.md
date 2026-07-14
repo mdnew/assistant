@@ -93,4 +93,4 @@ curl -sS "https://api.harvestapp.com/v2/projects/PROJECT_ID/task_assignments?per
   -H "User-Agent: UptechAssistant (cursor-agent)"
 ```
 
-Full workflow detail: `~/.cursor/skills/log-harvest-time/reference.md`.
+Full workflow detail: `.claude/skills/log-harvest-time/reference.md`.

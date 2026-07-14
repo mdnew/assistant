@@ -1,7 +1,6 @@
 ---
-description: How to generate the weekly BD & Marketing meeting slides and PDF for Uptech Studio
-globs: tools/weekly-marketing.html
-alwaysApply: false
+name: marketing-slides
+description: Update and regenerate the weekly BD & Marketing meeting slide deck (HTML + PDF) for Uptech Studio. Use when Matt says "update the marketing slides", "prep the BD meeting", "generate slides", "/marketingslides", or similar. Pulls LinkedIn posts, Amplitude website metrics, and HubSpot BD state into tools/weekly-marketing.html and regenerates the PDF.
 ---
 
 # Weekly BD & Marketing Slides
@@ -42,7 +41,7 @@ alwaysApply: false
 - Use `timeSeriesLimit: 0` for top pages (totals only, no per-day breakdown needed)
 
 ### BD Pipeline — HubSpot + `deals/pipeline.md`
-- **HubSpot:** search or list deals by stage; owners (Matt / Adam / Claude), amounts, close dates, and “what’s active” from CRM fields
+- **HubSpot:** search or list deals by stage; owners (Matt / Adam / Claude), amounts, close dates, and "what's active" from CRM fields
 - Flag stale deals from engagements or last-modified data the tools expose
 - **`deals/pipeline.md`:** use for **notes, risks, and story** on key deals and for slide copy that benefits from git-maintained context
 - If a **fact** in markdown disagrees with HubSpot, use HubSpot

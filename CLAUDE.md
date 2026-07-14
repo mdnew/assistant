@@ -21,8 +21,8 @@ I will give you short prompts and you should infer intent from context. Examples
 - "We decided to go with X" → Run `/decide`
 - "Update the Acme deal" → Run `/dealupdate Acme`
 - "Log this contact" → Run `/contact`
-- "Log time in Harvest", "log my Harvest time", "harvest time" → Follow the **log-harvest-time** Cursor skill at `~/.cursor/skills/log-harvest-time/SKILL.md` (see "Harvest time" below)
-- "Create standup", "draft standup from calendar", "pull calendar and Harvest into standup" → Follow **`.cursor/rules/standup-from-calendar-harvest.mdc`** (see "Standup from Calendar + Harvest" below)
+- "Log time in Harvest", "log my Harvest time", "harvest time" → Use the **log-harvest-time** skill (see "Harvest time" below)
+- "Create standup", "draft standup from calendar", "pull calendar and Harvest into standup" → Use the **standup-from-calendar-harvest** skill (see "Standup from Calendar + Harvest" below)
 
 For longer thoughts, I use voice input. Stream-of-consciousness is fine.
 
@@ -74,7 +74,7 @@ tools/presentations/  # HTML slide decks (canonical company-overview template �
 3. Write to `standups/YYYY-MM-DD.md` (daily copy for that date)
 4. Clear logged sections from `daily standup.txt` (or leave — follow Matt's preference)
 
-**Standup from Calendar + Harvest (draft `daily standup.txt`):** When Matt wants to **build or refresh** his standup from **Google Calendar** and **Harvest** (not the same as logging standup to `standups/`). Follow the Cursor rule **`.cursor/rules/standup-from-calendar-harvest.mdc`** end to end:
+**Standup from Calendar + Harvest (draft `daily standup.txt`):** When Matt wants to **build or refresh** his standup from **Google Calendar** and **Harvest** (not the same as logging standup to `standups/`). Use the **standup-from-calendar-harvest** skill end to end:
 
 1. **Calendar:** Google Calendar MCP, events from start of **yesterday** through end of **today** (America/Los_Angeles unless he says otherwise).
 2. **Harvest:** **Read only** (`GET /v2/time_entries` with `from` / `to`); needs `HARVEST_ACCESS_TOKEN` and `HARVEST_ACCOUNT_ID`. Use **`reference/harvest-time-mapping.md`** to line up project names with standup client codes. Do **not** create or edit Harvest entries unless he separately asks (see "Harvest time").
@@ -82,14 +82,14 @@ tools/presentations/  # HTML slide decks (canonical company-overview template �
 
 ### Harvest time
 
-Matt logs billable time in **Harvest**. When he asks to log Harvest time (or to turn standup lines into time entries), **read and follow** the Cursor skill:
+Matt logs billable time in **Harvest**. When he asks to log Harvest time (or to turn standup lines into time entries), **use the log-harvest-time skill**:
 
-- **`~/.cursor/skills/log-harvest-time/SKILL.md`** (main workflow)
-- **`~/.cursor/skills/log-harvest-time/reference.md`** (API snippets: list projects, task assignments, create entries)
+- **`.claude/skills/log-harvest-time/SKILL.md`** (main workflow)
+- **`.claude/skills/log-harvest-time/reference.md`** (API snippets: current user, list projects, task assignments, create entries)
 
 **Environment:** `HARVEST_ACCESS_TOKEN` and `HARVEST_ACCOUNT_ID` must be set (from [Harvest ID](https://id.getharvest.com) → Developers). Never echo tokens.
 
-**Mapping:** Keep **`reference/harvest-time-mapping.md`** in this repo (copy from `~/.cursor/skills/log-harvest-time/mapping.example.md`) so standup-style client codes (Gameday, KQED, Tanita, etc.) map to Harvest `project_id` and `task_id`. If the file is missing, use the API to discover IDs and create it with Matt.
+**Mapping:** Keep **`reference/harvest-time-mapping.md`** in this repo (shape in `.claude/skills/log-harvest-time/mapping.example.md`) so standup-style client codes (Gameday, KQED, Tanita, etc.) map to Harvest `project_id` and `task_id`. If the file is missing, use the API to discover IDs and create it with Matt.
 
 **Rules:** Build a **proposed** list of entries (date, project, task, hours, notes, brief **billability judgment**: Product vs Partner vs Non-billable per **`reference/harvest-time-mapping.md`**) and **wait for Matt’s explicit approval** before any Harvest API writes. Do not invent hours. Same-day input can come from **`standups/YYYY-MM-DD.md`** or **`daily standup.txt`** when Matt points you there.
 
@@ -130,7 +130,9 @@ Run these by name or via natural language:
 | `/weeklyfocus` | "set weekly focus", "plan my week" | Set priorities for the week |
 | `/decide` | "log decision about X" | Capture a structured decision record |
 | `/marketingslides` | "update the marketing slides", "prep the BD meeting", "generate slides" | Update and regenerate the weekly BD & Marketing slide deck |
-| (standup draft) | "create standup", "draft standup from calendar and Harvest", "populate standup from calendar" | Merge yesterday + today from Calendar MCP + Harvest (read-only) into `daily standup.txt`; **`.cursor/rules/standup-from-calendar-harvest.mdc`** |
+| (standup draft) | "create standup", "draft standup from calendar and Harvest", "populate standup from calendar" | Merge yesterday + today from Calendar MCP + Harvest (read-only) into `daily standup.txt`; **standup-from-calendar-harvest** skill |
+| (log standup) | "log standup", "save standup", "post standup" | Archive `daily standup.txt` to `standups/YYYY-MM-DD.md`; **log-standup** skill |
+| (check inbox) | "check my inbox", "process this email", "what's in my inbox" | Summarize and route emails in `inbox/`; **process-inbox-email** skill |
 
 ## Key Principles
 
@@ -150,7 +152,7 @@ Run these by name or via natural language:
 ## Important Context Files
 
 Always check these files when they're relevant:
-- `daily standup.txt` — today + this week's doings and goals (see "How I Track Work" above; draft from Calendar + Harvest via **`.cursor/rules/standup-from-calendar-harvest.mdc`**)
+- `daily standup.txt` — today + this week's doings and goals (see "How I Track Work" above; draft from Calendar + Harvest via the **standup-from-calendar-harvest** skill)
 - `to-do.txt` — longer-term goals for the next ~3 months
 - `priorities/weekly-focus.md` — current week's focus
 - `stakeholders/roster.md` — key relationships and context
@@ -163,7 +165,7 @@ Always check these files when they're relevant:
 ## MCP Tools Available
 
 When MCP tools are connected, use them to:
-- **Google Calendar** (`GOOGLECALENDAR_*`): Read schedules and create events. For reads, follow **`.cursor/rules/google-calendar-mcp.mdc`**: primary calendar id is **`matt@uptechstudio.com`**; if **`list-events`** fails, use **`search-events`** or **`get-freebusy`** with that id instead of bare **`primary`**. For **creating or moving** events, follow **`.cursor/rules/calendar-scheduling-hours.mdc`** (default **9:30 AM–4:00 PM** Pacific unless Matt explicitly asks otherwise).
+- **Google Calendar** (`@iflow-mcp/google-calendar-mcp`; tools named `list-events`, `search-events`, `get-freebusy`, `list-calendars`, `get-current-time`, `create-event`): Read schedules and create events. See the **Google Calendar** and **Calendar scheduling hours** rules below.
 - **Gmail** (`GMAIL_*`): Read recent emails, send messages
 - **Slack** (`SLACK_*`): Post updates, read channels
 - **GitHub** (`GITHUB_*`): Check PRs, issues, repo activity; read/write files in Uptech repos
@@ -190,3 +192,37 @@ When Matt asks about LinkedIn posts (e.g. "what did we post last week"), read fr
 **Do not write to HubSpot for unrelated or speculative reasons** (e.g. do not silently "fix" CRM data while answering a generic question). Creating, updating, or deleting HubSpot records is appropriate when Matt is clearly asking to log something, when executing **`/dealupdate`**, or when another slash workflow in this repo says to update the CRM. Reading and searching HubSpot is always fine.
 
 Always prefer acting directly via MCP tools when the user says "post", "send", "create", "check", or "look up" — don't ask them to do it manually.
+
+## Behavioral Rules (always apply)
+
+These are always in effect (migrated from the former Cursor `alwaysApply` rules).
+
+### Google Calendar MCP
+
+- Matt's **primary** calendar id is **`matt@uptechstudio.com`** (confirm with `list-calendars` if it ever changes). Some MCP paths mishandle `calendarId: primary` or unquoted ids — **prefer passing the explicit id string `matt@uptechstudio.com`**.
+- `get-current-time` and `list-calendars`: use freely.
+- `list-events`: if it fails with a validation or JSON error, **do not loop on the same call** — fall back to `search-events` or `get-freebusy` with `calendarId: matt@uptechstudio.com`.
+- `search-events`: reliable for a **date range** when you need titles/details. Use `timeMin` / `timeMax`, `timeZone` **America/Los_Angeles** for naive local strings, and a non-empty `query`.
+- `get-freebusy`: reliable for **busy blocks only** (no titles); use `calendars: [{"id": "matt@uptechstudio.com"}]`.
+
+### Calendar scheduling hours
+
+When **creating or moving** events for Matt:
+- **Do not schedule** events to **start before 9:30 AM** or **end after 4:00 PM** local time (America/Los_Angeles) unless Matt explicitly asks for an early/late time (e.g. "7am", "dinner", "after 5").
+- **All-day**, **personal**, or **external fixed-time** invites he pastes in: follow his instructions; if he only says "add this invite", don't move the time without asking.
+- For **focus/hold** blocks without a requested time, pick a slot inside 9:30 AM–4:00 PM that respects existing busy (from `get-freebusy`); prefer ~60+ minutes for deep work.
+
+### Calendar summaries by project (standup style)
+
+When Matt asks to pull, check, review, or summarize calendar items, **group by project** using standup-style `•` bullets:
+- Project headers when clear: `Gameday`, `KQED`, `Tanita`, `Halite`, `Fit3D`, `Uptech Internal` (or `US`), `Personal/Admin`; use `General` when a mapping isn't confident.
+- Infer project from title, attendees, calendar name, or known context files. Prefer accuracy over completeness — don't over-assign.
+- **Omit times by default** (include only when Matt asks). De-duplicate events shown on multiple calendars. Keep it brief; mirror standup voice so it's reusable in the standup.
+
+### GitHub repo sync
+
+Whenever you create or modify a file in **`uptech/business-development`** or **`uptech/writing`**, **push to GitHub via the MCP immediately** — don't leave it only on disk.
+1. Before editing an existing file, fetch it with `get_file_contents` for the current `sha`.
+2. Push with `create_or_update_file` (single file) or `push_files` (multiple files) on branch `main`.
+- Commit messages: be specific (`"Update Gameday deal — MSA signed"`, `"Add Matt post: {topic slug}"`).
+- Deal **stages/amounts/dates** stay authoritative in **HubSpot**; `deals/pipeline.md` is notes/context (keep summaries aligned), still pushed when edited.

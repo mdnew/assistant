@@ -1,7 +1,6 @@
 ---
-description: Generate and update Uptech HTML slide decks and PDFs using the canonical presentation template
-globs: tools/presentations/**/*.html
-alwaysApply: false
+name: presentation-decks
+description: Generate and update Uptech HTML slide decks and PDFs using the canonical presentation template in tools/presentations/. Use when Matt asks to create or refresh a company-overview / public-radio style deck, or edit files under tools/presentations/**/*.html.
 ---
 
 # Uptech presentation decks (HTML + PDF)
@@ -9,7 +8,7 @@ alwaysApply: false
 ## Canonical location
 
 - **`tools/presentations/`** — source of truth for regenerate-able decks.
-- **Template:** `tools/presentations/company-overview-public-radio.html` (14 slides, matches the “public radio / stations” company overview).
+- **Template:** `tools/presentations/company-overview-public-radio.html` (14 slides, matches the "public radio / stations" company overview).
 - **PDF script:** `tools/presentations/generate-pdf.sh`
 - **Images:** `tools/presentations/assets/` (referenced from HTML)
 
