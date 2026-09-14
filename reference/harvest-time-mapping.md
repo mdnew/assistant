@@ -12,21 +12,31 @@ Standup **codes** (text before the colon) map to a **project_id** and a **task_i
 
 When unsure, pick the conservative option and **say one short reason** in the proposal so Matt can correct it.
 
+**KQED billability during the Sept 2026 budget throttle (see `decisions/2026-09-11-throttle-kqed-billable-work-until-october-sow.md`):** Matt is slowing his billable KQED volume until the October SOW, but this is **not** a blanket non-billable rule. **Delivery work stays billable** (analytics, activation stats, product work → KQED - General / **Product** `15335712`). **Work on a different SOW stays billable** (App Sec → SOW G `48439697` / Product). **Non-billable** covers SOW and contracting work, internal coordination, and syncs with Uptech staff. Ask Matt when a line is ambiguous.
+
 **Exception:** standup code **US** is internal Uptech time: for now everything goes to **US - Operations / Miscellaneous** (see below), not the three client buckets.
 
-IDs were pulled from the Harvest API on **2026-04-10**. Re-fetch or edit if tasks change.
+IDs were pulled from the Harvest API on **2026-04-10** (KQED projects and tasks re-verified **2026-08-31**). Re-fetch or edit if tasks change.
+
+**Matt's Harvest user_id: `3429396`.** Use this directly for `user_id=` on time-entry reads and writes instead of calling `GET /v2/users/me` first.
 
 ## Client projects (Product / Partner / Non-billable)
 
 | code | harvest project | project_id | Product `task_id` | Partner `task_id` | Non-billable `task_id` |
 |------|-----------------|------------|---------------------|---------------------|-------------------------|
 | Gameday | SOW A - Ad Hoc Snowflake Support (Gameday Men's Health) | 47789977 | 17364879 | 16963897 | 15349582 |
-| KQED | SOW F - Ongoing Development (KQED) | 46089857 | 15335712 | see note | 15349582 |
-| KQED-general | KQED - General | 46383984 | 15335712 | see note | 15349582 |
+| KQED **(default)** | KQED - General | 46383984 | 15335712 | see note | 15349582 |
+| KQED-appsec | SOW G - Application Security (KQED) | 48439697 | 15335712 | see note | 15349582 |
+| KQED-sowf | SOW F - Ongoing Development (KQED) | 46089857 | 15335712 | see note | 15349582 |
 | Tanita | SOW F - Q2 2026 (Tanita) | 47877672 | 17364879 | 16963897 | 15349582 |
 | Tanita-Q1 | SOW E - Q1 2026 (Tanita) | 46860819 | 17364879 | 16963897 | 15349582 |
 | Halite | SOW A - Initial Android App (Halite Medical) | 47912687 | 17364879 | 16963897 | 15349582 |
 | Fit3D | SOW B - Ongoing Support (Fit3D, Inc.) | 42768154 | 17364879 | 16963897 | 15349582 |
+| Prism | Prism Labs - SOW U - Ongoing Support (Greyscale Holdings, Inc) | 48740810 | 17364879 | see note | 15349582 |
+
+**Prism note (verified 2026-08-13):** SOW T (`46862378`) is stale and Matt is not assigned to it. Use **SOW U** `48740810`. It has no **Partner** task (only Product - Contributor, Developer Contributor/Sr/Lead, UX/Design, Non-billable Work), so use **Product** `17364879` for Partner-style work and note it in the entry.
+
+**KQED default project (confirmed by Matt 2026-08-31):** Most KQED time bills to **KQED - General** `46383984`. Verified against Jul 1 - Aug 25, 2026 actuals: 112.5 hrs on General vs 1.5 on SOW F. Use **General** for a plain `KQED:` standup line. Only use **SOW G - Application Security** `48439697` when the bullet is explicitly AppSec work, and **SOW F** `46089857` when Matt names it.
 
 **KQED note:** These KQED projects do not have a **Partner** task in Harvest (only Product, Non-billable Work, Development, etc.). For Partner-style work, either add a **Partner** task in Harvest and paste the new `task_id` here, or temporarily use **Product** `15335712` and note it in the time entry.
 
@@ -55,6 +65,7 @@ Use this when adding new codes. For each new project, add a row to the client ta
 | 46129340 | School Transition Workbooks | Specially Designed Education Services |
 | 46209839 | Design Support 2025 | UNest |
 | 46383984 | KQED - General | KQED |
+| 48439697 | SOW G - Application Security | KQED |
 | 46471167 | Ad Hoc Support (Agreement 2) | Callbird |
 | 46784423 | SUM Website | Startup Mavericks |
 | 46796063 | Flutter Conversion | Holistic Pet Hub |

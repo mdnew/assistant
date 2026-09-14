@@ -101,7 +101,7 @@ Give a concise summary per email:
 | Situation | Output |
 |-----------|--------|
 | Multiple action items across emails | Append to or create `meetings/actions/YYYY-MM-DD-inbox-follow-ups.md` |
-| Substantive deal update | Update `deals/pipeline.md` in `uptech/business-development` via GitHub MCP |
+| Substantive deal update | Update `deals/pipeline.md` in this repo (HubSpot stays source of truth for stage/amount/date) |
 | New or updated contact info | Update `stakeholders/roster.md` |
 | Meeting notes referenced in email | Create `meetings/notes/YYYY-MM-DD-topic.md` |
 
@@ -119,3 +119,18 @@ Don't create files speculatively — only when there's something meaningful to c
 ```
 
 If no action items, skip the Actions block.
+
+
+## Handling files the Save Email to Assistant shortcut drops
+
+The macOS shortcut writes plain `.txt` files to the **top level** of `inbox/`, named by timestamp, e.g. `Sep 9, 2026 at 2:50 PM.txt`. Body text is prefixed `---\nForwarded: `.
+
+**Three traps, all of which have bitten:**
+
+1. **The filename contains U+202F (narrow no-break space)** before AM/PM, not a regular space. `cat "inbox/Sep 9, 2026 at 2:50 PM.txt"` fails with "No such file or directory" even though `ls` shows it. Always address these files via `find inbox -maxdepth 1 -name "*.txt" -exec ...` or a glob in a script, never by typing the name.
+
+2. **Collisions get a `-2` suffix** (`Sep 9, 2026 at 2:51 PM-2.txt`) when two are saved in the same minute. Do not assume one file per timestamp.
+
+3. **NEVER bulk-delete by glob after processing.** New files can land while you are working, and a glob delete will destroy unread ones. **Delete only the exact paths you actually read and routed**, one by one, immediately after writing each destination file. Re-list the directory afterwards to catch anything that arrived mid-run.
+
+Routing: read the file, write a properly named `inbox/<client>/YYYY-MM-DD-slug.md` with a real title, participants, and structure, then remove the source `.txt`. Create the client subfolder if needed (`npr/`, `laist/` were added Sept 2026).

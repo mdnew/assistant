@@ -47,6 +47,14 @@ If Harvest env is missing or the API errors, say so briefly and still complete t
 - Bullets use `•` and optional client prefix `Client:` like the existing file.
 - **No em dashes** in standup text (use commas, colons, or separate sentences).
 
+### Calendar merge is additive and anchored to the day the event happens
+
+- **Never erase or overwrite existing bullets.** Only **add** new lines. Anything Matt already wrote stays exactly as it is.
+- Place each calendar event as a bullet **under the day section for the date it actually occurs on** (yesterday's events under `*YesterdayWeekday*`, today's under `*TodayWeekday*`). Match the event's local date, not just "put everything under today."
+- **Append** new bullets **below** the existing bullets in that day's section (add to the bottom, do not reorder or replace what's there).
+- If a day section for the event's date does not exist yet, create it (keeping day order), then add the bullet under it.
+- Before adding, skip events that already appear as a bullet in that day (de-duplicate) so repeated pulls do not stack duplicates.
+
 ## 5. Not the same as "log standup"
 
 - **This skill:** draft or refresh standup **from** Calendar + Harvest into `daily standup.txt`.

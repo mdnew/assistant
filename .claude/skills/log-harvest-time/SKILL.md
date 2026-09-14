@@ -50,6 +50,16 @@ Client codes in standups (Gameday, KQED, Tanita, Halite, US, Fit3D, etc.) should
    - **Suggested (calendar)** when available (duration from matched events for that day)
    - **Hours** (required before posting; do not POST with missing hours)
    - **Notes** (from standup bullet or chat)
+6b. **Note formatting (required).** Matt wants Harvest notes as **bullet points, one sentence per line**. Each line starts with `• ` and lines are separated by a real newline (`\n` in the JSON body). No trailing periods needed.
+
+```
+• Operations and admin
+• Call with Mark Wallin
+• Weekly BD and marketing check-in
+```
+
+Never write notes as a single run-on sentence or a comma-separated list.
+
 7. **Stop and confirm**: Ask Matt to **approve**, **edit** (change hours, project, task, merge/split lines), or **cancel**. **Do not call the Harvest API until he explicitly approves** (e.g. "yes, post it", "looks good, log it", "go ahead").
 
 ### Phase 2: Create (only after approval)
@@ -74,9 +84,11 @@ Headers for every request:
   "task_id": 87654321,
   "spent_date": "2026-04-10",
   "hours": 1.5,
-  "notes": "Gameday: call with Blaine"
+  "notes": "• Gameday sync\n• Call with Blaine"
 }
 ```
+
+Note the `\n` between bullets: Harvest renders these as separate lines.
 
 10. **After POST**: Give a short table: date, project, task, hours, notes. On failure, show status and API error body (redact secrets).
 

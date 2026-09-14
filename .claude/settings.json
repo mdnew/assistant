@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit(/.claude/skills/standup-from-calendar-harvest/**)",
+      "mcp__google-calendar__list-events"
+    ]
+  }
+}

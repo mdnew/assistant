@@ -1,22 +1,17 @@
-_Mon Jun 15, 2026 - Standup_
+_Mon Sep 14, 2026 - Standup_
 *Friday*
-• Gameday: Apps & Platform Backlog Grooming 
-• US: Pre-alignment call with Grafted on Zipline. Zipline | Grafted/Uptech intro. Ops & Allocation meetings. Brown bag
+• KQED: Weekly check in with Jon. Checked on activation stats. Helped Julia figure out Adjust links for events.
+• US: Company meeting. Allocation planning. Sync with Brian. Follow up with Andy at LAist.
 
 *Monday*
-• Gameday: Barry sync. Priortization meetings. Help Brian start creating processes.
-• Tanita: Weekly Check in.
-• US: Leads Meeting
+• KQED: App Sec and App Dev weekly prioritizations.
+• AppFit: Cancel the Webflow account.
+• US: Weekly project leads meeting. Invoicing for KQED, Prism, Fit3D. 
 
-*Goals*
-• Fit3D: iOS app
-• Gameday: Get Brian up to speed. Gameday Central - enable Braze
-• KQED: AppSec & Attribution
-• Prism: Get more Uptech folks educated on platform
-• US: Always be closing - work with Grafted on new opportunity
+*This Week's Goals*
+• KQED: Election 2026. AppSec work. Airship experiments. 2027 Budget/Staffing.
+• Prism: Foundation work for portal
+• US: NPR Presentation. LAist RFPs. Wind down AppFit.
 
 *Blockers*
 • None
-
-
-• Rebase writing repo and pull down blog posts stats from Amplitude

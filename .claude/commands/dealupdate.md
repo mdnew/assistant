@@ -24,7 +24,7 @@ Update the status and context for this deal: $ARGUMENTS
 
 5. **Update local / git files**:
    - **`deals/pipeline.md`** — add or refresh **notes and context** for this deal (risks, story, next steps in prose). Any **stage or value** summary in the file must **match HubSpot** after step 4.
-   - `deals/COMPANY-NAME.md` in `business-development` (if it exists) — append deeper strategic or relationship notes that do not belong in HubSpot
+   - `deals/COMPANY-NAME.md` in this repo (if it exists) — append deeper strategic or relationship notes that do not belong in HubSpot
    - Key contacts: update `stakeholders/roster.md` if new info surfaced
 
 6. **Create any action items** in `meetings/actions/YYYY-MM-DD-dealname.md` if next steps were identified

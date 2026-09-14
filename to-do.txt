@@ -1,47 +1,110 @@
 To-Do
 
-**Matt portfolio priority:** On **Gameday**, **Russ** is **primary on data engineering**; **Matt** works the **website** track with **Anthony**. **Matt #1 focus:** **LAist RFP** (target **submit Wed May 6, 2026**). **Tanita is on hold** for now (no execution against launch until you unpause it). Other clients after.
-*Refreshed against standup and priorities: May 4, 2026.*
+**Refreshed against standups, HubSpot, and the NPR RFP review: September 9, 2026.** Horizon: now through early December 2026.
 
-TANITA (Anthony)
-**ON HOLD** (May 2026). Treat as paused: do not schedule or drive launch work until you and the client agree it is live again.
-When you unpause, prior goal was: **launch the app** (and ship website); store release and a clean go-live, not “almost ready.” Frozen checklist to pick up:
-• **Website (Cody):** current ticket batch **done for now** (May 2026); new site work only when Tanita unpauses and client opens the next slice
-• Android and iOS parity; app release target with Anthony
-• QA Camp
+**Matt's portfolio priority:** **public radio**. Three pursuits (**KQED**, **NPR**, **LAist**) plus **KQED Election 2026** delivery. Everything else fits around those.
+**#1 right now:** the **KQED 2026/2027 SOWs** ($1.3M combined, close Oct 1). **NPR is on hold** pending their response.
+**Hard external deadline:** **KQED Election 2026** ships ahead of the November election. Nothing else on this list has a fixed date the world enforces.
 
-GAMEDAY (**Russ** on **data engineering**; **Matt** + **Anthony** on **website**; **Matt** for partner escalations, architecture, or Grafted alignment as needed)
-Goal: Three parallel tracks: lifecycle in Braze with Grafted, Webflow site under Uptech, and internal BI fed by solid data engineering.
+**No longer working:** **Gameday** and **Tanita** — off Matt's plate entirely (Sept 2026). **Halite** is Adam's client lead.
 
-**1. LCM (lifecycle marketing)**  
-Help **Grafted** get the **data they need** (events, attributes, definitions, pipeline handoffs) so they can build **workflows in Braze**. Book **Jake** if still useful for campaign goals and data requirements (inbox/gameday/2026-04-07-blaine-intro-jake-uptech-braze-russ.md). Lobbie/Segment/Snowflake and franchise ticketing follow-ups: meetings/actions/2026-04-14-gameday-lobbie-snowflake-follow-ups.md and 2026-04-17-gameday-franchise-ticketing-follow-ups.md
+---
 
-**2. Website**  
-**Take over from Outliant** on the **Webflow** site. **Matt** and **Anthony** own this track; **Russ** stays aligned on data or integration touchpoints when the site stack meets the warehouse or Segment work.
+KQED (Mark, Jon, Julia, Jason)
+Goal: Land the 2027 engagement and ship Election 2026 on time.
 
-**3. Data engineering**  
-Help Gameday get **better internal reports** by supplying **clean, reliable data** (warehouse, Segment, transforms, exports). **Sushma** (their BI analyst) **owns the reports and visuals**; Uptech **owns the data layer** she builds from. **Data / dashboard SOW: done** (May 2026); deliver against it and add scope only through new agreements. **Russ:** execution against the data layer. **Matt:** weigh in with Blaine, Allen, and data owners when definitions or scope need a partner.
+**1. Election 2026 — the deadline item**
+Strong momentum Aug 26-31 (slides, team discussion, sequencing, JIRA epics and tickets, Election Alerts definition), then it went quiet Sep 1-8. Election day is roughly eight weeks out and app store review plus Airship setup eat into that.
+From the Aug 26 Election 2026 session, work split into two streams that can start without news team input:
+• **MATT'S STREAM: election notification opt-in and alert setup.** Surface the **existing notifications settings page** (Mark built it, never exposed) and add **"Elections 2026"** as a notification category, driving opt-ins through Airship. Likely one toggle, not granular. Two alert types: scheduled pushes for key dates (registration deadline, ballot return) coordinated with the news team, and automated pushes when election-tagged content publishes
+• **Jhughes's stream:** voter guide in-app rendering (currently WordPress/Gutenberg, excluded from the app; feed filters out election articles so there is almost no content during election season)
+• **Blocked on others:** Noah on **WordPress webhooks** (so publishes trigger notifications instead of polling) and a **Caroline demo** of the live election-results pipeline (AP-style feed, could push real-time race results on election night)
+• **MATT'S STREAM: Election analytics. Starts next week (w/c Sep 14) once there is an early build from the developers.** Blocked until then, not idle
+    ◦ Instrument the Election work so the Aug 26 success metrics are actually measurable: 500+ new installs, opt-in rate toward 25%, 8,000+ article views, 30,000+ active users, 130-150 Foggy Find completes
+    ◦ Builds on the **Adjust event links** worked out with Julia on Sep 11, which are the attribution layer underneath the install and opt-in numbers
+    ◦ Cover the Election Center / hub, the voter guide in-app views, and the Elections 2026 notification opt-in
+• Work the JIRA epics created Aug 27-31 through to scheduled delivery
+• **Idea captured: one email announcing the Election Center in the app** (`projects/2026-09-09-kqed-election-center-email.md`). Doubles as the month's re-engagement send. Target audience already identified: users with "local politics" selected but push disabled. Blocked on KQED capacity and on Julia's new Airship email deal
+• **Election week success metrics:** 500+ new installs · notification opt-in toward 25% · 8,000+ article views · 30,000+ active users (never hit before) · 130-150 Foggy Find completes
 
-KQED (Mark, Jon)
-Goal: Reliable ongoing delivery for KQED: metrics, reporting, and new capabilities (podcast, live stream) so they can run and grow their digital product.
-• **Tim Olson / other public radio stations:** drive the **guest session** for Tim’s group of station digital leads (example: **Matt + Julia** on **Foggy Find** for stations that want more control over **local games**). **Julia:** confirm whether **Live Stream Search** may be discussed with **other stations** before it appears in external pitches. **Tim:** when he replies, lock **format** (length, schedule, audience). Deck send and file refs: `inbox/kqed/2026-03-23-matt-follow-up-tim-deck-guest-speaker.md` and sibling notes in `inbox/kqed/`. Optional one-pager: `inbox/kqed/2026-03-21-tim-olson-ai-public-media-pitch.md`.
-• **Bi-weekly metrics review (from forwarded Mar 18–19 notes email):** **Context:** install dip traced to **AB test slide-ins missing links** (fixed; newer slide-ins better CTR); conversion noisy around pledge; **week 1 retention** up; **custom product pages** ongoing; **radio live search on Google** in prep for testing; **newsletter promo** after pledge ends; **reactivation** showed zero data, treat as end/restart. **Matt:** tell Julia what to look for on the **GS app** for **card tap** analytic event names; keep building a better approach to **non-app events** (news alerts, radio). **Julia:** post-pledge newsletter promo; **Strapi event names** visible in GA4; end and restart **reactivation**; improve **card tap** event naming next cycle. Checklist: `meetings/actions/2026-03-18-kqed-metrics.md` · full summary `inbox/kqed/2026-03-19-metrics-review-summary.md` · meeting note `meetings/notes/2026-03-18-kqed-biweekly-metrics.md`
-• **May 1, 2026 product sync (Airship, OKRs, acquisition, pushes):** source `inbox/kqed/2026-05-01-product-sync-airship-okrs-meeting-summary.md`. **Matt:** **Done:** meeting with **Julia** **next week** for **Airship engagement campaigns** (behavioral pushes / criteria). **Done:** **GA report** added to **slides** for **web traffic** on **acquisition**. **Still:** run **GS app locally** and share **donation button** screenshots (**light + dark**); join **group** review of **inactive user push** ChatGPT options and help pick a direction. **Julia:** add **April incremental** numbers to Q2 **OKR** doc; refresh **Q2 OKR goals** after R1 launches; add **new feature** to app feed after internal review; compile **live stream** support and review data for investigation. **Molly:** design refreshed **ratings** campaign; adjust **donation button** color in **light** mode to red standard.
+**2. 2026/2027 SOWs — the money item**
+**Running hot on the current KQED budget.** Matt is deliberately slowing his own billable KQED work until the new SOW starts in October. Expect mostly non-billable KQED time through September. `decisions/2026-09-11-throttle-kqed-billable-work-until-october-sow.md`
+Both deals sit at Proposal (In Progress), 40%, closing **Oct 1**. See `deals/pipeline.md`.
+• **Mobile Development — $600K.** Standup: "Work on next KQED Mobile SOW"
+• **Web Development — $700K.** Web budget thread with Jason goes back to Aug 31
+• Talk to **Julia and Jason** about both (on today's standup)
+• Feeds the **2027 budget and staffing** planning
 
-FIT-3D (Anthony; **Mark** for Fit3D relationship / intros)
-• **Start:** iOS / Q2 execution **targets week of May 11, 2026** (next week after May 4).
-• **Optional this week (May 4–8):** set a **Greg (Fit3D) ↔ Mark** intro or sync if you want them connected before work ramps.
-• Follow up with **Greg** on **iOS app** as needed; confirm scope once the thread is warm.
+**3. Ongoing delivery**
+• **AppSec:** delegated to Jon; Matt on weekly check-ins and prioritization. Working as intended
+• **Airship experiments:** re-engagement sequence published Aug 25, sign-in/sign-up nudge test Aug 26, reactivation checked Sep 1. **Nothing since Sep 1** — pick back up or close out
+• **Onboarding reporting:** GA funnel built Sep 1; Sep 3-4 chased why **Onboarding Started** does not always fire. Finish the diagnosis
+• **Bi-weekly metrics review:** running (Sep 3). Sep 2 slides got bumped
+• **Neil:** intro'd to the team and to Jason and Julia Sep 1-3, feedback collected. **No activity since** — close the loop
+• Live Radio Search Playlist; Voter Guide (Molly, Julia); email solutions (Teresa, met Aug 28)
 
-UPTECH 
-    • Pursuits / ops
-        • **LAist RFP (#1 BD right now):** consolidate final feedback, **ship the submission Wed May 6, 2026**; Mark and Jon already in the loop. Goal: win the engagement.
-        • **PRISM:** **Hedges** joined them **full-time**. **In-office visit Tue May 5, 2026** (relationship and context). No active build right now; **may need more Uptech work later**, stay warm after the visit.
-    • Marketing 
-        • **April newsletter: done** (May 2026). Archive refs if useful: `writing/newsletters/2026-04-newsletter`, Google Doc, `writing/newsletters/planning/2026-04.md`. **Next:** plan **May** issue when you pick it up (`writing/newsletters/planning/` or new dated folder)
-        • LinkedIn (cold email list): **Done:** pilot-batch-02 CTO angle B (first 25). **Next:** `business-development/email-outreach/lists/pilot-batch-04-cio-angle-b.csv` (25 CIOs, same angle-B family; align with Smartlead send before connecting)
-        • **Smartlead:** last technical experiment **ended, essentially no response** (May 2026). You are still paying: either **run one more disciplined test** (change one big variable: ICP, list source, subject line, email length, offer, or send domain/reputation) or **pause sends** and downgrade the subscription until you have a new hypothesis. Do not repeat the same angle and list and expect a different result.
-    BD: Goal: Convert pipeline to signed deals and ongoing engagements; grow partner and client base. **Primary focus:** LAist RFP (see Pursuits above) until submitted.
-        • Kevin Lewis (company TBD): Matt texted 2026-03-27; **ping once or close out** if no reply
-        • Abdallah (Google / Flutter): Matt pinged on LinkedIn 2026-04-15. Still: block Jul 16–17 for team; submit talks; notify Abdallah by email when submitted. Details: inbox/uptech/2026-03-27-abdallah-google-flutter-fluttercon-meeting.md
-        • **Inbox batch (2026-05-01):** True Legacy Homes, AI ideas follow-up if not sent; Voyj/Paige confirm SOW signed and paid with Adam (Apr 13–15 was their target, **verify closed**); Booster/Lenny Moon Head of Product nudge if quiet; Elaine (Grafted Braze) confirm Calendly booked or nudge; Scott Sechrest if partnership live, Adam on sample UI + FIBO; Carson/Atticus intro outcome from Apr 6; lower priority GoodChange Emily, Echelon John, CHIPD Josh (invest or pass), HubSpot sweep Altruist/Sanguina/Kangarootime. Full checklist: meetings/actions/2026-05-01-inbox-processed-follow-ups.md
+**Stale, verify or drop (carried from spring 2026, no recent standup activity):**
+• **Tim Olson / other public radio stations** guest session. Refs: `inbox/kqed/2026-03-23-matt-follow-up-tim-deck-guest-speaker.md`
+• Mar 18 metrics actions: card tap event naming, non-app events approach. `meetings/actions/2026-03-18-kqed-metrics.md`
+• May 1 product sync leftovers: GS app locally + donation button screenshots (light/dark); inactive user push review. `inbox/kqed/2026-05-01-product-sync-airship-okrs-meeting-summary.md`
+
+---
+
+UPTECH — BD
+Goal: Convert the public radio pursuits. Full state in `deals/pipeline.md`; HubSpot is source of truth.
+
+• **NPR — $600K, Proposal sent, award Sep 29. ON HOLD until they come back to us.** RFP submitted Sep 8, Track B only (Native Mobile Architecture & Production Engineering). Nothing to drive until NPR responds. Their schedule (from `drafts/2026-09-07-npr-rfp-review.md`):
+    ◦ NPR internal review: **Sep 9-11** ← we are here
+    ◦ Vendor intro + 30 min presentation: **Sep 14-16**
+    ◦ Finalists notified: **Sep 17** · Finalist presentations: **Sep 21-25** · Contract award: **Sep 29**
+    ◦ Then: Private beta Jan 2027, App 1.0 live Sep 2027
+    ◦ **Sep 8: Kahlia Ali acknowledged receipt.** **Sep 10: presentation options sent, NPR to pick a slot.** Hold **Sep 14-16** open; nothing to chase
+    ◦ Milestone-based billing with a budget cap went out, not T&M. That question is closed
+• **LAist — Internal Programming Tool (Merlin), Exploration. ← nearest live commitment.** Web-based newsroom assignment desk replacing a 7-year-old Airtable build, ~50 newsroom users. Andy drafted an 18-page RFP; their VP of Finance wants cost and timeline before next budget season.
+    ◦ **Not urgent.** Andy was sending the functional requirements doc on Sep 8. **If nothing by Fri Sep 11, follow up** (calendar hold set)
+    ◦ Review it, **share with Jon** (positioned as the fit: built KQED's **Mobile API** and internal tools), come back with a **ballpark on scope and cost**
+• **LAist — New Mobile App, Possibility, closes 12/1.** Andy's team is in research mode, sketching a v1 framework over the next 1-2 months, then bringing it back for collaborative scoping. Web is being downsized; app is the focus. **Andy wants a thought partner who brings proactive suggestions**, the way Matt works with Julia at KQED. Introduce **Sarah Marks** when it moves forward. No amount until we see it
+• **Pipeline hygiene:** of 12 active deals, 9 have no amount, 6 have close dates in the past, 9 have zero notes. The forecast is three deals wide and all of it is Matt's
+
+**Other owners, for awareness:** Phillips rate increase (Claude, Contract sent 90%, stalled since Jul 31 — worth a nudge); Schedulefly and Mogul (Adam); Victory Live, Jasper and Golf Agronomics (Claude); Gameday Team Expansion (Adam).
+
+---
+
+PRISM (Russ)
+Goal: Stay informed. **Low-touch by design.**
+• **Russ is consulting with Prism directly.** Matt's involvement is checking in with Russ, not running the account
+• Foundation work for the portal is Russ's to drive. No HubSpot deal, and none needed unless it turns into an Uptech engagement
+• Light standup presence is expected here, not a warning sign
+
+---
+
+FIT3D (Anthony; Mark on the relationship)
+• **The app is back in the review process** (Sept 2026). Matt tested the latest build and gave the team feedback Aug 26-27
+• Watch for review outcome and be ready to help if it gets kicked back
+• Invoiced monthly alongside KQED and Prism
+
+---
+
+UPTECH — OPS & MARKETING
+• **Wind down AppFit.** Was in the standup goals block every day since at least Aug 20 with zero activity. Now has a concrete action:
+    ◦ **Cancel the Webflow account — the site is scheduled to downgrade Wed 9/16/2026, so cancel before then.** Calendar hold Mon 9/14 1:30-2:00 PM
+    ◦ Before cancelling: export or archive anything worth keeping; confirm no other Uptech property is billed under the same Webflow account; handle any custom domain pointed at the site
+• **Newsletter:** performance pulled from HubSpot Sep 3, ideas riffed. **The "bottlenecks and team ratios" article moved to Claude on Sep 9** — off Matt's plate
+• **Weekly BD & Marketing check-in** (Wednesdays) and **Ops & Allocation** (Fridays with Adam) are running
+• **Invoicing:** KQED, Prism, Fit3D (monthly, done Aug 31)
+• **Travel:** end of September, planning started Sep 1
+• **LinkedIn / Smartlead:** last technical experiment ended with essentially no response (May 2026). Still paying. Either run one disciplined test changing one big variable, or pause and downgrade. Do not repeat the same angle and list
+
+**Uptech business (from the Sep 9 BD check-in)**
+• **Q3 goal nearly hit in two months, only $11K short** of the full quarter target
+• **~$164K estimated taxes owed** against ~$90K in bank. Decision: distribute $10K each now as a head start; may need a brief line-of-credit draw for next payroll
+• **Anchor-client model:** each founder runs a major anchor with strategic PMs below. Currently lopsided: Phillips-heavy, **KQED not yet lit up**, Gameday needs to expand
+• Allocation board has **3 open slots** (Harris, Neil, one TBD) against a goal of **24 people by September**
+
+**Standing intent**
+• **Meet more product people.** Build the bench and the network on the product side, not just dev. Two things point the same way: the **strategic PM role is still open** (Ray Bumb only wants JIRA work), and Matt's own read from the Mogul call was that the **bottleneck is shifting upstream, away from dev and toward product and design**. Uptech is also staffing up around the KQED SOWs. Not a task with a date, a habit to keep feeding
+
+**Stale BD threads (spring 2026, verify or close out):**
+• Kevin Lewis — texted 2026-03-27, ping once or close out
+• Abdallah (Google / Flutter) — FluttterCon talks, `inbox/uptech/2026-03-27-abdallah-google-flutter-fluttercon-meeting.md`
+• May 1 inbox batch: True Legacy Homes, Voyj/Paige SOW, Booster/Lenny Moon, Elaine (Grafted), Scott Sechrest, Carson/Atticus. `meetings/actions/2026-05-01-inbox-processed-follow-ups.md`
