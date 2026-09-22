@@ -1,7 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "Edit(/.claude/skills/standup-from-calendar-harvest/**)",
+      "Edit(/.claude/skills/standup-from-calendar-keito/**)",
       "mcp__google-calendar__list-events"
     ]
   }

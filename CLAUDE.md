@@ -21,8 +21,8 @@ I will give you short prompts and you should infer intent from context. Examples
 - "We decided to go with X" → Run `/decide`
 - "Update the Acme deal" → Run `/dealupdate Acme`
 - "Log this contact" → Run `/contact`
-- "Log time in Harvest", "log my Harvest time", "harvest time" → Use the **log-harvest-time** skill (see "Harvest time" below)
-- "Create standup", "draft standup from calendar", "pull calendar and Harvest into standup" → Use the **standup-from-calendar-harvest** skill (see "Standup from Calendar + Harvest" below)
+- "Log my time", "log time in Keito", "keito time" (or the legacy "log time in Harvest") → Use the **log-keito-time** skill (see "Time tracking (Keito)" below)
+- "Create standup", "draft standup from calendar", "pull calendar and time entries into standup" → Use the **standup-from-calendar-keito** skill (see "Standup from Calendar + Keito" below)
 
 For longer thoughts, I use voice input. Stream-of-consciousness is fine.
 
@@ -49,7 +49,7 @@ projects/          # Product initiatives and roadmap items
 stakeholders/
   one-on-ones/     # Individual relationship histories
   roster.md        # Key contacts with full context
-reference/         # Frameworks, mental models, templates (optional harvest-time-mapping.md for Harvest)
+reference/         # Frameworks, mental models, templates (keito-time-mapping.md for time tracking)
 standups/          # Daily Slack standups, one file per day (YYYY-MM-DD.md)
 tools/presentations/  # HTML slide decks (canonical company-overview template → PDF)
 ```
@@ -76,24 +76,27 @@ tools/presentations/  # HTML slide decks (canonical company-overview template �
 3. Write to `standups/YYYY-MM-DD.md` (daily copy for that date)
 4. Clear logged sections from `daily standup.txt` (or leave — follow Matt's preference)
 
-**Standup from Calendar + Harvest (draft `daily standup.txt`):** When Matt wants to **build or refresh** his standup from **Google Calendar** and **Harvest** (not the same as logging standup to `standups/`). Use the **standup-from-calendar-harvest** skill end to end:
+**Standup from Calendar + Keito (draft `daily standup.txt`):** When Matt wants to **build or refresh** his standup from **Google Calendar** and **Keito** (not the same as logging standup to `standups/`). Use the **standup-from-calendar-keito** skill end to end:
 
 1. **Calendar:** Google Calendar MCP, events from start of **yesterday** through end of **today** (America/Los_Angeles unless he says otherwise).
-2. **Harvest:** **Read only** (`GET /v2/time_entries` with `from` / `to`); needs `HARVEST_ACCESS_TOKEN` and `HARVEST_ACCOUNT_ID`. Use **`reference/harvest-time-mapping.md`** to line up project names with standup client codes. Do **not** create or edit Harvest entries unless he separately asks (see "Harvest time").
+2. **Keito:** **Read only** (`GET https://app.keito.ai/api/v2/time_entries` with `from` / `to`); needs `KEITO_API_KEY` and `KEITO_ACCOUNT_ID`. Use **`reference/keito-time-mapping.md`** to line up project names with standup client codes. Do **not** create or edit Keito entries unless he separately asks (see "Time tracking (Keito)").
 3. **Write** merged bullets into **`daily standup.txt`**, preserve **Goals** and **Blockers** when already there, no em dashes in standup text.
 
-### Harvest time
+### Time tracking (Keito)
 
-Matt logs billable time in **Harvest**. When he asks to log Harvest time (or to turn standup lines into time entries), **use the log-harvest-time skill**:
+> **Uptech moved from Harvest to Keito (`keito.ai`) in Sept 2026.** When Matt says "Harvest", he means Keito. **Never call the Harvest API.** The Harvest account is a read-only historical archive during reconciliation, and stale `HARVEST_*` vars may still sit in his shell: ignore them. See `decisions/2026-09-21-move-time-tracking-from-harvest-to-keito.md`.
 
-- **`.claude/skills/log-harvest-time/SKILL.md`** (main workflow)
-- **`.claude/skills/log-harvest-time/reference.md`** (API snippets: current user, list projects, task assignments, create entries)
+Matt logs billable time in **Keito**. When he asks to log time (or to turn standup lines into time entries), **use the log-keito-time skill**:
 
-**Environment:** `HARVEST_ACCESS_TOKEN` and `HARVEST_ACCOUNT_ID` must be set (from [Harvest ID](https://id.getharvest.com) → Developers). Never echo tokens.
+- **`.claude/skills/log-keito-time/SKILL.md`** (main workflow)
+- **`.claude/skills/log-keito-time/reference.md`** (API snippets: current user, list projects, tasks, create entries, plus a Harvest-to-Keito diff table)
+- **`.claude/skills/log-keito-time/fetch-mapping.sh`** (regenerates the project/task ID mapping)
 
-**Mapping:** Keep **`reference/harvest-time-mapping.md`** in this repo (shape in `.claude/skills/log-harvest-time/mapping.example.md`) so standup-style client codes (Gameday, KQED, Tanita, etc.) map to Harvest `project_id` and `task_id`. If the file is missing, use the API to discover IDs and create it with Matt.
+**Environment:** `KEITO_API_KEY` and `KEITO_ACCOUNT_ID` must be set (Keito → Settings → API & Developers; the key must be a **full-access integration key**, not the read-only sync key). Never echo tokens.
 
-**Rules:** Build a **proposed** list of entries (date, project, task, hours, notes, brief **billability judgment**: Product vs Partner vs Non-billable per **`reference/harvest-time-mapping.md`**) and **wait for Matt’s explicit approval** before any Harvest API writes. Do not invent hours. Same-day input can come from **`standups/YYYY-MM-DD.md`** or **`daily standup.txt`** when Matt points you there.
+**Mapping:** Keep **`reference/keito-time-mapping.md`** in this repo (shape in `.claude/skills/log-keito-time/mapping.example.md`) so standup-style client codes (Gameday, KQED, Tanita, etc.) map to Keito `project_id` and `task_id`. **Keito IDs are opaque strings** (CUIDs), not Harvest's integers, so quote them in JSON bodies. Tasks are workspace-level and shared across projects. Do not send `billable` (the task determines it), and round hours to 0.25. If a client code is missing, stop and tell Matt rather than guessing an ID.
+
+**Rules:** Build a **proposed** list of entries (date, project, task, hours, notes, brief **billability judgment**: Product vs Partner vs Non-billable per **`reference/keito-time-mapping.md`**) and **wait for Matt’s explicit approval** before any Keito API writes. Do not invent hours. Same-day input can come from **`standups/YYYY-MM-DD.md`** or **`daily standup.txt`** when Matt points you there.
 
 ### Email Inbox
 
@@ -131,7 +134,7 @@ Run these by name or via natural language:
 | `/contact` | "add contact", "update [name]'s info", "log this person" | Add or update stakeholder |
 | `/decide` | "log decision about X" | Capture a structured decision record |
 | `/marketingslides` | "update the marketing slides", "prep the BD meeting", "generate slides" | Update and regenerate the weekly BD & Marketing slide deck |
-| (standup draft) | "create standup", "draft standup from calendar and Harvest", "populate standup from calendar" | Merge yesterday + today from Calendar MCP + Harvest (read-only) into `daily standup.txt`; **standup-from-calendar-harvest** skill |
+| (standup draft) | "create standup", "draft standup from calendar", "populate standup from calendar" | Merge yesterday + today from Calendar MCP + Keito (read-only) into `daily standup.txt`; **standup-from-calendar-keito** skill |
 | (log standup) | "log standup", "save standup", "post standup" | Archive `daily standup.txt` to `standups/YYYY-MM-DD.md`; **log-standup** skill |
 | (check inbox) | "check my inbox", "process this email", "what's in my inbox" | Summarize and route emails in `inbox/`; **process-inbox-email** skill |
 | (sync granola) | "sync granola", "check granola", "pull my notes", "what did I miss" | Pull new Granola meeting notes into `meetings/`; **granola-sync** skill. Also runs daily inside `/morning` |
@@ -162,14 +165,14 @@ Run these by name or via natural language:
 ## Important Context Files
 
 Always check these files when they're relevant:
-- `daily standup.txt` — today + this week's doings and goals (see "How I Track Work" above; draft from Calendar + Harvest via the **standup-from-calendar-harvest** skill)
+- `daily standup.txt` — today + this week's doings and goals (see "How I Track Work" above; draft from Calendar + Keito via the **standup-from-calendar-keito** skill)
 - `to-do.txt` — longer-term goals for the next ~3 months
 - `stakeholders/roster.md` — key relationships and context
 - **`deals/pipeline.md`** (this repo) — **notes, context, and the qualitative pipeline story** for the active pipeline. It is **not** the system of record for stages or numbers: those live in **HubSpot**. When you edit it, keep stage/value summaries **consistent with HubSpot** after CRM updates. Optional `deals/COMPANY-NAME.md` files carry deeper per-deal history.
 - **`uptech/writing`** — LinkedIn drafts and published posts live under `linkedin-posts/`; browse the repo for other writing, voice, and marketing copy when relevant (read/write via GitHub MCP)
 - `meetings/actions/` — pending action items (fed daily from Granola; see **Granola daily sync**)
 - **Granola** — meeting notes and transcripts, via MCP. Check it for recent decisions and commitments before concluding something is not recorded
-- `reference/harvest-time-mapping.md` — Harvest `project_id` / `task_id` by client code (when logging time; see "Harvest time")
+- `reference/keito-time-mapping.md` — Keito `project_id` / `task_id` by client code (when logging time; see "Time tracking (Keito)")
 
 ## MCP Tools Available
 
