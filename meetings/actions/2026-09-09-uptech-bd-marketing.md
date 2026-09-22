@@ -6,7 +6,8 @@ Note: `meetings/notes/2026-09-09-uptech-bd-marketing-checkin.md`
 ## Matt
 
 - [ ] **Finalize the KQED SOW at six bullet points.** Julia already approved the structure; just update the number and send. **This is the closest thing to a signature in the pipeline** (KQED deals close Oct 1)
-- [ ] **Run a Harvest time report, Oct 1 2025 to now, filtered to partner clients**, to confirm total billed before finalizing that number. Previous billing was ~$375 mobile-only, plus separate security and website budgets
+- [ ] **Run a time report, Oct 1 2025 to now, filtered to partner clients**, to confirm total billed before finalizing that number. Previous billing was ~$375 mobile-only, plus separate security and website budgets
+  - **Note (Sep 21):** Uptech moved time tracking to **Keito** (`decisions/2026-09-21-move-time-tracking-from-harvest-to-keito.md`). Pull this from Keito if the imported history is reconciled; otherwise pull it from Harvest while that account is still readable. Do not let the migration delay the SOW number
 - [ ] **Connect Andy (LAist) and Julia (KQED).** Shared "local vs NPR" dynamic; Andy did not know about the NPR RFP
 
 ## Claude

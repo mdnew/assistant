@@ -1,0 +1,622 @@
+<title>NPR Pitch Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap">
+<style>
+  :root {
+    --brand:#6D4DF2; --navy:#282C8A; --paper:#FFFFFF; --panel:#E8E8E8;
+    --body:#3C3C42; --label:#8E8E96; --dark:#16293C; --cyan:#29ABE2;
+    --stage:#0E0E14;
+  }
+  * { box-sizing:border-box; }
+  html, body { margin:0; height:100%; background:var(--stage); overflow:hidden;
+    font-family:"Jost","Century Gothic","Avenir Next",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased; }
+
+  /* ---------- stage ---------- */
+  .stage { position:fixed; inset:0; display:grid; place-items:center; padding:0; }
+  .slide { display:none; }
+  .slide.is-active { display:block; }
+  .frame {
+    width:min(100vw, calc((100vh - var(--notes-h, 0px)) * 16 / 9));
+    aspect-ratio:16/9; container-type:inline-size;
+    background:var(--paper); color:var(--body);
+    display:flex; flex-direction:column; padding:5.2cqw 5.6cqw 3.4cqw;
+    transition:width .18s ease;
+  }
+  .frame--brand { background:var(--brand); color:#FFF; justify-content:center; }
+  .frame--dark  { background:var(--dark);  color:#DCE3EA; }
+
+  .eyebrow { margin:0 0 3.2cqw; font-size:1.25cqw; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--label); font-weight:500; }
+  .frame--dark .eyebrow { color:rgba(255,255,255,.62); }
+  h2.t { margin:0 0 2.6cqw; font-size:4.3cqw; font-weight:300; line-height:1.08;
+    letter-spacing:-.018em; color:var(--navy); text-wrap:balance; }
+  .frame--dark h2.t { color:#FFF; }
+  p.lede { margin:0; font-size:1.95cqw; line-height:1.5; max-width:64cqw; }
+  p.lede b { font-weight:600; color:var(--navy); }
+  .frame--dark p.lede b { color:#FFF; }
+  .foot { margin-top:auto; padding-top:2.2cqw; font-size:1.15cqw; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--label); font-weight:500; }
+  .frame--dark .foot { color:rgba(255,255,255,.42); }
+
+  ul.pts { margin:2.4cqw 0 auto; padding:0; list-style:none;
+    display:flex; flex-direction:column; gap:1.6cqw; }
+  ul.pts li { position:relative; padding-left:2.6cqw; font-size:1.95cqw; line-height:1.45; }
+  ul.pts li::before { content:""; position:absolute; left:.35cqw; top:.85cqw;
+    width:.7cqw; height:.7cqw; border-radius:50%; background:var(--brand); }
+  .frame--dark ul.pts li::before { background:var(--cyan); }
+  ul.pts b { font-weight:600; color:var(--navy); }
+  .frame--dark ul.pts b { color:#FFF; }
+
+  .stats { display:flex; gap:5cqw; margin:1cqw 0 0; }
+  .stat { display:flex; flex-direction:column; gap:.5cqw; }
+  .stat .v { font-size:4.6cqw; font-weight:600; line-height:1; color:var(--navy);
+    font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
+  .stat .k { font-size:1.35cqw; line-height:1.35; color:var(--body); max-width:20cqw; }
+
+
+  .frame--brand.frame--split { justify-content:flex-start; align-items:center; }
+  .frame--brand .col-text { justify-content:center; }
+
+  /* split frame: text left, art right */
+  .frame--split { flex-direction:row; gap:4cqw; align-items:stretch; }
+  .frame--split h2.t { font-size:3.8cqw; }
+  .frame--split .stats { gap:3cqw; }
+  .frame--split .stat .v { font-size:3.4cqw; }
+  .frame--split .stat .k { font-size:1.2cqw; max-width:14cqw; }
+  .frame--split .col-text { flex:1 1 56%; display:flex; flex-direction:column; min-width:0; }
+  .frame--split.art-sm .col-art { flex:0 0 24%; }
+  .frame--split.art-sm .col-text { flex:1 1 72%; }
+  .frame--split .fgrid { gap:1.4cqw 3cqw; margin:2.2cqw 0 auto; }
+  .frame--split .fgrid span { font-size:1.6cqw; padding-left:2.1cqw; }
+  .frame--split .fgrid span::before { top:.66cqw; width:.56cqw; height:.56cqw; }
+  .frame--split .col-art { flex:0 0 36%; display:grid; place-items:center; min-width:0; }
+  .frame--split .col-art img { width:100%; height:auto; max-height:46cqw; object-fit:contain; }
+
+  /* bench: the rest of the studio, gridded on the cover */
+  .bench { display:grid; grid-template-columns:repeat(5,1fr); gap:.9cqw; }
+  .bench .f { position:relative; aspect-ratio:1; border-radius:50%; overflow:hidden;
+    background:rgba(255,255,255,.18); box-shadow:0 0 0 .12cqw rgba(255,255,255,.4); }
+  .bench .f img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .bench-cap { margin:1.6cqw 0 0; font-size:1.2cqw; color:rgba(255,255,255,.62); text-align:center; }
+
+  /* development practice band, slide 5 */
+  .prac { display:grid; grid-template-columns:1fr 1fr; gap:1.2cqw 4cqw; margin:1.4cqw 0 auto; }
+  .prac h4 { margin:0 0 .6cqw; font-size:1.45cqw; font-weight:600; color:var(--navy); }
+  .prac .pfig { margin:0; min-width:0; }
+  .prac .pfig svg { width:100%; height:auto; display:block; }
+  .dia-cap { margin:.9cqw 0 0; font-size:1.35cqw; line-height:1.4; color:var(--body); }
+  .dia-cap b { font-weight:600; color:var(--navy); }
+
+  /* team grid: three across, two rows */
+  .team { display:grid; grid-template-columns:repeat(3,1fr); gap:2cqw 1.8cqw; width:100%; }
+  .member { display:flex; flex-direction:column; align-items:center; gap:.8cqw; }
+  .ava { position:relative; width:100%; aspect-ratio:1; border-radius:50%; overflow:hidden;
+    background:#DCDCE4; display:grid; place-items:center; }
+  .ava img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .ava span { font-size:2.6cqw; font-weight:500; color:#8A8A96; letter-spacing:.02em; }
+  .member .nm { font-size:1.25cqw; font-weight:600; color:var(--navy); line-height:1.25; text-align:center; }
+  .member .rl { font-size:1.05cqw; color:var(--label); line-height:1.25; text-align:center; margin-top:-.4cqw; }
+
+  .fgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5cqw 3cqw; margin:2cqw 0 auto; }
+  .fgrid span { position:relative; padding-left:2.3cqw; font-size:1.75cqw; line-height:1.4; }
+  .fgrid span::before { content:""; position:absolute; left:.3cqw; top:.72cqw;
+    width:.62cqw; height:.62cqw; border-radius:50%; background:var(--cyan); }
+
+  .cov-logo { height:4.2cqw; width:auto; display:block; margin:0 0 3cqw;
+    align-self:flex-start; margin-inline-start:0; }
+  .cov-logo--center { align-self:center; margin:0 auto 3.4cqw; }
+  .cov-eyebrow { font-size:1.35cqw; letter-spacing:.2em; text-transform:uppercase;
+    color:rgba(255,255,255,.72); font-weight:500; margin:0 0 2.4cqw; }
+  .frame--brand:not(.frame--split) { text-align:center; }
+  .cov-title { margin:0 0 1.8cqw; font-size:5.1cqw; font-weight:300; line-height:1.08;
+    letter-spacing:-.02em; color:#FFF; }
+  .cov-sub { margin:0 0 3cqw; font-size:2cqw; color:rgba(255,255,255,.85); font-weight:300; }
+  .cov-names { display:flex; gap:4.5cqw; }
+  .cov-names .p { display:flex; flex-direction:column; align-items:center; gap:1.1cqw; }
+  .cov-ava { position:relative; width:8.5cqw; height:8.5cqw; border-radius:50%; overflow:hidden;
+    background:rgba(255,255,255,.16); box-shadow:0 0 0 .22cqw rgba(255,255,255,.5);
+    display:grid; place-items:center; }
+  .cov-ava img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .cov-ava > span { font-size:2.6cqw; font-weight:500; color:rgba(255,255,255,.82); letter-spacing:.02em; }
+  .cov-names .who { font-size:1.5cqw; color:rgba(255,255,255,.92); text-align:center; line-height:1.3; }
+  .cov-names .who span { display:block; font-size:1.2cqw; color:rgba(255,255,255,.6); margin-top:.35cqw; }
+
+  figure.dia { margin:2cqw 0 auto; width:100%; }
+  figure.dia svg { width:100%; height:auto; display:block; }
+
+  .slide-notes { display:none; }
+
+  /* ---------- HUD ---------- */
+  .hud { position:fixed; left:0; right:0; bottom:0; height:38px; display:flex; align-items:center;
+    gap:16px; padding:0 16px; background:rgba(14,14,20,.92); color:#9A9AA6;
+    font-size:12px; letter-spacing:.03em; z-index:40; transition:opacity .2s; }
+  .hud.is-hidden { opacity:0; pointer-events:none; }
+  .hud .who { color:#FFF; font-weight:600; letter-spacing:.09em; text-transform:uppercase; font-size:11px; }
+  .hud .sec { color:#C9C9D2; }
+  .hud .spacer { margin-left:auto; }
+  .hud .tgt { font-family:ui-monospace,monospace; }
+  .hud .clock { font-family:ui-monospace,monospace; font-size:15px; color:#FFF;
+    font-variant-numeric:tabular-nums; min-width:62px; text-align:right; }
+  .hud .clock.warn { color:#E8BE7A; }
+  .hud .clock.crit { color:#FF8C7A; }
+  .hud .keys { color:#65656F; font-size:11px; }
+  .hud progress { -webkit-appearance:none; appearance:none; width:110px; height:4px; border:0; background:#2A2A34; border-radius:2px; }
+  .hud progress::-webkit-progress-bar { background:#2A2A34; border-radius:2px; }
+  .hud progress::-webkit-progress-value { background:var(--brand); border-radius:2px; }
+  .hud progress::-moz-progress-bar { background:var(--brand); border-radius:2px; }
+
+  /* ---------- notes panel ---------- */
+  .notes-panel { position:fixed; left:0; right:0; bottom:38px; max-height:34vh; overflow:auto;
+    background:#15151D; border-top:1px solid #2A2A34; padding:18px 22px 20px; z-index:39;
+    display:none; }
+  .notes-panel.is-open { display:block; }
+  .notes-panel h3 { margin:0 0 10px; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--brand); font-weight:600; }
+  .notes-panel p { margin:0 0 9px; font-size:14.5px; line-height:1.6; color:#A8A8B4; max-width:88ch; }
+  .notes-panel p:last-child { margin-bottom:0; }
+  .notes-panel b { color:#ECECF2; font-weight:500; }
+
+  /* ---------- grid overview ---------- */
+  .grid-ov { position:fixed; inset:0; background:rgba(14,14,20,.97); z-index:50; display:none;
+    padding:28px; overflow:auto; }
+  .grid-ov.is-open { display:block; }
+  .grid-ov .g { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:14px; }
+  .grid-ov button { all:unset; cursor:pointer; border:1px solid #2A2A34; border-radius:5px;
+    padding:13px 14px; background:#15151D; display:flex; flex-direction:column; gap:5px; }
+  .grid-ov button:hover, .grid-ov button:focus-visible { border-color:var(--brand); background:#1B1B26; }
+  .grid-ov .n { font-family:ui-monospace,monospace; font-size:11px; color:#65656F; }
+  .grid-ov .s { font-size:14px; color:#ECECF2; }
+  .grid-ov .w { font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--brand); font-weight:600; }
+
+  @media print {
+    html, body { overflow:visible; background:#FFF; }
+    .hud, .notes-panel, .grid-ov { display:none !important; }
+    .slide { display:block !important; page-break-after:always; }
+    .frame { width:100vw; }
+  }
+
+  /* ---- review page: same slides, laid out to scroll ---- */
+  html, body { height:auto; overflow:auto; background:#F4F3F8; }
+  @media (prefers-color-scheme: dark) { html, body { background:#121218; } }
+  .stage, .hud, .notes-panel, .grid-ov { display:none !important; }
+  .wrap { max-width:1180px; margin:0 auto; padding:56px 28px 100px;
+    display:flex; flex-direction:column; gap:40px; }
+  .slide, .slide.is-active { display:block; }
+  .frame { width:100% !important; border-radius:3px;
+    box-shadow:0 0 0 1px rgba(26,26,34,.10), 0 1px 2px rgba(26,26,34,.05), 0 12px 32px -8px rgba(26,26,34,.16); }
+  .masthead { display:flex; flex-direction:column; gap:13px; }
+  .kicker { font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:#6D4DF2; font-weight:500; }
+  h1.pg { margin:0; font-size:clamp(32px,5.2vw,50px); font-weight:300; letter-spacing:-.015em;
+    line-height:1.05; color:#1A1A22; }
+  .standfirst { margin:0; max-width:64ch; font-size:16px; line-height:1.62; color:#62626E; }
+  .ros { background:#FFF; border:1px solid #DDDBE6; border-radius:5px; overflow:hidden; }
+  .ros h2 { margin:0; padding:18px 22px 14px; font-size:15px; font-weight:600; color:#1A1A22; }
+  table.ros-t { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+  table.ros-t th { text-align:left; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:#62626E; font-weight:500; padding:8px 14px; border-top:1px solid #DDDBE6;
+    border-bottom:1px solid #DDDBE6; background:#EFEBFE; }
+  table.ros-t td { padding:9px 14px; font-size:13.5px; border-bottom:1px solid #DDDBE6; color:#62626E; }
+  table.ros-t td.who { font-weight:600; color:#1A1A22; width:15%; }
+  table.ros-t td.sec { color:#1A1A22; width:38%; }
+  table.ros-t td.t { font-family:ui-monospace,monospace; font-size:12.5px; width:12%; white-space:nowrap; }
+  table.ros-t tr.tot td { font-weight:600; color:#1A1A22; border-bottom:none; background:rgba(109,77,242,.05); }
+  .block { display:flex; flex-direction:column; gap:14px; }
+  .bar { display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; }
+  .num { font-family:ui-monospace,monospace; font-size:12px; color:#62626E; }
+  .who-tag { font-size:11px; letter-spacing:.09em; text-transform:uppercase; font-weight:600;
+    padding:4px 9px; border-radius:3px; background:#EFEBFE; color:#6D4DF2; }
+  .sec-tag { font-size:15px; font-weight:500; color:#1A1A22; }
+  .time-tag { font-family:ui-monospace,monospace; font-size:12px; color:#62626E; margin-left:auto; }
+  .notes { background:#FFF; border:1px solid #DDDBE6; border-left:3px solid #6D4DF2; border-radius:4px;
+    padding:16px 20px; display:flex; flex-direction:column; gap:9px; }
+  .notes .lab { font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; font-weight:600; color:#6D4DF2; }
+  .notes p { margin:0; font-size:14px; line-height:1.62; color:#62626E; max-width:76ch; }
+  .notes p b { color:#1A1A22; font-weight:500; }
+  @media (prefers-color-scheme: dark) {
+    h1.pg, .sec-tag, table.ros-t td.who, table.ros-t td.sec, .notes p b { color:#ECEBF2; }
+    .standfirst, .num, .time-tag, table.ros-t td, .notes p { color:#9895A4; }
+    .ros, .notes { background:#1B1B24; border-color:#2C2B37; }
+    table.ros-t th { background:#221E3A; color:#9895A4; border-color:#2C2B37; }
+    table.ros-t td { border-color:#2C2B37; }
+    .who-tag { background:#221E3A; color:#A28FFF; }
+  }
+  @media (max-width:820px) { .frame { aspect-ratio:auto; } }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <span class="kicker">Uptech Studio &middot; NPR Round 1</span>
+    <h1 class="pg">Fifteen-minute pitch deck</h1>
+    <p class="standfirst">
+      9 slides across four speaking blocks. Presentation density, not proposal density: the
+      written response carries the detail, so these exist to be talked over. Generated from the
+      presentable deck, so this page and the live deck never drift.
+    </p>
+  </header>
+
+  <section class="ros">
+    <h2>Run of show</h2>
+    <table class="ros-t">
+      <thead><tr><th>Slide</th><th>Speaker</th><th>Section</th><th>Target</th><th>Running</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="who">Adam</td><td class="sec">Cover and introductions</td><td class="t">0:20</td><td class="t">0:20</td></tr>
+        <tr><td>2</td><td class="who">Adam</td><td class="sec">Executive Summary</td><td class="t">1:30</td><td class="t">1:50</td></tr>
+        <tr><td>3</td><td class="who">Adam</td><td class="sec">Company Overview</td><td class="t">1:40</td><td class="t">3:30</td></tr>
+        <tr><td>4</td><td class="who">Claude</td><td class="sec">Technical Requirements</td><td class="t">2:10</td><td class="t">5:40</td></tr>
+        <tr><td>5</td><td class="who">Claude</td><td class="sec">How We Work</td><td class="t">1:40</td><td class="t">7:20</td></tr>
+        <tr><td>6</td><td class="who">Matt</td><td class="sec">Feature Requirements</td><td class="t">2:10</td><td class="t">9:30</td></tr>
+        <tr><td>7</td><td class="who">Matt</td><td class="sec">Local &amp; National</td><td class="t">1:20</td><td class="t">10:50</td></tr>
+        <tr><td>8</td><td class="who">Adam</td><td class="sec">Timeline &amp; Pricing</td><td class="t">1:40</td><td class="t">12:30</td></tr>
+        <tr><td>9</td><td class="who">Adam</td><td class="sec">Close and questions</td><td class="t">0:30</td><td class="t">13:00</td></tr>
+        <tr class="tot"><td></td><td class="who">&nbsp;</td><td class="sec">Content total, leaving 2:00 buffer</td><td class="t">13:00</td><td class="t">15:00</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block">
+    <div class="bar"><span class="num">01</span><span class="who-tag">Adam</span>
+      <span class="sec-tag">Cover and introductions</span><span class="time-tag">0:20</span></div>
+    <div class="frame frame--brand frame--split">
+      <div class="col-text">
+      <img class="cov-logo" src="images/uptech-logo-white.svg" alt="Uptech Studio" onerror="this.remove()">
+      <p class="cov-eyebrow">Request for Proposal Response</p>
+      <h2 class="cov-title">NPR Next-Generation<br>Mobile Platform</h2>
+      <p class="cov-sub">Option 3 &middot; Track B: Native Mobile Engineering &amp; Technical Delivery</p>
+      <div class="cov-names">
+        <div class="p"><div class="cov-ava"><img src="photos/adam-korman.jpg" alt="" onerror="this.remove()"><span>AK</span></div>
+          <div class="who">Adam Korman<span>Partner</span></div></div>
+        <div class="p"><div class="cov-ava"><img src="photos/claude-ciocan.jpg" alt="" onerror="this.remove()"><span>CC</span></div>
+          <div class="who">Claude Ciocan<span>Partner</span></div></div>
+        <div class="p"><div class="cov-ava"><img src="photos/matt-new.jpg" alt="" onerror="this.remove()"><span>MN</span></div>
+          <div class="who">Matt New<span>Partner</span></div></div>
+      </div>
+      </div>
+      <div class="col-art">
+        <div style="width:100%">
+        <div class="bench">
+          <div class="f"><img src="photos/team-01.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-02.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-03.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-04.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-05.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-06.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-07.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-08.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-09.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-10.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-11.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-12.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-13.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-14.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-15.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-16.jpg" alt="" onerror="this.remove()"></div>
+          <div class="f"><img src="photos/team-17.jpg" alt="" onerror="this.remove()"></div>
+        </div>
+        <p class="bench-cap">And the rest of the studio behind them.</p>
+        </div>
+      </div>
+    </div>
+    <div class="notes"><span class="lab">Talk track</span>
+<p>Names and roles only. <b>Do not spend time on agenda-setting</b> in a fifteen minute slot. One sentence: "Adam on who we are, Claude on the build, Matt on the product, then back to me for timeline and cost."</p>
+    </div>
+  </section>
+  <section class="block">
+    <div class="bar"><span class="num">02</span><span class="who-tag">Adam</span>
+      <span class="sec-tag">Executive Summary</span><span class="time-tag">1:30</span></div>
+    <div class="frame frame--split">
+      <div class="col-text">
+      <p class="eyebrow">Executive Summary</p>
+      <h2 class="t">At Uptech Studio, we&rsquo;re all about execution.</h2>
+      <ul class="pts">
+        <li><b>That is why we are bidding Track B only,</b> and not the blue-sky discovery half of the project.</li>
+        <li><b>At KQED, Metalab led discovery and directional design.</b> We took it into production and have carried it since.</li>
+        <li><b>The same shape as your Track A and Track B split,</b> with the same team that would be on NPR.</li>
+      </ul>
+      <p class="foot">Uptech Studio</p>
+      </div>
+      <div class="col-art">
+        <img src="images/kqed-app.png" alt="The KQED app running on two phones" onerror="this.remove()">
+      </div>
+    </div>
+    <div class="notes"><span class="lab">Talk track</span>
+<p>The whole pitch in three lines. Land it and resist elaborating.</p>
+      <p>The headline says what you are for; the bullets prove it and turn it into the bid. Every firm claims they work well with other agencies. Almost none have <b>inherited another agency's design direction and shipped it to production</b>. If you only get one sentence in this whole pitch, it is the second bullet.</p>
+      <p><b>Do not mention the faces.</b> They are texture, not a roster, and they do the work silently: a studio with a real bench behind three partners on a video call. The named delivery team comes two slides later.</p>
+    </div>
+  </section>
+  <section class="block">
+    <div class="bar"><span class="num">03</span><span class="who-tag">Adam</span>
+      <span class="sec-tag">Company Overview</span><span class="time-tag">1:40</span></div>
+    <div class="frame frame--split">
+      <div class="col-text">
+      <p class="eyebrow">Company Overview</p>
+      <h2 class="t">Ten years building apps. Several of them with KQED.</h2>
+      <div class="stats">
+        <div class="stat"><span class="v">2.0&rarr;4.8</span><span class="k">App Store and Google Play rating</span></div>
+        <div class="stat"><span class="v">55%</span><span class="k">increase in feature release cadence</span></div>
+        <div class="stat"><span class="v">10</span><span class="k">years, US-based, founded 2016</span></div>
+      </div>
+      <p class="foot">Uptech Studio</p>
+      </div>
+      <div class="col-art">
+        <div class="team">
+          <div class="member"><div class="ava"><img src="photos/jon-holtan.jpg" alt="" onerror="this.remove()"><span>JH</span></div>
+          <span class="nm">Jon Holtan</span><span class="rl">Lead Developer</span></div>
+          <div class="member"><div class="ava"><img src="photos/mark-fransen.jpg" alt="" onerror="this.remove()"><span>MF</span></div>
+          <span class="nm">Mark Fransen</span><span class="rl">Developer</span></div>
+          <div class="member"><div class="ava"><img src="photos/cody-swartz.jpg" alt="" onerror="this.remove()"><span>CS</span></div>
+          <span class="nm">Cody Swartz</span><span class="rl">Developer</span></div>
+          <div class="member"><div class="ava"><img src="photos/sarah-marks.jpg" alt="" onerror="this.remove()"><span>SM</span></div>
+          <span class="nm">Sarah Marks</span><span class="rl">Product Designer</span></div>
+          <div class="member"><div class="ava"><img src="photos/brian-lau.jpg" alt="" onerror="this.remove()"><span>BL</span></div>
+          <span class="nm">Brian Lau</span><span class="rl">Project Manager</span></div>
+          <div class="member"><div class="ava"><img src="photos/matt-new.jpg" alt="" onerror="this.remove()"><span>MN</span></div>
+          <span class="nm">Matt New</span><span class="rl">Partner</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="notes"><span class="lab">Talk track</span>
+<p>The rating jump is your strongest number. Say it out loud rather than letting it sit on the slide: <b>2.0 is a failing app, 4.8 is a beloved one.</b></p>
+      <p><b>Then name the faces and stop.</b> These are the people who built that app and the same people who would build NPR's, which is the claim you just made on slide 2. Do not walk the row introducing each person, that eats forty seconds. One sentence: "this is the KQED team, and it is the NPR team."</p>
+      <p><b>If asked about Flutter:</b> KQED chose it for a small team holding parity across two platforms on a tight budget. NPR's requirements point the other way, and we are bidding native. Same team, different right answer.</p>
+    </div>
+  </section>
+  <section class="block">
+    <div class="bar"><span class="num">04</span><span class="who-tag">Claude</span>
+      <span class="sec-tag">Technical Requirements</span><span class="time-tag">2:10</span></div>
+    <div class="frame">
+      <p class="eyebrow">Technical Requirements</p>
+      <h2 class="t">Native Swift and Kotlin, on your MVVM architecture.</h2>
+      <figure class="dia">
+        <svg viewBox="0 0 900 250" role="img"
+             aria-label="Native Swift and Kotlin clients split into two paths. Content, station metadata, and entitlements route through a TypeScript API layer to the CDS API hub, Organization Service, and Entitlements API. Search, identity, consent, analytics, and ad serving attach directly to the app as client SDKs.">
+          <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+            orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#5C6982"/></marker></defs>
+          <rect x="300" y="6" width="300" height="52" rx="8" fill="#59B7E8"/>
+          <text x="450" y="30" text-anchor="middle" font-family="Jost, sans-serif" font-size="17" font-weight="600" fill="#0E2E48">Native App Clients</text>
+          <text x="450" y="48" text-anchor="middle" font-family="Jost, sans-serif" font-size="12.5" fill="#17456A">Swift (iOS) &#183; Kotlin (Android) &#183; MVVM</text>
+          <path d="M450,58 V78 M225,78 H675" stroke="#5C6982" stroke-width="1.6" fill="none"/>
+          <path d="M225,78 V102" stroke="#5C6982" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+          <path d="M675,78 V102" stroke="#5C6982" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+          <text x="216" y="94" text-anchor="end" font-family="Jost, sans-serif" font-size="12" fill="#5C6982">content &amp; state</text>
+          <text x="684" y="94" font-family="Jost, sans-serif" font-size="12" fill="#5C6982">device services</text>
+          <rect x="55" y="104" width="340" height="52" rx="7" fill="#1E5FA6"/>
+          <text x="225" y="128" text-anchor="middle" font-family="Jost, sans-serif" font-size="15.5" font-weight="600" fill="#FFFFFF">TypeScript API layer</text>
+          <text x="225" y="146" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" fill="#BFD8F0">in NPR's cloud, handed over at completion</text>
+          <path d="M225,156 V180" stroke="#5C6982" stroke-width="1.6" fill="none" marker-end="url(#a)"/>
+          <rect x="55" y="184" width="340" height="56" rx="7" fill="#282C8A" fill-opacity=".09" stroke="#8A90B4" stroke-width="1"/>
+          <text x="225" y="206" text-anchor="middle" font-family="Jost, sans-serif" font-size="14.5" font-weight="600" fill="#282C8A">CDS &#183; Organization Service &#183; Entitlements</text>
+          <text x="225" y="226" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" fill="#5C6982">content, station branding, NPR+ and donations</text>
+          <rect x="505" y="104" width="340" height="136" rx="7" fill="#3C3C42" fill-opacity=".08"/>
+          <text x="675" y="128" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" font-weight="600" letter-spacing=".07em" fill="#3E4A63">DIRECT CLIENT SDKS</text>
+          <text x="675" y="154" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" fill="#2E3440">Algolia &#183; SSO &#183; Consent</text>
+          <text x="675" y="177" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" fill="#2E3440">Analytics &#183; Crash reporting</text>
+          <text x="675" y="200" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" fill="#2E3440">Feature toggles &#183; In-app messaging</text>
+          <text x="675" y="223" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" fill="#2E3440">Ad serving &amp; quality monitoring</text>
+        </svg>
+      </figure>
+      <p class="foot">Uptech Studio</p>
+    </div>
+    <div class="notes"><span class="lab">Talk track</span>
+<p>Your longest slot and the one an engineer is judging. Lead with <b>native Swift and Kotlin on their existing MVVM</b>, which answers the cross-platform exclusion before anyone asks.</p>
+      <p>Then the point the picture exists for: <b>NPR owns encoding, storage, CDN, and DRM. Our scope is client-side integration and API consumption.</b> That is their own language from the FAQ.</p>
+    </div>
+  </section>
+  <section class="block">
+    <div class="bar"><span class="num">05</span><span class="who-tag">Claude</span>
+      <span class="sec-tag">How We Work</span><span class="time-tag">1:40</span></div>
+    <div class="frame">
+      <p class="eyebrow">How We Work</p>
+      <h2 class="t">Two agencies, one design system.</h2>
+      <figure class="dia">
+        <svg viewBox="0 0 900 108" role="img"
+             aria-label="The design partner publishes components into a shared design system and reviews changes to it. Uptech Studio implements natively from it and sends constraints and spec gaps back. Nothing passes directly between the two agencies.">
+          <defs><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+            orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#5C6982"/></marker></defs>
+          <rect x="30" y="20" width="230" height="76" rx="8" fill="#29ABE2"/>
+          <text x="145" y="52" text-anchor="middle" font-family="Jost, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF">Track A</text>
+          <text x="145" y="74" text-anchor="middle" font-family="Jost, sans-serif" font-size="12.5" fill="#E2F4FD">Design partner</text>
+          <rect x="335" y="20" width="230" height="76" rx="8" fill="#282C8A"/>
+          <text x="450" y="52" text-anchor="middle" font-family="Jost, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF">Shared design system</text>
+          <text x="450" y="74" text-anchor="middle" font-family="Jost, sans-serif" font-size="12.5" fill="#C9CCE9">components, tokens, states</text>
+          <rect x="640" y="20" width="230" height="76" rx="8" fill="#6C4FE8"/>
+          <text x="755" y="52" text-anchor="middle" font-family="Jost, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF">Track B</text>
+          <text x="755" y="74" text-anchor="middle" font-family="Jost, sans-serif" font-size="12.5" fill="#E0D8FD">Uptech Studio</text>
+          <path d="M268,44 H327" stroke="#5C6982" stroke-width="1.6" fill="none" marker-end="url(#b)"/>
+          <path d="M327,72 H268" stroke="#5C6982" stroke-width="1.6" fill="none" marker-end="url(#b)"/>
+          <path d="M573,44 H632" stroke="#5C6982" stroke-width="1.6" fill="none" marker-end="url(#b)"/>
+          <path d="M632,72 H573" stroke="#5C6982" stroke-width="1.6" fill="none" marker-end="url(#b)"/>
+        </svg>
+      </figure>
+      <p class="dia-cap">
+        <b>Nothing passes directly between the two agencies.</b> NPR holds the final call, and ties
+        break on the audience segment the feature serves.
+      </p>
+      <div class="prac">
+        <figure class="pfig">
+          <h4>Development</h4>
+          <svg viewBox="0 0 430 112" role="img" aria-label="A change moves from a branch, through peer review, into dev, stage, and production. All repositories live in NPR&#39;s own GitHub organization.">
+            <defs><marker id="d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#5C6982"/></marker></defs>
+            <rect x="6" y="22" width="418" height="58" rx="7" fill="#282C8A" fill-opacity=".05" stroke="#9AA0BC" stroke-width="1" stroke-dasharray="5 4"/>
+            <text x="215" y="14" text-anchor="middle" font-family="Jost, sans-serif" font-size="10" font-weight="600" letter-spacing=".08em" fill="#3E4A63">YOUR GITHUB ORGANIZATION</text>
+            <rect x="18" y="34" width="82" height="34" rx="5" fill="#FFFFFF" stroke="#8A94AC" stroke-width="1"/>
+            <text x="59.0" y="55.0" text-anchor="middle" font-family="Jost, sans-serif" font-size="11.5" font-weight="600" fill="#282C8A">Branch</text>
+            <path d="M104,51 H176" stroke="#5C6982" stroke-width="1.4" fill="none" marker-end="url(#d)"/>
+            <text x="140" y="45" text-anchor="middle" font-family="Jost, sans-serif" font-size="9" fill="#5C6982">peer review</text>
+            <rect x="180" y="34" width="70" height="34" rx="5" fill="#FFFFFF" stroke="#8A94AC" stroke-width="1"/>
+            <text x="215.0" y="55.0" text-anchor="middle" font-family="Jost, sans-serif" font-size="11.5" font-weight="600" fill="#282C8A">Dev</text>
+            <path d="M252,51 H258" stroke="#5C6982" stroke-width="1.4" fill="none" marker-end="url(#d)"/>
+            <rect x="262" y="34" width="70" height="34" rx="5" fill="#FFFFFF" stroke="#8A94AC" stroke-width="1"/>
+            <text x="297.0" y="55.0" text-anchor="middle" font-family="Jost, sans-serif" font-size="11.5" font-weight="600" fill="#282C8A">Stage</text>
+            <path d="M334,51 H340" stroke="#5C6982" stroke-width="1.4" fill="none" marker-end="url(#d)"/>
+            <rect x="344" y="34" width="74" height="34" rx="5" fill="#282C8A"/>
+            <text x="381.0" y="55.0" text-anchor="middle" font-family="Jost, sans-serif" font-size="11.5" font-weight="600" fill="#FFFFFF">Production</text>
+            <text x="6" y="99" font-family="Jost, sans-serif" font-size="9.5" fill="#5C6982">Nothing reaches production without a human reading the diff.</text>
+          </svg>
+        </figure>
+        <figure class="pfig">
+          <h4>Process</h4>
+          <svg viewBox="0 0 430 112" role="img" aria-label="Four cadences over one month: daily standups, weekly planning and demo, bi-weekly retrospectives, and a monthly roadmap review.">
+            <text x="6" y="21" font-family="Jost, sans-serif" font-size="10.5" font-weight="600" fill="#282C8A">Daily</text>
+            <text x="6" y="32" font-family="Jost, sans-serif" font-size="8.5" fill="#5C6982">standups</text>
+            <path d="M104,25 H420" stroke="#C6C6CC" stroke-width="1"/>
+            <circle cx="111.9" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="127.7" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="143.5" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="159.3" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="175.1" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="190.9" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="206.7" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="222.5" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="238.3" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="254.1" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="269.9" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="285.7" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="301.5" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="317.3" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="333.1" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="348.9" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="364.7" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="380.5" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="396.3" cy="25" r="2.4" fill="#6D4DF2"/>
+            <circle cx="412.1" cy="25" r="2.4" fill="#6D4DF2"/>
+            <text x="6" y="44" font-family="Jost, sans-serif" font-size="10.5" font-weight="600" fill="#282C8A">Weekly</text>
+            <text x="6" y="55" font-family="Jost, sans-serif" font-size="8.5" fill="#5C6982">planning, demo</text>
+            <path d="M104,48 H420" stroke="#C6C6CC" stroke-width="1"/>
+            <circle cx="143.5" cy="48" r="3" fill="#6D4DF2"/>
+            <circle cx="222.5" cy="48" r="3" fill="#6D4DF2"/>
+            <circle cx="301.5" cy="48" r="3" fill="#6D4DF2"/>
+            <circle cx="380.5" cy="48" r="3" fill="#6D4DF2"/>
+            <text x="6" y="67" font-family="Jost, sans-serif" font-size="10.5" font-weight="600" fill="#282C8A">Bi-weekly</text>
+            <text x="6" y="78" font-family="Jost, sans-serif" font-size="8.5" fill="#5C6982">retrospectives</text>
+            <path d="M104,71 H420" stroke="#C6C6CC" stroke-width="1"/>
+            <circle cx="183.0" cy="71" r="3" fill="#6D4DF2"/>
+            <circle cx="341.0" cy="71" r="3" fill="#6D4DF2"/>
+            <text x="6" y="90" font-family="Jost, sans-serif" font-size="10.5" font-weight="600" fill="#282C8A">Monthly</text>
+            <text x="6" y="101" font-family="Jost, sans-serif" font-size="8.5" fill="#5C6982">roadmap review</text>
+            <path d="M104,94 H420" stroke="#C6C6CC" stroke-width="1"/>
+            <circle cx="262.0" cy="94" r="3" fill="#6D4DF2"/>
+            <path d="M104,108 H420" stroke="#C6C6CC" stroke-width="1"/>
+            <text x="104" y="105" font-family="Jost, sans-serif" font-size="8.5" fill="#5C6982">one month</text>
+          </svg>
+        </figure>
+      </div>
+      <p class="foot">Uptech Studio</p>
+    </div>
+    <div class="notes"><span class="lab">Talk track</span>
+<p>Three beats, twenty seconds each. <b>The design partner owns the library, we own the native implementation, and we join feasibility reviews during discovery</b> so platform constraints surface before something gets designed around them.</p>
+      <p>Then the closer people remember: <b>when design and engineering disagree, the tie-breaker is not seniority or taste.</b> We frame it against the audience segment the feature serves, using NPR's research, and NPR decides.</p>
+      <p>The two columns are the answer to "what is it actually like to work with you." <b>Repos in your organization</b> is the one to say out loud, because it means there is no moment where you have to ask for the code back. Everything else on that list is a cadence they already run, so name it and move.</p>
+    </div>
+  </section>
+  <section class="block">
+    <div class="bar"><span class="num">06</span><span class="who-tag">Matt</span>
+      <span class="sec-tag">Feature Requirements</span><span class="time-tag">2:10</span></div>
+    <div class="frame frame--dark frame--split art-sm">
+      <div class="col-text">
+      <p class="eyebrow">Feature Requirements</p>
+      <h2 class="t">Every one of these is running in production today.</h2>
+      <div class="fgrid">
+        <span>Livestream with rewind</span>
+        <span>Geolocated local TV</span>
+        <span>Vertical shorts feed</span>
+        <span>On demand audio</span>
+        <span>Editorially managed news</span>
+        <span>Personalization</span>
+        <span>Donations and support</span>
+        <span>Segmented notifications</span>
+        <span>Daily games</span>
+        <span>CarPlay and Android Auto</span>
+        <span>Android Automotive OS</span>
+        <span>Analytics, any platform</span>
+      </div>
+      <p class="foot">Uptech Studio</p>
+      </div>
+      <div class="col-art">
+        <img src="images/kqed-watch.png" alt="The KQED app Watch tab with a live local broadcast" onerror="this.remove()">
+      </div>
+    </div>
+    <div class="notes"><span class="lab">Talk track</span>
+<p>Do not read the grid. Pick <b>two</b>, tell those stories, let the rest sit there as evidence.</p>
+      <p>Worth picking: <b>daily games</b>, because Foggy Find generates puzzles from the day's articles through an AI pipeline and links solved words back to the source story with no added editorial burden. That is a 5x weekly active users argument, not a feature. Second choice is <b>Android Automotive OS</b> for Radio Paradise, since almost nobody has shipped a native AAOS app.</p>
+      <p>Leave geolocated broadcast alone here. It leads the next slide, and the screenshot beside you is that same Watch tab, so do not narrate it twice.</p>
+    </div>
+  </section>
+  <section class="block">
+    <div class="bar"><span class="num">07</span><span class="who-tag">Matt</span>
+      <span class="sec-tag">Local &amp; National</span><span class="time-tag">1:20</span></div>
+    <div class="frame">
+      <p class="eyebrow">Local and National</p>
+      <h2 class="t">Local is the hard part. We already ship it.</h2>
+      <ul class="pts">
+        <li><b>We serve the PBS local broadcast by listener location,</b> in production at KQED today. That is your station affiliation problem, already solved for a joint licensee.</li>
+        <li><b>Station branding and call letters flow through the Organization Service,</b> so a station's identity changes without an app release.</li>
+        <li><b>Support routes to the listener's own Member station,</b> so giving reinforces the local relationship rather than competing with it.</li>
+      </ul>
+      <p class="lede" style="margin-top:1.6cqw; font-size:1.45cqw; color:var(--label)">
+        WCAG 2.1 AA, your app store accounts, your repositories, and no access to user PII. Detail is in
+        the written response.
+      </p>
+      <p class="foot">Uptech Studio</p>
+    </div>
+    <div class="notes"><span class="lab">Talk track</span>
+<p><b>This replaces the non-functional requirements slide.</b> That one was hygiene: true, necessary in writing, and worth nothing in a pitch. This one answers the hardest problem in their brief.</p>
+      <p>Local-national across 240+ Member stations is fifteen percent of the written scoring and the thinnest part of the response. It is also the one place you have a shipped, verifiable answer nobody else will have.</p>
+      <p>The grey line at the bottom covers the non-functional items in ten seconds. Read it fast, flatly, and move. <b>It is there so nothing is missing, not to be discussed.</b></p>
+    </div>
+  </section>
+  <section class="block">
+    <div class="bar"><span class="num">08</span><span class="who-tag">Adam</span>
+      <span class="sec-tag">Timeline &amp; Pricing</span><span class="time-tag">1:40</span></div>
+    <div class="frame">
+      <p class="eyebrow">Timeline &amp; Pricing</p>
+      <h2 class="t">$600,000. Beta in January, V1 in September.</h2>
+      <figure class="dia">
+        <svg viewBox="0 0 900 150" role="img"
+             aria-label="Timeline from contract award: strategy support, beta development to the Private Beta gate in January 2027, development and QA with monthly builds, launch support to the V1 gate in September 2027, then four weeks of post-launch fixes.">
+          <rect x="30" y="34" width="118" height="34" rx="5" fill="#8E92C9"/>
+          <text x="89" y="56" text-anchor="middle" font-family="Jost, sans-serif" font-size="12.5" fill="#FFFFFF">Strategy</text>
+          <rect x="152" y="34" width="150" height="34" rx="5" fill="#5B60B8"/>
+          <text x="227" y="56" text-anchor="middle" font-family="Jost, sans-serif" font-size="12.5" fill="#FFFFFF">Beta build</text>
+          <rect x="306" y="34" width="420" height="34" rx="5" fill="#282C8A"/>
+          <text x="516" y="56" text-anchor="middle" font-family="Jost, sans-serif" font-size="12.5" fill="#FFFFFF">Development + QA &#183; 8 monthly builds</text>
+          <rect x="730" y="34" width="60" height="34" rx="5" fill="#5B60B8"/>
+          <rect x="794" y="34" width="76" height="34" rx="5" fill="#8E92C9"/>
+          <text x="832" y="56" text-anchor="middle" font-family="Jost, sans-serif" font-size="12.5" fill="#FFFFFF">Post-V1</text>
+          <path d="M302,24 V86" stroke="#282C8A" stroke-width="1.4" stroke-dasharray="4 3"/>
+          <path d="M296,16 L308,16 L302,26 Z" fill="#282C8A"/>
+          <text x="302" y="108" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" font-weight="600" fill="#282C8A">Private Beta</text>
+          <text x="302" y="126" text-anchor="middle" font-family="Jost, sans-serif" font-size="12.5" fill="#5C6982">January 2027</text>
+          <path d="M790,24 V86" stroke="#282C8A" stroke-width="1.4" stroke-dasharray="4 3"/>
+          <path d="M784,16 L796,16 L790,26 Z" fill="#282C8A"/>
+          <text x="790" y="108" text-anchor="middle" font-family="Jost, sans-serif" font-size="14" font-weight="600" fill="#282C8A">V1 Launch</text>
+          <text x="790" y="126" text-anchor="middle" font-family="Jost, sans-serif" font-size="12.5" fill="#5C6982">September 2027</text>
+        </svg>
+      </figure>
+      <ul class="pts" style="margin-top:2.2cqw">
+        <li><b>13 milestone payments, invoiced Net 30,</b> each tied to an accepted deliverable rather than elapsed time.</li>
+        <li><b>No support contract required at handover.</b> Documentation, runbooks, and repos in your organization.</li>
+      </ul>
+      <p class="foot">Uptech Studio</p>
+    </div>
+    <div class="notes"><span class="lab">Talk track</span>
+<p>Say the number early and without hedging. Then the two lines their RFP asks for explicitly: <b>milestone-based rather than time-and-materials</b>, which they say they strongly prefer, and <b>maintainable without a retainer</b>, which they require in writing.</p>
+      <p>The second is worth an extra beat. Every bidder promises it; you can say you have been through the handoff, because the KQED design system outlived the agency that built it.</p>
+    </div>
+  </section>
+  <section class="block">
+    <div class="bar"><span class="num">09</span><span class="who-tag">Adam</span>
+      <span class="sec-tag">Close and questions</span><span class="time-tag">0:30</span></div>
+    <div class="frame frame--brand">
+      <img class="cov-logo cov-logo--center" src="images/uptech-logo-white.svg" alt="Uptech Studio" onerror="this.remove()">
+      <p class="cov-eyebrow">Thank you</p>
+      <h2 class="cov-title">Public radio matters<br>to a lot of us here.</h2>
+      <p class="cov-sub">matt@uptechstudio.com &middot; uptechstudio.com</p>
+    </div>
+    <div class="notes"><span class="lab">Talk track</span>
+<p>One sentence, then stop talking and take questions. Say explicitly that the written response covers what you skipped: it invites questions and signals you are not going to fill the remaining time.</p>
+    </div>
+  </section>
+</div>

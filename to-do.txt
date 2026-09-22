@@ -2,8 +2,8 @@ To-Do
 
 **Refreshed against standups, HubSpot, and the NPR RFP review: September 9, 2026.** Horizon: now through early December 2026.
 
-**Matt's portfolio priority:** **public radio**. Three pursuits (**KQED**, **NPR**, **LAist**) plus **KQED Election 2026** delivery. Everything else fits around those.
-**#1 right now:** the **KQED 2026/2027 SOWs** ($1.3M combined, close Oct 1). **NPR is on hold** pending their response.
+**Matt's portfolio priority:** **public radio**. **NPR is out as of Sep 18**, leaving **KQED** and **LAist** plus **KQED Election 2026** delivery. Everything else fits around those.
+**#1 right now:** the **KQED 2026/2027 SOWs** ($1.3M combined, one document, close Oct 1) are **with Julia for legal** as of Sep 16 — waiting, not driving. **NPR closed lost Sep 18** (did not make the finalist shortlist), so KQED is now effectively the whole quantified pipeline. **LAist is the only other public radio pursuit left.**
 **Hard external deadline:** **KQED Election 2026** ships ahead of the November election. Nothing else on this list has a fixed date the world enforces.
 
 **No longer working:** **Gameday** and **Tanita** — off Matt's plate entirely (Sept 2026). **Halite** is Adam's client lead.
@@ -14,32 +14,46 @@ KQED (Mark, Jon, Julia, Jason)
 Goal: Land the 2027 engagement and ship Election 2026 on time.
 
 **1. Election 2026 — the deadline item**
-Strong momentum Aug 26-31 (slides, team discussion, sequencing, JIRA epics and tickets, Election Alerts definition), then it went quiet Sep 1-8. Election day is roughly eight weeks out and app store review plus Airship setup eat into that.
-From the Aug 26 Election 2026 session, work split into two streams that can start without news team input:
-• **MATT'S STREAM: election notification opt-in and alert setup.** Surface the **existing notifications settings page** (Mark built it, never exposed) and add **"Elections 2026"** as a notification category, driving opt-ins through Airship. Likely one toggle, not granular. Two alert types: scheduled pushes for key dates (registration deadline, ballot return) coordinated with the news team, and automated pushes when election-tagged content publishes
-• **Jhughes's stream:** voter guide in-app rendering (currently WordPress/Gutenberg, excluded from the app; feed filters out election articles so there is almost no content during election season)
-• **Blocked on others:** Noah on **WordPress webhooks** (so publishes trigger notifications instead of polling) and a **Caroline demo** of the live election-results pipeline (AP-style feed, could push real-time race results on election night)
-• **MATT'S STREAM: Election analytics. Starts next week (w/c Sep 14) once there is an early build from the developers.** Blocked until then, not idle
-    ◦ Instrument the Election work so the Aug 26 success metrics are actually measurable: 500+ new installs, opt-in rate toward 25%, 8,000+ article views, 30,000+ active users, 130-150 Foggy Find completes
-    ◦ Builds on the **Adjust event links** worked out with Julia on Sep 11, which are the attribution layer underneath the install and opt-in numbers
-    ◦ Cover the Election Center / hub, the voter guide in-app views, and the Elections 2026 notification opt-in
+Election day is Nov 3. App store review and Airship setup eat into the runway. Feed card is live as of Sep 14: voter guide link, notifications toggle, curated content all working. No new build is planned before election night, so instrumentation has to land in the current build cycle.
+
+**Matt's items**
+• **Election analytics — live now.** Mark is providing the analytics build **Sep 14 or 15**; Julia holds the analytics ticket and assesses which events are still needed once it lands
+    ◦ Instrument so the success metrics below are measurable
+    ◦ Builds on the **Adjust event links** sorted with Julia on Sep 11, the attribution layer under the install and opt-in numbers
+    ◦ Cover the Election Center / hub, voter guide in-app views, and the Elections 2026 notification opt-in
+• **Election alerts — placement decided Sep 21.** The toggle lives **only in the Elections Hub**, not the full Notification Center, so tapping an alert will not expose the broader settings page. Notification Center overhaul deferred until email notifications are ready. Alerts stop automatically when the Hub comes down post-election; the list carries forward to the next cycle. Still to build: **"Elections 2026"** as a category, opt-ins driven through Airship, two alert types (scheduled pushes for key dates, automated pushes when election-tagged content publishes)
+• **This week (by Sep 28, when real election data starts flowing):** election analytics in 2-3 parts, notification toggle changes plus an analytics event for the toggle, and a design feedback pass
+• **Live activities and widgets — now has a date.** Matt did the initial exploration; **present it at the in-person planning session the week of Sep 28**. Election night is the compelling use case (natural start and end, polls open to results called) and Jon found a Flutter package that may cover both iOS and Android
+
+**Others**
+• **Julia:** voter guide in-app rendering; Election Hub content curation in Strapi (she owns this herself)
+• **Mark:** cut results page cache 10 min to 2 min before election night; fix links inside the voter guide
+• **Blocked on others:** Noah on **WordPress webhooks** (publishes trigger notifications instead of polling), **Caroline demo** of the live results pipeline (AP-style feed for election night)
+
+**Also open**
 • Work the JIRA epics created Aug 27-31 through to scheduled delivery
-• **Idea captured: one email announcing the Election Center in the app** (`projects/2026-09-09-kqed-election-center-email.md`). Doubles as the month's re-engagement send. Target audience already identified: users with "local politics" selected but push disabled. Blocked on KQED capacity and on Julia's new Airship email deal
-• **Election week success metrics:** 500+ new installs · notification opt-in toward 25% · 8,000+ article views · 30,000+ active users (never hit before) · 130-150 Foggy Find completes
+• **Idea: one email announcing the Election Center in the app** (`projects/2026-09-09-kqed-election-center-email.md`). Doubles as the month's re-engagement send. Audience identified: users with "local politics" selected but push disabled. Blocked on KQED capacity and Julia's new Airship email deal
+
+**Election week success metrics:** 500+ new installs · opt-in toward 25% · 8,000+ article views · 30,000+ active users (never hit before) · 130-150 Foggy Find completes
 
 **2. 2026/2027 SOWs — the money item**
 **Running hot on the current KQED budget.** Matt is deliberately slowing his own billable KQED work until the new SOW starts in October. Expect mostly non-billable KQED time through September. `decisions/2026-09-11-throttle-kqed-billable-work-until-october-sow.md`
-Both deals sit at Proposal (In Progress), 40%, closing **Oct 1**. See `deals/pipeline.md`.
-• **Mobile Development — $600K.** Standup: "Work on next KQED Mobile SOW"
-• **Web Development — $700K.** Web budget thread with Jason goes back to Aug 31
-• Talk to **Julia and Jason** about both (on today's standup)
-• Feeds the **2027 budget and staffing** planning
+**Sep 15: SOW sent. Sep 16: with Julia, who takes it to legal.** Both deals now **Contract sent (SOW), 90%**, closing **Oct 1**. See `deals/pipeline.md`.
+• **One document, two deals.** Mobile and Web are **combined into a single SOW**; kept as separate HubSpot deals for tracking only. They **close together or not at all**
+• **Mobile Development — $600K** · **Web Development — $700K**
+• **Legal review is the only gate left.** Nothing to drive until Julia's legal comes back. If it is quiet past ~Sep 23, check in
+• Feeds the **2027 budget and staffing** planning. **Neil Matatall stays warm until legal clears** — staffing cannot start before then
 
 **3. Ongoing delivery**
 • **AppSec:** delegated to Jon; Matt on weekly check-ins and prioritization. Working as intended
+• **Website workstream — the Jason problem (Sep 18).** Jon has a doc that builds on Jason's website ideas with a **framework compromise**, held back until the SOW was signed. **Presenting it to Jason in person Wed Sep 30**, Matt and Cody attending, agenda sent ahead so he is not blindsided. Framing is Jason's option / the extreme option / the compromise. Jason resists merging Java services despite Kevin's support, and his "rebuild everything at current pace" plan is not realistic. **Goal: move website from staff augmentation to partnership**, the way mobile already is. **Matt plugs in more here once the mobile roadmap stabilizes.** Managing him is a mix of Jon, Matt and Neil, with Russ possibly pulled in
+• **Mark — code quality and follow-through (Jon's to raise).** Jon flagged a pattern of deferring to AI over critical review, recurring PR issues on codebase conventions, and the election hub incident where the agreed behavior was implemented differently. **Both Jon and Matt see it independently.** Jon is raising it with Mark in person; Cody does not yet know the extent. Not Matt's action, but it bears on KQED delivery risk
 • **Airship experiments:** re-engagement sequence published Aug 25, sign-in/sign-up nudge test Aug 26, reactivation checked Sep 1. **Nothing since Sep 1** — pick back up or close out
-• **Onboarding reporting:** GA funnel built Sep 1; Sep 3-4 chased why **Onboarding Started** does not always fire. Finish the diagnosis
+• **Onboarding reporting:** GA funnel built Sep 1; Sep 3-4 chased why **Onboarding Started** does not always fire. **Sep 16 metrics review put a number on it: only 77% of users reach the onboarding screen.** Suspects are Strapi data loading or a GrowthBook toggle. Finish the diagnosis — this is now the top KQED product item
+• **ATT dialog:** dig into **when we can trigger it** (Apple's constraints, attribution cost of firing later) plus a **pre-ATT explanation screen**. Likely drop-off trigger for KQED's audience. `meetings/actions/2026-09-16-kqed-metrics-onboarding-att.md`
 • **Bi-weekly metrics review:** running (Sep 3). Sep 2 slides got bumped
+• **Watch tab is busier than anyone assumed: ~10% of users select it**, and slide-in traffic correlates with Watch tab taps (Sep 21). Current demand assumptions may be wrong. Jon meets the TV team about Watch performance Tue Sep 29 and **Matt offered to pull the numbers** beforehand. Worth a conversation before any dev work
+• **Google Cast deprioritized** (Sep 21). Mark reviewed it, not viable at this stage. May resurface if the Watch tab gets a broader rethink
 • **Neil:** intro'd to the team and to Jason and Julia Sep 1-3, feedback collected. **No activity since** — close the loop
 • Live Radio Search Playlist; Voter Guide (Molly, Julia); email solutions (Teresa, met Aug 28)
 
@@ -53,13 +67,9 @@ Both deals sit at Proposal (In Progress), 40%, closing **Oct 1**. See `deals/pip
 UPTECH — BD
 Goal: Convert the public radio pursuits. Full state in `deals/pipeline.md`; HubSpot is source of truth.
 
-• **NPR — $600K, Proposal sent, award Sep 29. ON HOLD until they come back to us.** RFP submitted Sep 8, Track B only (Native Mobile Architecture & Production Engineering). Nothing to drive until NPR responds. Their schedule (from `drafts/2026-09-07-npr-rfp-review.md`):
-    ◦ NPR internal review: **Sep 9-11** ← we are here
-    ◦ Vendor intro + 30 min presentation: **Sep 14-16**
-    ◦ Finalists notified: **Sep 17** · Finalist presentations: **Sep 21-25** · Contract award: **Sep 29**
-    ◦ Then: Private beta Jan 2027, App 1.0 live Sep 2027
-    ◦ **Sep 8: Kahlia Ali acknowledged receipt.** **Sep 10: presentation options sent, NPR to pick a slot.** Hold **Sep 14-16** open; nothing to chase
-    ◦ Milestone-based billing with a budget cap went out, not T&M. That question is closed
+• **NPR — CLOSED LOST Sep 18.** Did not make the finalist shortlist. Joel Sucherman's note cited a competitive field, gave no specific reason, and left the door open for future work. Email: `inbox/npr/2026-09-18-joel-sucherman-rfp-declined.md`
+    ◦ **Only open item: ask Joel for debrief feedback** while the evaluation is fresh. We bid Track B only into criteria that were 45% design and product strategy, and we do not know whether framing, price, or the national-vs-local answer lost it. **That answer is reusable for LAist**
+    ◦ Full history kept in `deals/pipeline.md` for the next public radio RFP
 • **LAist — Internal Programming Tool (Merlin), Exploration. ← nearest live commitment.** Web-based newsroom assignment desk replacing a 7-year-old Airtable build, ~50 newsroom users. Andy drafted an 18-page RFP; their VP of Finance wants cost and timeline before next budget season.
     ◦ **Not urgent.** Andy was sending the functional requirements doc on Sep 8. **If nothing by Fri Sep 11, follow up** (calendar hold set)
     ◦ Review it, **share with Jon** (positioned as the fit: built KQED's **Mobile API** and internal tools), come back with a **ballpark on scope and cost**
@@ -75,6 +85,9 @@ Goal: Stay informed. **Low-touch by design.**
 • **Russ is consulting with Prism directly.** Matt's involvement is checking in with Russ, not running the account
 • Foundation work for the portal is Russ's to drive. No HubSpot deal, and none needed unless it turns into an Uptech engagement
 • Light standup presence is expected here, not a warning sign
+• **Sep 17: Ryan asked Russ to own the data deletion work** and drive it independently. Not started yet
+• **Prism cannot decide.** An hour of circular discussion to land on the obvious data-deletion answer; Paulo flipped four times. Matt's read: **Steve hired people who see both sides but will not commit**, and Zoltan has the instinct but not the authority. Expect slow throughput, do not read it as Russ underdelivering
+• **Russ's allocation is the live question.** ~12-16 hrs Prism next week, Mint Agent given up, so there is capacity. **Fallback is pairing Russ with Jon on KQED to support Jason** — and the Sep 18 Jon check-in independently floated pulling Russ onto the website side, so this is now live from both directions. Floated ideal: ~20 Gameday / ~10 Prism. **Russ has not decided how busy he wants to be** — close that loop before filling his calendar. Settle it at Friday Ops & Allocation
 
 ---
 
@@ -92,7 +105,7 @@ UPTECH — OPS & MARKETING
 • **Newsletter:** performance pulled from HubSpot Sep 3, ideas riffed. **The "bottlenecks and team ratios" article moved to Claude on Sep 9** — off Matt's plate
 • **Weekly BD & Marketing check-in** (Wednesdays) and **Ops & Allocation** (Fridays with Adam) are running
 • **Invoicing:** KQED, Prism, Fit3D (monthly, done Aug 31)
-• **Travel:** end of September, planning started Sep 1
+• **Travel / KQED in-person week (Sep 28-30), agenda now set:** **Mon** app-focused (most KQED staff are not in Mondays), **Tue** broader KQED product team (Teresa, Caroline, Suching, Kevin) plus Jon with the TV team and an email team meeting still to be scheduled, **Wed** Jason on-site, mostly web and Cody. Feature prioritization for automated QA, livestream, playback and widgets gets decided in person, with **livestream flagged high priority** (not Matt's research)
 • **LinkedIn / Smartlead:** last technical experiment ended with essentially no response (May 2026). Still paying. Either run one disciplined test changing one big variable, or pause and downgrade. Do not repeat the same angle and list
 
 **Uptech business (from the Sep 9 BD check-in)**

@@ -1,17 +1,16 @@
-_Mon Sep 14, 2026 - Standup_
-*Friday*
-• KQED: Weekly check in with Jon. Checked on activation stats. Helped Julia figure out Adjust links for events.
-• US: Company meeting. Allocation planning. Sync with Brian. Follow up with Andy at LAist.
-
+_Sep 22, 2026 - Standup_
 *Monday*
-• KQED: App Sec and App Dev weekly prioritizations.
-• AppFit: Cancel the Webflow account.
-• US: Weekly project leads meeting. Invoicing for KQED, Prism, Fit3D. 
+• KQED: App Sec & App Dev weekly prioritizations. Airship kickoff with Julia for the email service project.
+• US: Weekly project leads meeting. Migration from Harvest over to Keito.
+
+*Tuesday*
+• US: Weekly check in with Carl. LinkedIn post. Added more contacts on LinkedIn. 
 
 *This Week's Goals*
-• KQED: Election 2026. AppSec work. Airship experiments. 2027 Budget/Staffing.
-• Prism: Foundation work for portal
-• US: NPR Presentation. LAist RFPs. Wind down AppFit.
+• KQED: Election 2026. AppSec work. Airship experiments - emails and in-app. 2027 Budget/Staffing.
+• Prism: Hopefully get started on portal?
+• US: LAist RFP. Wind down AppFit.
 
 *Blockers*
 • None
+
